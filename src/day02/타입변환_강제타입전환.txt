@@ -1,5 +1,5 @@
 
-패키지, 클래스명은 소문자로 생성한다!!!!!
+패키지명은 소문자로 생성한다!!!!!
 
 
 정수 나누기 정수는 정수
@@ -53,16 +53,61 @@ print 베리에이션
 	 System.out.println(pi);
 	 
 
-	 //위의 4즐 짜리를 +를 써서 반으로 줄여서 써버리짓!!
+	 //위의 4줄 짜리를 +를 써서 반으로 줄여서 써버리짓!!
 	 System.out.print("x = " + x);
 	 System.out.println(" and pi = " + pi);
 	 
 	 
 	 //printf (메소드) 를 쓰면 한줄로도 가능하다귯~! 
-	 //형식지정자: 특정 문자열의 추력 대상이랑 모양을 지정하는 특수문자임
-	 // 종류들▼
-	 //%d : decimal 정수표기용
-	 //%f : Float 실수표기용
-	 //%c : Character 문자 하나 표기할때
-	 //%s : Stgring 문자 열을 표기할때
+
+
+	 형식지정자: 특정 문자열의 출력 대상이랑 모양을 지정하는 특수문자임
+	  종류들▼
+	 %d : decimal 정수표기용
+	 %f : Float 실수표기용
+	 %c : Character 문자 하나 표기할때
+	 %s : Stgring 문자 열을 표기할때
+
+>>>>>fmt는 라이브러리가 아닌 외부 개발자가 만든 소스 (지금 쓰는 스캐너)라서 알려주는 기호임
+
+html의 head처럼 상단부 3열 쯔음에 import java.util.Scanner; 을 넣어줘야함
+		참고로 이 스캐너는 실행하면 유저가 해당 값을 입력해줘야 다음 단계로 넘어감
+
+		//변수선언
+		String name; //문자이름이라 String
+		int kor;
+		int eng;
+		int mat;
+		int tot; //어차피 숫자라 int
+		double avr; //평균이라 더블
+		char gra; //단 학점은 A,B,C,D,F
+		
+
+
+
+		//총점, 평균 처리		
+		tot = kor + eng + mat;
+		avr = tot /3;
+		
+
+		//처리
+		//Scanner 클래스를 초기화함
+
+		System.out.println("이름은? "); //입력 받고 넘어감
+		Scanner sc = new Scanner(System.in);
+		name = sc.next();  //이름을 텍스트로 입력받는 거라 name 변수에 대입/ next();를 씀
+		System.out.println("국어는? ");
+		kor = sc.nextInt(); //실행자가 입력받은 값을 변수에 대입/ nextInt();숫자라서Int
+		System.out.println("수학은? ");
+		mat = sc.nextInt();
+		System.out.println("영어는? ");
+		eng = sc.nextInt();	
+		
+
+
+		 String fmt = "이름 : %s, 국어 : %d, 영어 : %d, 수학 %d \n";
+		 System.out.printf(fmt, name, kor, eng, mat);
+		 
+		 fmt = "총점 : %d, 평균, %.1f, 학점 : %c ";
+		 System.out.printf(fmt, tot, avr, gra);
 
