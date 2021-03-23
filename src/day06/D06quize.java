@@ -2,24 +2,27 @@ package day06;
 
 public class D06quize {
     public static void main(String[] args) {
+        
+        
         //배열 다루는 예제
-        char[] letter; //배열 변수 선언
-        letter = new char[3]; //문자 3개를 저장하는 배열선언!
-
-        letter[0] = 'a';
-        letter[1] = 'b';
-        letter[2] = 'c';
+        
+//        char[] letter;            char은 정수타입 기본자료형(객체임) / 배열 변수 선언
+//        letter = new char[3];     문자 3개를 저장하는 배열선언!
+//        letter[0] = 'a';
+//        letter[1] = 'b';
+//        letter[2] = 'c';
         //letter 배열에 a,b,c 문자를 저장
 
-//위의 다섯줄을 한줄에 쓰기 는
-//char [] letter = {'a', 'b', 'c'};
-
-        for (int i = 0; i < 3; ++i) {
+        //위의 다섯줄을 두줄로 표기하기▼
+            char [] letter = {'a', 'b', 'c'};
+            for (int i = 0; i < 3; ++i) { 
+            //i는 3보다 작고 1씩 증가한다.
+                
             System.out.print(letter[i] + ",");
-        }
+            }
 
 
-        System.out.println();
+                                                    System.out.println();
 
        /* double[] a = {1.1, 2.2, 3.3};
         System.out.println(a[0] + " "+ a[1] + " " + a[2]);
@@ -32,31 +35,23 @@ public class D06quize {
                 sampleArray[idx] = 3*idx;
             //배열 변수명.length : 배열의 크기를 알려주는 특수 변수
         */
-        System.out.println();
+                                                    System.out.println();
 
         //배열을 정의하고 값 저장하기 1
-        int[] num1 = new int[10];
+        
+        /* int[] num1 = new int[10];
         num1[0] = 1;
         num1[1] = 2;
-        num1[2] = 3;
-        num1[3] = 4;
-        num1[4] = 5;
-        num1[5] = 6;
-        num1[6] = 7;
-        num1[7] = 8;
+                :
         num1[8] = 9;
         num1[9] = 10;
-        //출력할 때도 10개 다써야해;;
-//        System.out.print(num1[0]);
-//        System.out.print(num1[1]);
-//        System.out.print(num1[2]);
-//        System.out.print(num1[3]);
-//        System.out.print(num1[4]);
-//        System.out.print(num1[5]);
-//        System.out.print(num1[6]);
-//        System.out.print(num1[7]);
-//        System.out.print(num1[8]);
-//        System.out.print(num1[9]);
+        
+        //출력할 때도 10개 다써야해;; 어우야
+        System.out.print(num1[0]);
+                 :
+                 :
+        System.out.print(num1[9]);       */
+        
 
 //ctr + / 하면 한줄 다 주석처리됨
 
@@ -104,9 +99,8 @@ public class D06quize {
 }
 //참고 : 참조자료형 변수는 new 연산자로 객체 생성하면 미리 변수에 기본 값이 생김
 //숫자형 : 0, 객체형 : null
- // ㅅㅂ 뭐가 뭔지 모르겠네
+ // 뭐가 뭔지 모르겠네
 //문제 받아쓰기도 잘못한거 같고
-//나는 run도 안돼 ㅅㅂ
 */
 
         //배열을 정의하고 값 저장하기 5
