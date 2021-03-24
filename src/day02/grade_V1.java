@@ -52,13 +52,8 @@ public class grade_V1 {
 		System.out.println(mat);
 		System.out.print(tot);
 		System.out.println(avr); */
-	
+		// ↓프린트 베리에이션으로 용량 후려치기
 
-
-		
-		// 프린트 베리에이션으로 용량 후려치기
-		
-		//출력2
 		 String fmt = "이름 : %s, 국어 : %d, 영어 : %d, 수학 %d \n";
 		 System.out.printf(fmt, name, kor, eng, mat);
 		 

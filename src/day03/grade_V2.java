@@ -3,6 +3,9 @@ package day03;
 
 import java.util.Scanner;
 
+
+
+
 /*@author lyusk
 *@category javabasic
 *@version 1.2
