@@ -1,6 +1,6 @@
 package day07;
 
-public class Ex73_74_76 {
+public class AgeCalcul {
     /*
 
 73. 선풍기를 나타내는 Fan 클래스를 아래의 조건에 따라 작성하라
