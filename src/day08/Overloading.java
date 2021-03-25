@@ -20,7 +20,7 @@ public class Overloading {
 
         //오버로딩한 over 클래스를 소환
         Over ov = new Over();
-        System.out.println(ov.add_double(100.0,10));
+        System.out.println(ov.add(100.0,10));
 
          //println 로 메소드 명은 다 같은데 안에 출력되는 내용이 다 나옴
         System.out.println(""); //마우스 갖다 대면 무슨 타입인지 나와 int, double
@@ -67,12 +67,18 @@ public class Overloading {
 
     class Over {
     //A
-    public int add1_int(int a, int b) {return a + b;}
+    public int add(int a, int b) {
+        return a + b;
+    }
 
     //B
-    public int add2_int(int a, int b, int c) {return a + b + c;}
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
 
     //C
-    public double add_double(double a, double b) { return a + b;}
-
+    public double add(double a, double b) {
+        return a + b;
     }
+
+ }
