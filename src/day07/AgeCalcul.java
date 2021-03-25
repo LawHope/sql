@@ -1,42 +1,169 @@
 package day07;
 
+import java.util.Scanner;
 public class AgeCalcul {
-    /*
 
-73. 선풍기를 나타내는 Fan 클래스를 아래의 조건에 따라 작성하라
-회전속도 1,2,3 을 나타내는 상수 SLOW, MEDIUM, FAST
-선풍기의 속도를 나타내는 speed 변수, 초기값은 SLOW
-동작상태를 표시하는 on 변수, 초기값은 false
-선풍기 팬 크기를 나타내는 radius 변수, 초기값은 5.0
-선풍기 색상을 표시하는 color 변수, 초기값은 blue
+    public static void main(String[] args) {
+        // 생년월일을 입력받아 나이 계산
+        // 현재연도 - 생년년도
+        // 생일이 지났으면 그대로 사용
+        // 생일이 지나지 않았으면 -1
+//        int byear, bmonth, bday;   // 생년월일
+//        int cyear, cmonth, cday;   // 현재년월일
+//        Scanner sc = new Scanner(System.in);
+//        String fmt = "현재 : %d년 %d월 %d일 \n" +
+//                     "생일 : %d년 %d월 %d일 \n" +
+//                     "나이 : %d세 ";
+//
+//        // 현재년월일 설정
+//        cyear = 2021;
+//        cmonth = 3;
+//        cday = 24;
+//
+//        // 생년월일 입력받음
+//        System.out.print("생일의 년도는?");
+//        byear = sc.nextInt();
+//        System.out.print("생일의 월은?");
+//        bmonth = sc.nextInt();
+//        System.out.print("생일의 일은?");
+//        bday = sc.nextInt();
+//
+//        // 나이계산
+//        if (cmonth > bmonth)
+//            age = age;
+//        else if (cmonth == bmonth && cday >= bday)
+//            age = age;
+//        else
+//            age = age - 1;
+//
+//        // 결과출력
+//        // ex) 1985.2.25 => 2021.3.24 기준 36세  (생일지남)
+//        // ex) 1985.4.25 => 2021.3.24 기준 35세  (생일안지남)
+//        // ex) 1994.3.7 => 2021.3.24 기준 27세  (생일지남)
+//        System.out.printf(fmt, cyear, cmonth, cday,
+//                          byear, bmonth, bday, age);
 
-시험값 : 10, yellow, 최고속도, 동작중 / 5, blue, 중간속도, 정지
+        computeAge();
+
+        // 잔돈 계산하는 프로그램
+        // 지불요구금액 : 54320원
+        // 지불액 : 100000원
+        // 잔돈 : 45680원
+//        int price, pay, change;
+//        int w50000, w10000, w5000, w1000, w500, w100, w50, w10;
+//        String fmt = "사용요금 %d, 지불액 %d 일때, 잔돈은 %d 입니다 \n" +
+//                     "50000원권은 %d 장, 10000원권은 %d 장, \n" +
+//                     "5000원권은 %d 장, 1000원권은 %d 장, \n" +
+//                     "500원은 %d 개, 100원은 %d 개, \n" +
+//                     "50원은 %d 개, 10원은 %d 개입니다";
+//        Scanner sc = new Scanner(System.in);
+//
+//        System.out.print("사용요금은?");
+//        price = sc.nextInt();
+//        System.out.print("지불액은?");
+//        pay = sc.nextInt();
+//
+//        // 잔돈 계산
+//        change = pay - price;       // 67890
+//
+//        w50000 = change / 50000;    // 50000원 1장
+//        //change = change - (50000 * w50000);
+//        change = change % 50000;
+//
+//        w10000 = change / 10000;
+//        //change = change - (10000 * w10000);
+//        change = change % 10000;
+//
+//        w5000 = change / 5000;
+//        //change = change - (5000 * w5000);
+//        change = change % 5000;
+//
+//        w1000 = change / 1000;
+//        //change = change - (1000 * w1000);
+//        change = change % 1000;
+//
+//        w500 = change / 500;
+//        //change = change - (500 * w500);
+//        change = change % 500;
+//
+//        w100 = change / 100;
+//        //change = change - (100 * w100);
+//        change = change % 100;
+//
+//        w50 = change / 50;
+//        //change = change - (50 * w50);
+//        change = change % 50;
+//
+//        w10 = change / 10;
+//
+//        System.out.printf(fmt, price, pay, (pay-price),
+//                w50000, w10000, w5000, w1000, w500,
+//                w100, w50, w10);
+
+        computeChange();
+    }
+
+    public static void computeAge() {
+        int byear, bmonth, bday;   // 생년월일
+        int cyear, cmonth, cday;   // 현재년월일
+        Scanner sc = new Scanner(System.in);
+        String fmt = "현재 : %d년 %d월 %d일 \n" +
+                "생일 : %d년 %d월 %d일 \n" +
+                "나이 : %d세 ";
+
+        // 현재년월일 설정
+        cyear = 2021;
+        cmonth = 3;
+        cday = 24;
+
+        // 생년월일 입력받음
+        System.out.print("생일의 년도는?");
+        byear = sc.nextInt();
+        System.out.print("생일의 월은?");
+        bmonth = sc.nextInt();
+        System.out.print("생일의 일은?");
+        bday = sc.nextInt();
+
+        // 나이계산
+        int age = cyear - byear;
+        if (cmonth > bmonth)
+            age = age;
+        else if (cmonth == bmonth && cday >= bday)
+            age = age;
+        else
+            age = age - 1;
+
+        System.out.printf(fmt, cyear, cmonth, cday,
+                byear, bmonth, bday, age);
+    }
+
+    public static void computeChange() {
+        int price, pay, change;
+        int[] wons = new int[8];
+        int[] notes = {50000, 10000, 5000, 1000, 500, 100, 50, 10};
+        String fmt = "사용요금 %d, 지불액 %d 일때, 잔돈은 %d 입니다 \n" +
+                "50000원권은 %d 장, 10000원권은 %d 장, \n" +
+                "5000원권은 %d 장, 1000원권은 %d 장, \n" +
+                "500원은 %d 개, 100원은 %d 개, \n" +
+                "50원은 %d 개, 10원은 %d 개입니다";
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("사용요금은?");
+        price = sc.nextInt();
+        System.out.print("지불액은?");
+        pay = sc.nextInt();
+
+        change = pay - price;
+
+        for(int i = 0; i < wons.length; ++i ) {
+            wons[i] = change / notes[i];
+            change = change % notes[i];
+        }
+
+        System.out.printf(fmt, price, pay, (pay-price),
+                wons[0], wons[1], wons[2], wons[3],
+                wons[4], wons[5], wons[6], wons[7]);
+    }
 
 
-74. 은행 계좌를 나타내는 Account 클래스를 작성하라
-계좌번호를 위한 aid 변수, 초기값은 0
-통장잔액을 나타내는 balance 변수, 초기값은 0
-연간 이자율을 나타내는 interestRate 변수, 초기값은 0
-통장개설 날짜를 위한 dateCreated 변수
-
-시험값 : 1122, 20000, 4.5, 2014-08-15 14:34:29
-
-
-76. 대학교 업무 시스템을 위한 다음의 요구사항을 참고하여 다음 클래스들을 작성하시오
--   학생에는 학번, 이름, 주소, 생년월일 등의 정보가 있다.
-    학생은 반드시 하나의 전공학과에 속해야 하며,
-    한 분의 지도교수 밑에서 전공지도를 받는다.
-
--   교내에 개설된 과목에는 과목번호, 과목명, 과목개요 등이 있다.
-    그리고 각 과목은 여러 개의 섹션으로 나누어 관리한다.
-
--   교수는 교수 이름, 전공분야, 보유기술 등의 정보를 가진다. 특히,
-    한 명의 교수는 하나 이상의 보유기술을 가질 수 있다.
-    또한, 교수는 하나 이상의 과목도 강의할 수 있다.
-
--   전공학과는 학과명, 학과사무실의 위치,
-    학과사무실의 전화번호 등의 정보가 있다.
-    그리고 각 학과의 교수들 중에서 한 명의 교수에게 학과장을 임명한다
-
-     */
 }
