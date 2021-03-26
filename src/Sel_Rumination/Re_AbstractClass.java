@@ -52,5 +52,5 @@ class Cat2 extends Animal2 {
 
 class Dog2 extends  Animal2 {
     @Override
-    public void cry() { System.out.println("아르르르르"); }
+    public void cry() { System.out.println("으르르르르 컹컹"); }
 }
