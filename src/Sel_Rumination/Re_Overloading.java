@@ -5,10 +5,12 @@ public class Re_Overloading {
     public static void main(String[] args) {
        /* << 메소드 다중정의 = 오버로딩 >>
         객체지향 3대 개념 중에 다형성에 해당
-        같은 이름의 메소드를 중복해서 정의하는 것을 의미
+        같은 이름의 메소드를 중복해서 정의하는 것을 의미// 특별한 문법이 있는 건 아님.
         메서드의 서명을 다르게해서 한 클래스에서 같은 메서드를 2개 이상 선언하는 것
+        맨날 하던거임 class { method( ){ } method (){} method(){} } 이거!
+        
 
-1. 본체 클래스 등장! ●지정자 자리에 add 넣기!●
+1. ↓ 이건 다형성이지만...본체 클래스 등장! ●지정자 자리에 add 넣기!●
 ㅡ class ㅁㅁㅁ {
     public int  ●add●  (double ㅁ, int ㅁㅁ      ->>> 하나가 double 이고 딴건 int인데) {
         return 반환 값 저쩌구 }
