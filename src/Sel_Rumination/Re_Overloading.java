@@ -14,13 +14,27 @@ public class Re_Overloading {
         return 반환 값 저쩌구 }
 
 
-2. 오버로딩할 쿨래스 등장!!  ●대상자에 ov.add 붙이기!!!!!!!!●
+2.  한 클래스 않에 여러개 알까기
+ㅡ class 롸롸 {
+   int로 묶은 메서드1 -> public int ●add●(int ㅁ, int ㅁㅁ, int ㅁㅁㅁ) {
+                         return ㅁ + ㅁㅁ + ㅁㅁㅁ; }
+        
+    double 세트 메서드2 -> public double ●add●(double a, double b) {
+                           return a + b; }
+        
+      String 세트 메서드3 -> public String ●add●(String A, String B, String C) {
+                                            return "A" + "B" + "C" ; }
+     } 롸롸에 셋씩이나 떄려넣었다! 
+            
+
+3.오버로딩할 클래스 등장!!  ●대상자에 ov.add 붙이기!!!!!!!!●
 ㅡ class ### {   ㅁㅁㅁ ov = new Over();
         System.out.println( ●ov.add● ( ㅁ , ㅁㅁ)); } <- double ㅁ int ㅁㅁ 이라고 안쓰고
                                                             ㅁ,ㅁㅁ으로만 써도됨
                                                             위아래 다니며 int냐 String이냐
-                                                             찾아다니지 않아도 됨!
-    */
+                                                             찾아다니지 않아도 됨!            
+
+*/
 
 
 
