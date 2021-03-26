@@ -3,6 +3,7 @@ package Sel_Rumination;
 public class Re_Method {
     //psvm 치면 아래 녀석이 나옴
     public static void main(String[] args) {
+        
 
         /* 메소드 : 특정 작업 수행을 위한 코드 집합 / C 언어 함수와 유사함
         유사 코드를 반복으로 쓰는 프로그래밍을 피할 수 있음
