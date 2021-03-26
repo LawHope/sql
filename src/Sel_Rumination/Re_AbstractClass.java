@@ -1,6 +1,6 @@
-package day09;
+package Sel_Rumination;
 
-public class AbstractClass {
+public class Re_AbstractClass {
     public static void main(String[] args) {
         /*  추상화 클래스
         abstract 요약- 너무 요약해서 핵심만 추린 나머지 abstract 가 붙고 {}가 사라짐
@@ -41,13 +41,14 @@ public class AbstractClass {
     abstract public void cry(); // 'cry(){}'에서 '{}'가 빠진 추상 메소드
 
  }
- class Cat2 extends Animal2 {
-    //추상 메소드는 완성해야 쓸 수 있다고 경고 뜸  public void cry 부분에 커서 대고
-     //implement method 를 클릭해서 오버라이드를 자동생성 해주자
-     @Override
-     public void cry() {
-         System.out.println("먀옹먀옹~");}
- }
+
+class Cat2 extends Animal2 {
+   //추상 메소드는 완성해야 쓸 수 있다고 경고 뜸  public void cry 부분에 커서 대고
+    //implement method 를 클릭해서 오버라이드를 자동생성 해주자
+    @Override
+    public void cry() {
+        System.out.println("먀옹먀옹~");}
+}
 
 class Dog2 extends  Animal2 {
     @Override

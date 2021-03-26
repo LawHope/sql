@@ -1,8 +1,6 @@
-package day09;
+package Sel_Rumination;
 
-import javax.swing.*;
-
-public class Interface {
+public class Re_Interface {
     public static void main(String[] args) {
         /*인터페이스
           0.인터페이스는 추상메소드, 상수로만 구성된 클래스의 모양임.
@@ -53,6 +51,7 @@ public class Interface {
         protected int weight;
                                             // abstract public void cry(); < 전에는 이게 왔지마나는 과거는 버려
     }
+
 // 2.인터페이스 >>>> 클래스의 기능 부분을 인터페이스로 구현하기
     interface Animal3Action{ abstract public void cry(); }
 
@@ -65,13 +64,13 @@ public class Interface {
                 }
 
 
-            //자식 클↓      부모 클↓          인터페이스 클↓
-        class Murloc extends Animal3 implements Animal3Action {
-            @Override
-            public void cry() {
-                System.out.println("멀록은 아옳옳~~");
-              }
-            }
+//자식 클↓      부모 클↓          인터페이스 클↓
+class Murloc extends Animal3 implements Animal3Action {
+@Override
+public void cry() {
+    System.out.println("멀록은 아옳옳~~");
+  }
+}
 
         class Dog3 extends Animal3 implements  Animal3Action {
             @Override
