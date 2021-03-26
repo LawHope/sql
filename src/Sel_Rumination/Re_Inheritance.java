@@ -4,7 +4,7 @@ public class Re_Inheritance {
 
                     /* 자바에서는 모든 것들이 "Object" 라는 클래스에서 정의된 메소드들을 상속 받음
 ㅡ그래서  class ㅁㅁㅁ { } 쓰고 다른 클래스에서 ㅁㅁㅁ s. new ㅁㅁㅁ 만 써도 뒤에 toString, equals,
-                                                        hashtag 등이 붙일거냐고 물음. 편리하지!
+                                                         hashtag 등이 붙일거냐고 물음. 편리하지!
 
  */
 
