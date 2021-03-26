@@ -1,14 +1,14 @@
-package day05;
+package Sel_Rumunation;
 
 import java.util.Scanner;
 
-public class Switchs {
+						public class Switchs {
 
-	private static final Scanner sc = null;
-	public static void main(String[] args) {
-		//switch 제어문
-		//둘 이상의 조건의 결과에 따라 명령을 선택적으로 실행
-		//낙하형이라는 건 쭈루룩 가서 맨 아랫것만 실행한다는 뜻
+private static final Scanner sc = null;
+						public static void main(String[] args) {
+//switch 제어문
+//둘 이상의 조건의 결과에 따라 명령을 선택적으로 실행
+//낙하형이라는 건 쭈루룩 가서 맨 아랫것만 실행한다는 뜻
 
 		
 		
@@ -20,6 +20,10 @@ public class Switchs {
 	case 상수 : 실행문3; break;
 	defaullt : 실행문4;(선택사항)
 			}
+	 
+	 
+	 
+	 
 	/////////////////////////////////////////////////////////////////////////////////////		
 			
 		/* Quize 시간때를 의미하는 영어단어를 변수 daytime으로 입력받으면,
