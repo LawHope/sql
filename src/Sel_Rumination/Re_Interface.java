@@ -2,6 +2,7 @@ package Sel_Rumination;
 
 public class Re_Interface {
     public static void main(String[] args) {
+        
         /*인터페이스
           0.인터페이스는 추상메소드, 상수로만 구성된 클래스의 모양임.
           1. 객체지향 프로그래밍, 추상화
