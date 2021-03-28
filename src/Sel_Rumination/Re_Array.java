@@ -56,9 +56,9 @@ public class Re_Array {
                                             666
                                             666
                                                                        <-- length : 5 --> 자료 갯수가 length
-                                                                        김  유  채  이 모 ㅣ
-                                                                        갈  진  이  혜 모 ㅣ<- 자료들이 element
-                                                                        리  한  헌  준    ㅣ   
+                                                                        김  유  채  이 모  ㅣ
+                                                                        갈  진  이  혜 모  ㅣ<- 자료들이 element
+                                                                        리  한  헌  준     ㅣ   
                                                       숫자가 index ->    0  1   2   3   4
 
 
@@ -71,7 +71,7 @@ public class Re_Array {
                                             자료가 총 5개 있으므로  프린트(배열명 [ ])에 0 ~ 4 까지 들어갈 수 있다.
                                             다른 수가 들어 있으면 오류남, 정해놓은 크기보다 더 큰수는 못넣음
                                           
-                                            넣어 놓은 숫자 자리의 자료가 출력 됨 0 ~ 4 중에 [ 2 ]니깐 
+                                            넣어 놓은 숫자 자리의 자료가 출력 됨 0 ~ 4 중에 [ 2 ] 니깐 
                                             결과 : 담디디
 
 
@@ -81,7 +81,7 @@ public class Re_Array {
 
         ㅡ 반복문 for과  배열 콜라보
 
-                                                String[] members = { "최진혁", "최유빈", "한이람" };
+                                                String[] members = { "최진혁 ", "최유빈 ", "한이람 " };
                                                 for (int i = 0; i < members.length; i++) {
                                                     String member = members[i];
                                                     System.out.println(member + "고객이 상담을 받았습니다");
@@ -93,20 +93,17 @@ public class Re_Array {
         
 
         ㅡ for 더 간단하게 쓰기
-                                                    String[] members2 = { "김가나", "나다라", "도레미" };
+                                                    String[] members2 = { "김가나 ", "나다라 ", "도레미 " };
                                                     for (String gogogo : members2) {
                                                         System.out.println( gogogo + " 학생이 상담을 받았네요"); }
 
                                                     결과
-                                                    최진혁이 상담을 받았습니다
-                                                    최유빈이 상담을 받았습니다
-                                                    한이람이 상담을 받았습니다
-                                                    김가나이 상담을 받았네요
-                                                    나다라이 상담을 받았네요
-                                                    도레미이 상담을 받았네요
-
-
-    }
+                                                    최진혁 고객이 상담을 받았습니다
+                                                    최유빈 고객이 상담을 받았습니다 
+                                                    한이람 고객이 상담을 받았습니다
+                                                    김가나 학생이 상담을 받았네요
+                                                    나다라 학생이 상담을 받았네요
+                                                    도레미 학생이 상담을 받았네요 }
 
 }
 
