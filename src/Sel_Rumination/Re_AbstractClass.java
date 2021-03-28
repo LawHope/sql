@@ -48,22 +48,36 @@ public class Re_AbstractClass {
     }
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-//추상 클래스
- abstract class Animal2 {
-    protected String name;
-    abstract public void cry(); // 'cry(){}'에서 '{}'가 빠진 추상 메소드
 
- }
 
-class Cat2 extends Animal2 {
-   //추상 메소드는 완성해야 쓸 수 있다고 경고 뜸  public void cry 부분에 커서 대고
-    //implement method 를 클릭해서 오버라이드를 자동생성 해주자
-    @Override
-    public void cry() {
-        System.out.println("먀옹먀옹~");}
-}
 
-class Dog2 extends  Animal2 {
-    @Override
-    public void cry() { System.out.println("으르르르르 컹컹"); }
-}
+추상 클래스
+             abstract class Animal2 {
+                protected String name;
+                abstract public void cry(); // 'cry(){}'에서 '{}'가 빠진 추상 메소드
+
+             }
+
+
+                class Cat2 extends Animal2 {
+                                            추상 메소드는 완성해야 쓸 수 있다고 경고 뜸  public void cry 부분에 커서 대고
+                                             implement method 를 클릭해서 오버라이드를 자동생성 해주자
+                    @Override
+                    public void cry() { System.out.println("먀옹먀옹~");}
+                }
+                
+
+
+
+                class Dog2 extends  Animal2 {
+                    @Override
+                    public void cry() { System.out.println("으르르르르 컹컹"); }
+                }
+
+
+
+
+
+
+
+
