@@ -37,7 +37,7 @@ public class Re_Array {
 
 
                 ㅡ  .length
-                                                    .length는 배열에 실제 담긴 데이터의 숫자를 의미하는 것이 아니라
+                                            .length는 배열에 실제 담긴 데이터의 숫자를 의미하는 것이 아니라
                                             배열을 처음 생성할 때 지정한 배열의 크기를 의미한다는 점을 주의하자.
 
                                             String[] classGroup2 = new String[666];
@@ -55,18 +55,23 @@ public class Re_Array {
                                             666
                                             666
                                             666
-                                                    <-length : 4->
-                                            김  유  채  이
-                                            갈  진  이  혜  <- element
-                                            리  한  헌  준
-                                            0   1   2   3  <- index
+                                                                       <-- length : 5 --> 자료 갯수가 length
+                                                                        김  유  채  이 모 ㅣ
+                                                                        갈  진  이  혜 모 ㅣ<- 자료들이 element
+                                                                        리  한  헌  준    ㅣ   
+                                                      숫자가 index ->   0   1   2   3   4
 
 
+                                                                           
+                                                                           
+                                                                           
                                             String[] members0 = {"감잡아", "남날리", "담디디", "룰루루","말보로" };
                                             System.out.println(members0[2]);
+        
                                             자료가 총 5개 있으므로  프린트(배열명 [ ])에 0~4까지 들어갈 수 있다.
-                                            다른 수가 들어 있으면 오류남
-                                            넣어 놓은 숫자 자리의 자료가 출력 됨, 더 큰수는 못넣음
+                                            다른 수가 들어 있으면 오류남, 정해놓은 크기보다 더 큰수는 못넣음
+                                          
+                                            넣어 놓은 숫자 자리의 자료가 출력 됨 0 ~ 4 중에 [ 2 ]니깐 
                                             결과 : 담디디
 
 
@@ -89,8 +94,8 @@ public class Re_Array {
 
         ㅡ for 더 간단하게 쓰기
                                                     String[] members2 = { "김가나", "나다라", "도레미" };
-                                                    for (String e : members2) {
-                                                        System.out.println(e + " 학생이 상담을 받았네요");}
+                                                    for (String gogogo : members2) {
+                                                        System.out.println( gogogo + " 학생이 상담을 받았네요"); }
 
                                                     결과
                                                     최진혁이 상담을 받았습니다
