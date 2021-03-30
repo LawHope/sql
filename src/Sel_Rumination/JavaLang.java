@@ -64,7 +64,8 @@ public class JavaLang {
 //1 방식
 class Member {
 
-String userid;
+    public static int allOfMember1;
+    String userid;
 String passwd;
 
     //2 방식 . toString method 는 ctr + Space 로 오토생성 가능 생성 후 수정가능
