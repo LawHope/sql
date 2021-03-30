@@ -1,4 +1,4 @@
-package day011;
+package Sel_Rumination;
 
 public class JavaLang {
     public static void main(String[] args) {
