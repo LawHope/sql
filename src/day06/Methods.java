@@ -6,7 +6,7 @@ public class Methods {
     //메소드 형식
     //접근지정자 반환타입
 
-            /*   메서드명 (매개변수목록) { 메서드 몸체 & return 변수 }   */
+            /  메서드명 (매개변수목록) { 메서드 몸체 & return 변수 }   
 
     //접근지정자 : 메서드 접근허용 범위 지정 (public or pr ivate)
     //반환타입(return) : 메서드 실행 후 반환하는 자료 타입 지정
@@ -15,7 +15,7 @@ public class Methods {
         //메서드명()
         //
 
-    /* public static void main(String[] args) {
+       public static void main(String[] args) {
         ↑ public (모두가 접근 가능함), protected (읽기전용) private (완전 기밀 나만 봄)
             Methods { public static
                         void

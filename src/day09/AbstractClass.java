@@ -2,7 +2,7 @@ package day09;
 
 public class AbstractClass {
     public static void main(String[] args) {
-        /*  추상화 클래스
+          추상화 클래스
         abstract 요약- 너무 요약해서 핵심만 추린 나머지 abstract 가 붙고 {}가 사라짐
            추상화클래스 =  추상 메소드를 포함하는 클래스 // 추상 메소드 = 메소드 선언부만 있는 불완전 메소드.
            => 선언부만 있고 대상이 없어서 내용을 자유롭게 채울 수 있음 but 객체화가 안되고
@@ -20,6 +20,8 @@ public class AbstractClass {
 
         추상화 클래스는 다른 클래스에서 extends 확장용으로 사용해야만 기능함
 
+            
+            
              ㅏ추상화 클래스ㅏ ●abstract●  class  ●ㅁㅁ● {
                             protected String name;
                             abstract public void ●ㅁㅁ●(); ←ㅓ추상화 메소드{}가 없어ㅓ
@@ -30,7 +32,10 @@ public class AbstractClass {
                              public void  ●ㅁㅁ●() {
                                  System.out.println("출력메시지");}
                          }    ↑ 이렇게 주거니 받거니 해야 기능이됨
-     */
+    
+                             
+                             
+                             
 
     }
 }
