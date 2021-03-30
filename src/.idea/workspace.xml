@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="60c3cb3d-5e6f-4cb2-a36f-905f1d80e297" name="Default Changelist" comment="성적처리 인터페이스 태스킹">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/Polymorph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/SayHola.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/Singletone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/StarCraft2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/Static.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/SungJukV5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/SungJukV5bMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/SungJukV5cMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javabasic.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sungjuk/SungJukService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sungjuk/SungJukServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sungjuk/SungJukVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaBasic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaBasic.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1qQN8eAk71Q7Y574uX54HeDoORs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java_place\javabasic\javabasic\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="60c3cb3d-5e6f-4cb2-a36f-905f1d80e297" name="Default Changelist" comment="" />
+      <created>1617007695706</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617007695706</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
