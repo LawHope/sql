@@ -1,6 +1,6 @@
 package Sel_Rumination;
 
-public class JavaLang {
+public class Re_JavaLang.java {
     public static void main(String[] args) {
   
         
