@@ -40,17 +40,17 @@ MessageFormat
                     result = MessageFormat.format(fmt, sj);
                     System.out.println(result);
                                       /김가나의 점수 자리에 지현의 것이 알아서 감!
+                                       최상위 클래스인 오브젝트로 호출한 것임
 
-                 
-                        결과: Name : 김가나
-                             Korean : 89
-                             Eng : 95
-                             Math : 100
-                        //
-                             Name : 지현
-                             Korean : 78
-                                Eng : 65
-                                Math : 12
+                                        결과: Name : 김가나
+                                             Korean : 89
+                                             Eng : 95
+                                             Math : 100
+                                        //
+                                             Name : 지현
+                                             Korean : 78
+                                                Eng : 65
+                                                Math : 12
 
 
 
@@ -58,44 +58,44 @@ MessageFormat
 
 
  DecimalFormat
-                    정수 실수를 포함한 다양한 종류의 수를 과학적 표기,화폐, 퍼센트 등으로 표시함
-                   
-
-                    double num = 1234.567890;
-
-                    DecimalFormat df = new DecimalFormat( "0");
-                    System.out.println(df.format(num));
-                                    /정수로 반올림해서 출력하기
-                                    결과 : 1235
+                        정수 실수를 포함한 다양한 종류의 수를 과학적 표기,화폐, 퍼센트 등으로 표시함
 
 
-                    df = new DecimalFormat( "0.0");
-                    System.out.println(df.format(num));
-                        /소수 첫자리까지 반올림 출력
-                           결과 :1234.6
+                        double num = 1234.567890;
 
-                    df = new DecimalFormat( "000000");
-                    System.out.println(df.format(num));
-                                /전체 자리 수는 6자리로 지정, 숫자가 모자라면 그 자리에 0으로 출력
-                                결과 :001235
-
-                    df = new DecimalFormat( "######");
-                    System.out.println(df.format(num));
-                                /자리에 숫자가 모자라면 그자리는 공백으로 출력
-                                결과 :1235
+                        DecimalFormat df = new DecimalFormat( "0");
+                        System.out.println(df.format(num));
+                                        /정수로 반올림해서 출력하기
+                                        결과 : 1235
 
 
-                    num = 1234567890;
-                    df = new DecimalFormat( "###,###,###");
-                    System.out.println(df.format(num));
-                                /천 단위마다 ,를 출력함
-                                    결과 :123,456,789
+                        df = new DecimalFormat( "0.0");
+                        System.out.println(df.format(num));
+                            /소수 첫자리까지 반올림 출력
+                               결과 :1234.6
 
-                    num = 0.1125;
-                    df = new DecimalFormat( "##%");
-                    System.out.println(df.format(num));
-                            /실수 데이터를 %로 변환
-                             결과 : 11%
+                        df = new DecimalFormat( "000000");
+                        System.out.println(df.format(num));
+                                    /전체 자리 수는 6자리로 지정, 숫자가 모자라면 그 자리에 0으로 출력
+                                    결과 :001235
+
+                        df = new DecimalFormat( "######");
+                        System.out.println(df.format(num));
+                                    /자리에 숫자가 모자라면 그자리는 공백으로 출력
+                                    결과 :1235
+
+
+                        num = 1234567890;
+                        df = new DecimalFormat( "###,###,###");
+                        System.out.println(df.format(num));
+                                    /천 단위마다 ,를 출력함
+                                        결과 :123,456,789
+
+                        num = 0.1125;
+                        df = new DecimalFormat( "##%");
+                        System.out.println(df.format(num));
+                                /실수 데이터를 %로 변환
+                                 결과 : 11%
 
 
     }
