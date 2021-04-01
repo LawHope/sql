@@ -1,7 +1,7 @@
 package Sel_Rumination;
 
 public class Re_Overloading {
-
+/*
     public static void main(String[] args) {
         << 메소드 다중정의 = 오버로딩 >>
         객체지향 3대 개념 중에 다형성에 해당
@@ -96,22 +96,22 @@ class NonOver {
      */
 
 
-
     class Over {
-    //A
-    public int add(int a, int b) {
-        return a + b;
-    }
+        //A
+        public int add(int a, int b) {
+            return a + b;
+        }
 
-    //B
-    public int add(int a, int b, int c) {
-        return a + b + c;
-    }
+        //B
+        public int add(int a, int b, int c) {
+            return a + b + c;
+        }
 
-    //C
-    public double add(double a, double b) {
-        return a + b;
-    }
+        //C
+        public double add(double a, double b) {
+            return a + b;
+        }
 
- }
+    }
+}
 //

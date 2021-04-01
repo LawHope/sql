@@ -1,6 +1,6 @@
 package day010;
 
-import sungjuk.GradeVO;
+import Grade.GradeVO;
 
 import java.util.Scanner;
 
