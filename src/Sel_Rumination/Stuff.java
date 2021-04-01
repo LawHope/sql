@@ -3,7 +3,7 @@ package Sel_Rumination;
 public class Stuff {
 
     
-    1. 캡슐화   2. 다형성  3. %d의 정체   4. 연산자    5. 깃에서.CSV 열기    6. 7. 8. 9. 10.
+    1. 캡슐화   2. 다형성  3. %d의 정체   4. 연산자    5. 깃에서.CSV 열기    6.CRUD   7. 8. 9. 10.
         
         
 =============================================================================================================
@@ -140,7 +140,9 @@ public class Stuff {
     
     
     
-6.  
+6.  CRUD  
+                         Creat - Read - Update - Delete 데이터 관리의 틀
+                         new, read = show, readOne, modify, remove 접두사 쓰기
 
 
 
