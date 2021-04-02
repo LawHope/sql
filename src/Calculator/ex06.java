@@ -1,4 +1,4 @@
-package day012;
+package Calculator;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -64,6 +64,47 @@ public class ex06 {
 
         //임의의 두 수 사이의 값들의 총합 구하기
 
+
+ // 3,4,5,6,7,8,9,10
+
+         sc = new Scanner(System.in); //위에 Scavver sc = 가 있어;;
+        System.out.println("첫번째 숫자 입력 : ");
+        int num1 = sc.nextInt();
+        System.out.println("두번째 숫자 입력 : ");
+        int num2 = sc.nextInt();
+
+
+        /*int sum =0;
+
+        for(int i= num1; i <= num2; ++i) //num1 < num2
+            sum += i ;
+
+        String fmt = "%와 %d 사이의 합은 %d ";
+        System.out.printf(fmt, num1, num2, sum);
+
+         */
+
+
+        //1~ 10 까지 중에 num1 > num2 인 경우
+
+       /*  int sum = 0;
+
+        for (int i = num2; i <= num1; ++i)
+
+            sum += i;
+        String fmt = "%d과 %d 사이의 합은 %d 이다.";
+        System.out.printf(fmt, num1, num2, sum);*/
+
+
+        int begin = num1;
+        int end = num2;
+        if(num1>num2){ begin = num2; end = num1;}
+
+        int sum = 0;
+        for(int i = begin; i <=end; ++i)
+            sum += i;
+        String fmt = "%d과 %d 사이의 합은 %d 이다.";
+        System.out.printf(fmt, num1, num2, sum);
 
 
 

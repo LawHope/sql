@@ -1,4 +1,4 @@
-package day007;
+package Calculator;
 
 import java.util.Scanner;
 public class AgeCalcul {
