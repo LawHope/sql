@@ -2,7 +2,7 @@ package Sel_Rumination;
 
 import java.util.StringTokenizer;
 
-public class JavaStringToken {
+public class Re_StringToken {
     private static int i;
 
     public static void main(String[] args) {

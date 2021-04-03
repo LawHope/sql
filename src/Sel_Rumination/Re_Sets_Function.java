@@ -2,7 +2,7 @@ package Sel_Rumination;
 
 import java.util.*;
 
-public class Sets {
+public class Re_Sets_Function {
     public static void main(String[] args) {
         /*
 

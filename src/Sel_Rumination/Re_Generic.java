@@ -2,7 +2,7 @@ package Sel_Rumination;
 
 import java.util.ArrayList;
 
-public class Generic {
+public class Re_Generic {
     public static void main(String[] args) {
 
 /*

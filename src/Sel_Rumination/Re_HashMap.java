@@ -3,7 +3,7 @@ package Sel_Rumination;
 
 import java.util.Map;
 
-public class HashMap {
+public class Re_HashMap {
     public static void main(String[] args) {
 
         /*

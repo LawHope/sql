@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Exceptions {
+public class Re_Exceptions {
     public static void main(String[] args) throws IOException {
         /*
 예외처리  exception

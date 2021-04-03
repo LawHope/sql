@@ -3,7 +3,7 @@ package Sel_Rumination;
 import java.util.Random;
 import java.util.Scanner;
 
-public class math_lotto {
+public class Re_math_lotto {
   public static void main(String[] args) {
    /*
         

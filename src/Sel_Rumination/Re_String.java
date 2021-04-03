@@ -3,7 +3,7 @@ package Sel_Rumination;
 import java.util.Date;
 import java.util.Locale;
 
-public class JavaString {
+public class Re_String {
     public static void main(String[] args) {
         /* String class = 불변 객체 immutable Object
        java lang 패키지에 포함된 클래스임

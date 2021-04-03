@@ -3,7 +3,7 @@ package Sel_Rumination;
 import java.util.Arrays;
 import java.util.Vector;
 
-public class Vectors {
+public class Re_Vectors {
     public static void main(String[] args) {
         /* ArrayList와 동일한 내부 구조
                 - 동적배열
