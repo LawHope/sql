@@ -125,25 +125,9 @@ Vpc보안그룹 설정                                           서버호스트
         대리 서브 ID에 퍼미션 부여하기
 
 
-
-
-
-
-
-
-
-
-
-<서버에 한글적용하기>
-
-
-
 실습용 계정 생성
-aws 관리자 계정은 admin / il**~~~~
-마리아는 root(기본),
 
-
-마리아에서
+디비버에서
 mysql2 - database -  우클릭->
 creat database - db명;
 우리는 creat database bigdata; 로 만들기
@@ -156,7 +140,7 @@ creat database - db명;
 
 
 마리아 디비버에서 -> 컨트롤 + 엔터 새로 추가됨
-creat user '아읻'@'%'
+creat user '아이디'@'%'
 indetified by PW;
 
 creat user bigdate @ IP 나 % ( %가 붙는것은 어디서나 접속 된다는 얘기.)
