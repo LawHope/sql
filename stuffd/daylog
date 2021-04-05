@@ -1,0 +1,252 @@
+2주 예상 과정
+
+데이터베이스 부문이 개발자 파트에서도 활용 부분이 가장 중요하다!
+디비는 새 디바이스가 생길 때마다 동기화해야하므로 클라우드로 접속, 진행하도록하자.
+아마존 웹서비스로 클라우드 1년 무료로 서버를 사용하도록 하자.
+데이터저장에 최적화 무기는 서버용량이고 서버는 비용임. AWS(아마존 웹 서비스)를 돈지랄로 해결하도록하자.
+오라클이 정통이긴 한데 이새끼들은.. 엄블렐러 같은 놈들이라 우리는 마리아DB로 배운다.
+AWS는 물리적으로 서버를 구축하는 비용과 시간을 없이 바로 개통이 가능하고 대기업과 게임업체 서버로도 이용된다.
+가상 서버를 이용하게 되면 접속자 수 대비 증량과 축소가 즉각적이고 쉽기 때문에 매우 유용한 것!
+물리 서버면 장소, 소프트웨어 설치와 추후 철거, 증식 비용에 시간까지 막대하게 드는데 가상은 그게 없어서 좋아.
+# 웹호스트 같은 걸까?
+
+# 오늘 아마존 웹 서비스 AWS 신용카드 등록 // 1년 프리 티어 가입 완료
+
+
+AWS 프리티어 회원가입 -> 데이터  RDS ->  Mariadb 서버 구축
+리전(레기온 - 서울!
+
+
+
+
+1. 서버구축     2.서버언어패치      3. DB관리 툴 설치      4. 에디터와 서버 연결
+----------      ----------          ----------          ----------
+
+식별자설정                                                 네비 우클릭해서 create cunnection
+Vpc보안그룹 설정                                           서버호스트에 엔드포인트 주소 기입
+엔드포인트 주소                                             database에 mysql 입력해야함;
+
+
+5. 서버에DB구축      6.
+
+
+
+
+
+
+        1.
+
+        AWS에서 서버를 구축한다.
+        오라클이 정통이긴하지만 악의축이니 무료이면서 유용한 편인 마리아db를 에디터로 기용한다.
+
+        aws 메니지먼트 콘솔-> 데이터베이스 / rds  -> 데이터베이스 생성 -> 엔진옵션은 마리아 디비 선택->
+
+        Maria db에서 사용할 마리아 데이터 서버 버전을 확인하고 최신일수록 좋지만 개발이 가장 많이된 버전을 선턱하도록하자.
+        ex) 10.3.** 번대 버전을 쓰기로한다, 10.2.37 은 .2.가 너무 낮고
+                                         10.4.18 이나 10.5.9는 .18과 .9가 너무 낮다.
+        AWS에서 쓸 마리아 디비의 버전을 선택하고
+
+        -> 템플릿은 프리티어 선택 ->
+        -> 식별자 이름은 bigdata 로 기입->
+
+        자격증명설정->admin그대로 쓰고-> 암호 설정해주고 -> db인스턴스는버스터블클래스f클래스포함으로그냥두고 -> 스토리지설정도그대로->연결도그대로->
+        퍼블릭엑세스(외부접속 여부) 는 퀘스트용이라 예지만 보통은 아니오로함->
+        설정 실수해도 수정하기에서 퍼블릭엑세스랑 식별자, 패스워드 수정 다 가능함 쫄지말 것
+
+        -> VPC보안그룹은 새로생성선택 ->
+        -> VPC보안그룹이름 bigdata 로 기입->
+
+        추가구성 패스->월별추정요금은 프리티어는 12개월 무료임->스냅샷은 복구지점설정임 일고 넘어감
+        데이터베이스 생성 버튼 클릭
+        //
+
+
+        2.
+
+        AWS에 언어패치
+        데이터 베이스 -> 해당DB식별자 클릭 -> 구성탭 -> 옵션그룹클릭 ->
+                                OR
+        파라미터그룹 ->  우측 상단 파라미터 그룹생성 클릭 ->
+        -> 그룹이름,설명 : 나는 mubigdata 로 기입했음 -> 생성 //
+
+        원본 그룹이 아니라 대리자 더미 그룹에 설정을 가하는 것임!//
+
+        파라미터그룹 -> 해당 파라미터터 이름 클릭 ->  우측상단 파라미터 편집 ->
+       -> charater 나온 애들은 다 utf8로 변경
+       -> collation 애들은 다 -> utf8-general ci로 변경
+
+                       디비버에서는 메뉴->데이터베이스스->작업-> 재부팅 //
+
+
+                ∵ aws 대시보드에서 컴퓨팅 / Lightdsail -> 인스턴스생성 -> 플랫폼 선택, 인스턴스 플랜 선택하여 생성 가능함
+                    지금은 알아만 두자
+
+
+
+        3.
+
+        데이터베이스 관리툴 설치하기
+        서버 접속 프로그램을 설치하자
+        dbeaver.io 에서 다운로드 받음
+        aws에 접속할 수 있는 ftp 같은 녀석임
+        디비버에서 최신버전을 다운받고 설치하기
+        샘플데이터베이스는 안 만듦!
+        //
+
+
+
+        4.
+
+        dbeaver 디비버에 서버를 연결하자
+        RDS ->데이터베이스 -> DB 식별자 클릭 -> 디비버에서 [ 연결 보안 엔드포인트 및 포트]  코드로 접속함
+        포트는 3306 포트를 쓴다우
+        퍼블릭 엑세스 가능성 / 예인지 아니오인지 확인
+        구성 탭 -> 옵션 그룹 명 // 마스터사용자 이름 확인하고
+        디비버로 간다
+
+        네비게이터 상에서 빈곳에 우클릭 -> create -> connection ->
+        popular -> MariaDB 선택 ->
+        -> Sever Host에 -> local host 지우고  연결 보안 엔드포인트 주소 복붙
+        -> Database에 -> bigdata 기입 노노노노~!!! mysql 입력하니까 됨, 썜...... 이건 뭐죠.......??
+        -> username -> admin 기입 , Password -> 입력해주고
+        좌측하단  Test Connection -> 커넥티드 확인
+        작업이 끝난후에는
+        트리 우클릭 ->  연결종료!
+
+
+        5.
+        데이터베이스구축
+        서버만 만들어둔거라,  데이터베이스를 구축해야함
+
+
+
+
+        디비버에서 권한 설정하기
+        대리 서브 ID에 퍼미션 부여하기
+
+
+
+
+
+
+
+
+
+
+
+<서버에 한글적용하기>
+
+
+
+실습용 계정 생성
+aws 관리자 계정은 admin / il**~~~~
+마리아는 root(기본),
+
+
+마리아에서
+mysql2 - database -  우클릭->
+creat database - db명;
+우리는 creat database bigdata; 로 만들기
+
+파라미터 그룹 설정이 안되면 인코딩이 안돼;
+
+
+
+
+
+
+마리아 디비버에서 -> 컨트롤 + 엔터 새로 추가됨
+creat user '아읻'@'%'
+indetified by PW;
+
+creat user bigdate @ IP 나 % ( %가 붙는것은 어디서나 접속 된다는 얘기.)
+indetified by il~~~;
+
+
+퍼미션지정
+grant all privileges on DBname.*
+to 'ID' @ %' with grant option; (dba권한)
+grant
+SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, TRIGGER
+
+
+on bigdata.*
+to ''bigdata' @ '&' with grant option;
+
+우측 유저스 -> 빅데이터 생겨 있을 것
+권한 퍼미션 부여해주기
+웹에선 최소 퍼미션만 주기
+
+ex ) playground 데이터베이스 생성
+플레이그라운드 계정을 생성하고
+플레이그라운드 디비를 쓸 수 있게 기본권한부여하기
+
+create database playground;
+
+create user 'playground'@'%'
+identified by'bigdata'
+grant
+SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, TRIGGER
+on playground.* to 'playground'@'%'
+with GRANT OPTION;
+Ctrl + Enter 가 실행
+
+mysql-2 를 mysql Admin으로 변경
+
+
+네비게이터 우클릭
+
+DCL
+DDL
+
+
+테이블 만들기
+
+create table customers(
+custid varchar(10) primary key,
+name     varchar(10),
+age     int,
+grade   varchar(10),
+job     varchar,
+mileage int
+);
+
+
+주문테이블
+prodid, name, stock, price, maker
+제품테이블
+ordid, custid, prodid, qty, addr, orddate
+
+
+create table products (
+ prodid char(3) primary key,
+  name  varchar(20),
+  stock int,
+  price int,
+  maker char(8)
+  );
+
+  create table orders (
+
+  orderid   char(3) primary key,
+  custid    varchar(10),
+  prodid   char(3),
+  qty       int,
+  addr  varchar(20),
+  orddate date
+  );
+
+
+
+ 테이블 날리는 법 :  drop table 삭제할테이블이름;
+
+
+insert into customers
+values ('apple','정소화',20,'gold', '학생', 1000);
+
+insert into products
+values('p01','그냥만두', 5000, 4500, '대한식품');
+
+
+생성데이터 확인  -> 데이터탭에서 확인 가능
+
