@@ -2,3 +2,55 @@
 
 디비버에서 테이블 만들기 실습 와장창
 마리아 디비는 나발이고 디비버만 보이는 셈이네;
+
+
+
+테이블 만들기
+
+create table customers(
+custid varchar(10) primary key,
+name     varchar(10),
+age     int,
+grade   varchar(10),
+job     varchar,
+mileage int
+);
+
+
+주문테이블
+prodid, name, stock, price, maker
+제품테이블
+ordid, custid, prodid, qty, addr, orddate
+
+
+create table products (
+ prodid char(3) primary key,
+  name  varchar(20),
+  stock int,
+  price int,
+  maker char(8)
+  );
+
+  create table orders (
+
+  orderid   char(3) primary key,
+  custid    varchar(10),
+  prodid   char(3),
+  qty       int,
+  addr  varchar(20),
+  orddate date
+  );
+
+
+ 테이블 날리는 법 :  drop table 삭제할테이블이름;
+
+
+insert into customers
+values ('apple','정소화',20,'gold', '학생', 1000);
+
+insert into products
+values('p01','그냥만두', 5000, 4500, '대한식품');
+
+
+생성데이터 확인  -> 데이터탭에서 확인 가능
+
