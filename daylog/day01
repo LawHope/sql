@@ -89,9 +89,10 @@ ctrl+엔터가 실행임
 
         데이터베이스스->작업-> 재부팅 //
         
-       데이터베이스 , 우측상단 수정 -> 데이터베이스 옵션 ->  DB 파라미터 그룹 -> mybigdata로 설정 -> 재부팅
+        데이터베이스 , 우측상단 수정 -> 데이터베이스 옵션 ->  DB 파라미터 그룹 -> mybigdata로 설정 -> 재부팅
        
-
+        디비버에서 네비, 드럼통, 하단 내리기햐소  Tavles 더블클릭하면 Default Charset과Collation에 utf8들로 변경 확인
+        //
 
                 ∵ aws 대시보드에서 컴퓨팅 / Lightdsail -> 인스턴스생성 -> 플랫폼 선택, 인스턴스 플랜 선택하여 생성 가능함
                     지금은 알아만 두자
@@ -156,17 +157,11 @@ ctrl+엔터가 실행임
         대리 서브 ID에 퍼미션 부여하기
 
 
-실습용 계정 생성
 
 
 
 
-
-
-
-
-
-마리아 디비버에서 -> 컨트롤 + 엔터 새로 추가됨
+디비버에서 -> 컨트롤 + 엔터 새로 추가됨
 creat user '아이디'@'%'
 indetified by PW;
 
@@ -176,7 +171,7 @@ indetified by il~~~;
 
 퍼미션지정
 grant all privileges on DBname.*
-to 'ID' @ %' with grant option; (dba권한)
+to 'ID' @ '%' with grant option; // dba권한
 grant
 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, TRIGGER
 
