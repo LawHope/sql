@@ -13,6 +13,54 @@ AWS에서 데이터베이스 -> 해당 DB 이름 클릭 -> 보안그룹 -> 인�
 
 
 
+<<에디트 스페이스 열기>>  
+트리 우클릭-> sql편집기 -> 새sql편집기 !
+
+
+
+
+
+--외래키는 기준되는 키의 테이블을 참조하게 됨
+	constraint 제약이름
+	foreign key (컬럼명)
+ 	references  테이블명(컬럼명)
+
+
+create table customers(
+custid varchar(10) primary key,
+name     varchar(10),
+age     int,
+grade   varchar(10),
+job     varchar,
+mileage int
+); 
+
+   create table orders (
+
+  orderid   char(3) primary key,
+  custid    varchar(10),
+  prodid   char(3),
+  qty       int,
+  addr  varchar(20),
+  orddate date,
+  constraint ordcustfk
+  foreign key (custid)
+  references customers (custid)
+  );
+  
+ 
+ 
+ 
+ 
+
+--프라이머리키 몰아서 쓰기
+create table xyz(
+a int,
+b int,
+constraint xyzpk
+primary key(a, b)
+);
+
 
 
 
