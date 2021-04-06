@@ -18,13 +18,10 @@ AWS에서 데이터베이스 -> 해당 DB 이름 클릭 -> 보안그룹 -> 인�
 
 
 
-
-
 --외래키는 기준되는 키의 테이블을 참조하게 됨
 	constraint 제약이름
 	foreign key (컬럼명)
  	references  테이블명(컬럼명)
-
 
 create table customers(
 custid varchar(10) primary key,
@@ -43,15 +40,129 @@ mileage int
   qty       int,
   addr  varchar(20),
   orddate date,
-  constraint ordcustfk
+  
+  constraint ordcustfk	<-외래키  삽입구
   foreign key (custid)
   references customers (custid)
   );
-  
  
- 
- 
- 
+
+--프라이머리키 몰아서 쓰기
+create table xyz(
+a int,
+b int,
+constraint xyzpk	<-외래키  삽입구
+primary key(a, b)
+);
+
+
+---------------------FUX  EMPLOYEE COMEBACK
+
+
+/*ALTER TABLE orders ADD FOREIGN KEY (customer_sid) REFERENCES customer (sid);
+ 포리너 키와 프라이머리 키는  몰아서 묶을 수 있음
+ * 
+ * 
+ * */
+
+
+
+CREATE table regions (
+regionid varchar(10) primary key,
+regionname varchar (20)
+);
+
+
+CREATE table countries(
+countryid varchar(10) primary key,
+coutryname varchar(20),
+regionid  varchar(10),
+  constraint regicountfk
+  foreign key (regionid)
+  references regions (regionid)
+);
+
+
+CREATE table locations(
+loactionid varchar(10) primary key,
+streetaddr varchar(30),
+postalcode int(10),
+city varchar(20),
+statepro varchar (30)
+countryid varchar(10),
+    constraint countlocafk
+	foreign key (countyid)
+ 	references countries (countryid)
+);
+
+
+CREATE table departments(
+departid varchar (10) primary key,
+departname varchar(20),
+managerId varchar (10),
+locationId(20),
+    constraint locadepafk
+	foreign key (locationid)
+ 	references locations (locationid)
+);
+
+
+
+
+CREATE table employees (
+empid int (10)  primary key,
+firname varchar (10),
+lasname varchar (10),
+email varchar (20),
+phonenum varchar (10),
+hiredate varchar (10),
+jobid varchar (10),
+salary int(10),
+commisspct varchar (10),
+managerid varchar (10),
+departid varchar (10),
+    constraint countlocafk
+	foreign key (countyid)
+ 	references locations (countryid)
+);
+
+
+CREATE table departments(
+departid varchar (10) primary key,
+departname varchar(20),
+managerId varchar (10),
+locationId(20),
+    constraint empdeparfk
+	foreign key (departid)
+ 	references employees (departid)
+);
+
+
+CREATE table jobhistory (
+empid  varchar (10) primary key,
+startdate int (10),
+enddate int(10),
+departid varchar (10),
+jobid varchar (10),
+    constraint deparhisfk
+	foreign key (departid)
+ 	references departments (departid)
+);
+
+
+CREATE table jobs (
+jobid varchar (10) primary key,
+jobtitle varchar (20),
+minsalary int (10),
+maxsalary int (10),
+    constraint hisjobfk
+	foreign key (jobid)
+ 	references jobhistory (jobid)
+);
+
+
+
+
 
 --프라이머리키 몰아서 쓰기
 create table xyz(
@@ -65,52 +176,6 @@ primary key(a, b)
 
 
 
-테이블 만들기
-
-create table customers(
-custid varchar(10) primary key,
-name     varchar(10),
-age     int,
-grade   varchar(10),
-job     varchar,
-mileage int
-);
 
 
-주문테이블
-prodid, name, stock, price, maker
-제품테이블
-ordid, custid, prodid, qty, addr, orddate
-
-
-create table products (
- prodid char(3) primary key,
-  name  varchar(20),
-  stock int,
-  price int,
-  maker char(8)
-  );
-
-  create table orders (
-
-  orderid   char(3) primary key,
-  custid    varchar(10),
-  prodid   char(3),
-  qty       int,
-  addr  varchar(20),
-  orddate date
-  );
-
-
- 테이블 날리는 법 :  drop table 삭제할테이블이름;
-
-
-insert into customers
-values ('apple','정소화',20,'gold', '학생', 1000);
-
-insert into products
-values('p01','그냥만두', 5000, 4500, '대한식품');
-
-
-생성데이터 확인  -> 데이터탭에서 확인 가능
 
