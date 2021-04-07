@@ -1,51 +1,57 @@
+-- oracleHR
+
+-- 지역
+CREATE table regions (
+region_id int  primary key, -- 컬럼단위제약조건
+region_name varchar  (25),
+);
 
 
-primary key(location_id)  <--행단위제약조건
+-- 국가
+CREATE table countries (
+country_id int,
+country_name varchar(40),
+region_id int,
+
+primary key(country_id) -- 행단위제약조건
+constraint cntrgn_fk
+foreign key regions (region_id)
+references (region_id)
+
+);
+
+CREATE table locations (
+location_id int,
+street_adress varchar(40),
+postal_code varchar(12),
+city varchar(30),
+country_id int
+/*primary key(location_id) --행단위제약조건
 constraint loccnt_fk
 foreign key (country_id)
-references countries (country_id) 
+references countries    (country_id) */
 );
 
 
 
 
 
- ---재약조건  확인
- 
- 
-select * from information_chema.TABLE_constranints;
---모든테이블의 제약조건확인
-
-select * from information_chema.TABLE_constranints;
-where talbe_name = 'employees';
---해당 테이블의 제역조건만확인
-
-select * from information_chema.TABLE_constranints;
-where constraint_name =  'primary';
---기본키들의 제약조건들 보기
-
-select * from information_chema.TABLE_constranints;
-where constraint_name =  '%fk';
---외래키들 제약조건만  보기
-
-  
---테이블변경
-기존테이블에새로운컬럽추가
-alter  table테이블명
-add 컬럼명 자료형  제약조건;
-
-create table A (
-a int
-);
 
 
-
--------------------------------------------------------------
-
-
+-- 근무이력
 
 /*2개 이상의 컬럼으로 기본키 설정할 경우
 --primary key (employee_id, startdate) */
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -138,6 +144,152 @@ SELECT host, user, password from user;
 
 
 
+-- 테이블 변경
+-- 제약조건 추가
+alter table 테이블명
+add constraint 제약조건이름 제약조건 내용;
+
+CREATE table AA ( 
+aa int
+);
+
+alter table AA
+add constraint pk primary key (aa);
+
+
+CREATE table B ( 
+b int, 
+a int);
+
+
+
+
+alter table B 
+add constraint ba_fk
+foreign key (a)
+references A(a);
+
+
+
+--제약조건 제거
+
+alter table B 
+drop constraint Primary key;
+
+select * from information_schema.TABLE_CONSTRAINTS 
+where TABLE_NAME = 'B';
+
+alter table B
+dreap constraint ba_fk;
+
+select * from information_schema.TABLE_CONSTRAINTS
+where TABLE_NAME = 'B';
+
+
+
+
+
+/*not null 제약조건
+반드시 입력을 해야하는 컬럼에 정의 (필수입력 컬럼)
+
+낫널을 걸면 반드시 입력해야한다는 강제가 걸리는 것임
+
+**/
+
+CREATE table member (
+
+userid varchar (18),
+passwd varchar(18)
+);
+
+
+
+-- 자바의 멤버변수처럼 sql에서도 멤버변수를 만들어보자!
+INSERT into member
+values ('asd123', 'qwe123');
+-- 테이블의 모든 컬럼에 값 입력
+-- 유저아이디, 패스워드 값주기
+-- 값 생성 순서는 테이블 컬럼 순서에 따라감
+
+INSERT into member(passwd)
+values('ewq321');
+-멤버테이블의 패스워드에만 값 주기
+
+SELECT * from member;
+
+
+CREATE table member2(
+userid varchar (18) not null,
+passwd varchar(18) not null
+);
+
+
+insert into member2(passwd)
+values ('qwe123', '543'); -- 패스워드 하나 더 꼭 넣어야되게 생겼음
+
+
+
+
+
+-- 디폴트 제약조건
+-- 자동으로 기본설정되는 디폴트 값임
+-- 컬럼 명 데이터 형식  default 값
+
+CREATE table member3(
+userid varchar (18) not null,
+passwd varchar(18) not null,
+grade varchar(10) default 'bronze',
+mileage int default 0
+);
+
+
+insert into member3 (userid, passwd)
+values ('asd','123');
+
+SELECT * from member3;
+
+
+INSERT into member3
+values ('asd','123','Diamon Lev.', 10000);
+SELECT * from member3;
+
+
+
+
+
+CREATE table member4(
+mno int auto_increment, -- 자동 일련번호 생성
+userid varchar (18) not null,
+passwd varchar(18) not null,
+grade varchar(10) default 'bronze',
+mileage int default 0
+regdate datetime default current_timestamp,
+primary key (mno)
+);
+
+-- 오토로 자동 일련번호 지정 하고
+-- 프라이머리키는 아래에 몰아서
+-- 시간관련 컬럼도 추가해줘야 
+-- 데이터 청결도가 결정됨
+
+insert into member4 (userid,passwd)
+values ('asd','123');
+
+select * from member4;
+
+
+
+
+
+/*HR테이블 삭제
+ * 외래키들이 꼬인 경우 
+ 역순으로 제거하면 됨
+ 
+ */
+
+
+
+
 
 
 
@@ -149,5 +301,8 @@ SELECT host, user, password from user;
 
 나는 서브 계정만들고 권한 인계하는 부분을 배워놔야함;; 
 남들은 다 빅데이터 이름으로 서브 계정을 갖고 있다구;;
-*/
 
+테이블들이 정상으로 만들어 졌는지를 TABLE 탭이랑 엔티티 관계도로 확인하자 (엔티티하니까 데바데 같아;;;)
+
+
+*/
