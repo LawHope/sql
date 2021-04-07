@@ -1,3 +1,9 @@
+
+1. 단위제약조건 컬럼단위, 행단위로 기본키, 외래키 작성
+2.  이클립스에 연동한 exerd 로 ERD / 도표 비주얼화 작업
+3. 
+
+
 -- oracleHR
 
 -- 지역
@@ -47,38 +53,26 @@ references countries    (country_id) */
 
 
 
-
-
-
-
-
-
-
-
 create table A (
 a int
 );
 
-
-
 describe A;
 desc  A;
-
 
 alter table A;
 add aa varchar(100);
 
-/*
+
  -- 테이블에서 특정컬럼지우기는
 		컬럼에 있는 제약조건을 먼저 지워야함
-	alter table 테이블명
- 		drop column 컬럼명;
-*/
+		alter table 테이블명
+ 		drop column 컬럼명; 
 
-alter table A;
- drop  column aa;
- 
-desc A;
+
+		alter table A;
+		drop  column aa;
+		desc A;
 
 
 
@@ -86,41 +80,43 @@ desc A;
 alter table 테이블명
 change column  기존이름 새이름 데이터형식 제약조건;
 */
-alter table A;
- change column a b int;
 
-desc A;
+
+	alter table A;
+	change column a b int;
+
+	desc A;
 
 
 
 /* --컬럼 속성변경 
-alter table 테이블명
-modify  기존이름 새이름 데이터형식 제약조건;
-*/
-alter table A;
-modify b varchar(100);
-desc A;
+	alter table 테이블명
+	modify  기존이름 새이름 데이터형식 제약조건; */
+			alter table A;
+			modify b varchar(100);
+			desc A;
 
 
 
 
-/* --테이블 명 변경
-alter table 테이블명
-rename to 새 테이블명
-*/
+/* 
+--테이블 명 변경
+		alter table 테이블명
+		rename to 새 테이블명	*/
 
-alter table A;
-rename to B;
+					alter table A;
+					rename to B;
 
-desc A;
-desc B;
+					desc A;
+					desc B;
 
-/* --테이블 삭제
-alter table 테이블명
-rename to 새 테이블명
-*/
 
-drop table B;
+/* 
+--테이블 삭제
+	alter table 테이블명
+	rename to 새 테이블명	*/
+
+					drop table B;
 
 
 /* --데이터베이스 에 있는 모든 테이블 조회
@@ -136,54 +132,57 @@ show databases;
 
 
 
-/* --ㅇDBMS 내 모든 사용자 조회  (관리자 권한 필요)
-*/
-SELECT * from user;
-SELECT host, user, password from user;
+/* --ㅇDBMS 내 모든 사용자 조회  (관리자 권한 필요)*/
+
+	SELECT * from user;
+	SELECT host, user, password from user;
+
+
+
 
 
 
 
 -- 테이블 변경
--- 제약조건 추가
-alter table 테이블명
-add constraint 제약조건이름 제약조건 내용;
+	-- 제약조건 추가
+	alter table 테이블명
+	add constraint 제약조건이름 제약조건 내용;
 
-CREATE table AA ( 
-aa int
-);
+			CREATE table AA ( 
+			aa int
+			);
 
-alter table AA
-add constraint pk primary key (aa);
-
-
-CREATE table B ( 
-b int, 
-a int);
+			alter table AA
+			add constraint pk primary key (aa);
 
 
+			CREATE table B ( 
+			b int, 
+			a int);
 
 
-alter table B 
-add constraint ba_fk
-foreign key (a)
-references A(a);
+
+
+			alter table B 
+			add constraint ba_fk
+			foreign key (a)
+			references A(a);
 
 
 
 --제약조건 제거
 
-alter table B 
-drop constraint Primary key;
+			alter table B 
+			drop constraint Primary key;
 
-select * from information_schema.TABLE_CONSTRAINTS 
-where TABLE_NAME = 'B';
+			select * from information_schema.TABLE_CONSTRAINTS 
+			where TABLE_NAME = 'B';
 
-alter table B
-dreap constraint ba_fk;
+			alter table B
+			drop constraint ba_fk;
 
-select * from information_schema.TABLE_CONSTRAINTS
-where TABLE_NAME = 'B';
+			select * from information_schema.TABLE_CONSTRAINTS
+			where TABLE_NAME = 'B';
 
 
 
