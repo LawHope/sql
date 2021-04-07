@@ -305,4 +305,9 @@ select * from member4;
 테이블들이 정상으로 만들어 졌는지를 TABLE 탭이랑 엔티티 관계도로 확인하자 (엔티티하니까 데바데 같아;;;)
 
 
+
+
+이클립스 -> help  -> new instal ->  add-> eXerd 체크   이클립스랑 연동시키기 
+http://exerd.com/update/3.x
+
 */
