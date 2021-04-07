@@ -1,0 +1,31 @@
+
+
+primary key(location_id)  <--행단위제약조건
+constraint loccnt_fk
+foreign key (country_id)
+references countries (country_id) 
+);
+
+
+
+
+
+ ---재약조건  확인
+ 
+ 
+select * from information_chema.TABLE_constranints;
+--모든테이블의 제약조건확인
+
+select * from information_chema.TABLE_constranints;
+where talbe_name = 'employees';
+--해당 테이블의 제역조건만확인
+
+select * from information_chema.TABLE_constranints;
+where constraint_name =  'primary';
+--기본키들의 제약조건들 보기
+
+select * from information_chema.TABLE_constranints;
+where constraint_name =  '%fk';
+--외래키들 제약조건만  보기
+
+  
