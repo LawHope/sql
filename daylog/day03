@@ -307,7 +307,7 @@ select * from member4;
 
 
 
-이클립스 -> help  -> new instal ->  add-> eXerd 체크   이클립스랑 연동시키기 
+이클립스 -> help  -> new instal -> work with에 exerd 주소 복붙 ->  add -> eXerd 체크   이클립스랑 연동시키기 
 http://exerd.com/update/3.x
 
 */
