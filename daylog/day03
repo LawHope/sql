@@ -29,3 +29,125 @@ where constraint_name =  '%fk';
 --외래키들 제약조건만  보기
 
   
+--테이블변경
+기존테이블에새로운컬럽추가
+alter  table테이블명
+add 컬럼명 자료형  제약조건;
+
+create table A (
+a int
+);
+
+
+
+-------------------------------------------------------------
+
+
+
+/*2개 이상의 컬럼으로 기본키 설정할 경우
+--primary key (employee_id, startdate) */
+
+
+
+create table A (
+a int
+);
+
+
+
+describe A;
+desc  A;
+
+
+alter table A;
+add aa varchar(100);
+
+/*
+ -- 테이블에서 특정컬럼지우기는
+		컬럼에 있는 제약조건을 먼저 지워야함
+	alter table 테이블명
+ 		drop column 컬럼명;
+*/
+
+alter table A;
+ drop  column aa;
+ 
+desc A;
+
+
+
+/* --컬럼명 변경
+alter table 테이블명
+change column  기존이름 새이름 데이터형식 제약조건;
+*/
+alter table A;
+ change column a b int;
+
+desc A;
+
+
+
+/* --컬럼 속성변경 
+alter table 테이블명
+modify  기존이름 새이름 데이터형식 제약조건;
+*/
+alter table A;
+modify b varchar(100);
+desc A;
+
+
+
+
+/* --테이블 명 변경
+alter table 테이블명
+rename to 새 테이블명
+*/
+
+alter table A;
+rename to B;
+
+desc A;
+desc B;
+
+/* --테이블 삭제
+alter table 테이블명
+rename to 새 테이블명
+*/
+
+drop table B;
+
+
+/* --데이터베이스 에 있는 모든 테이블 조회
+*/
+show tables;
+
+
+
+/* --모든 데이터베이스 조회 (상위 권한 필요)
+*/
+show databases;
+
+
+
+
+/* --ㅇDBMS 내 모든 사용자 조회  (관리자 권한 필요)
+*/
+SELECT * from user;
+SELECT host, user, password from user;
+
+
+
+
+
+
+
+
+
+/*
+마리아 DB 홈페이지 등에서 SQL문의 자료들을 찾아보자.
+
+
+나는 서브 계정만들고 권한 인계하는 부분을 배워놔야함;; 
+남들은 다 빅데이터 이름으로 서브 계정을 갖고 있다구;;
+*/
+
