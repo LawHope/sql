@@ -13,9 +13,22 @@ sql에서 데이터 검색하기
   이젠 자료 찾아내기, 출력하기
 
 
-
-
-
-
-
 나중에 배울 것 sql 함수
+
+기본적인 SQL입력 방법, 문법을 알아야함
+데이터베이스 연결하는 법도 - 이클립스와 연동안됨;
+
+
+
+
+
+Q ) first sname 길이가 5글자 이상인 사원을 조회하라
+          slecet * from EMPLOYEES
+          where FIST_NAME like'_____%''
+
+          select FIRST_NAME, LENGTH(FIRST_NAME)
+          from EMPLOYEES;
+
+          select * from EMPLOYEES
+          where length(FIRST_NAME)>= 5;
+
