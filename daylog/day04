@@ -108,22 +108,67 @@ SELECT 문을 썼으면 GROUP BY도 써야지!
 HAVING 키워드를 같이 써서 그룹의 조건을 작성
 그룹 분리 기준의 속성을 SELECT 절에도 써주는게 좋음
 
+
+
 Q )  주문테이블에서 주문제품별 수량의 합계를 검색해보자.
-    SET SQL_MODE = 'ONLY_FULL_GROUP_BY';
-    SELCT PRODID, SUM (QTY) 주문총수량 FROM ORDERS     
-           ↓ 그룹 제품별로 묶기 / ↑ 그룹바이가 든 컬럼만 올 수 있다!
-    GROUP BY PRODID;
-    -- SELECT 절에 쓸 수 있는 컬럼은 GROUP BY 절에 쓴 컬럼 OR 집계함수를 쓴 경우만 됨
+          SET SQL_MODE = 'ONLY_FULL_GROUP_BY'; 마리아에서 잘못된 그룹바이 절을 찾으려고 넣음
+          SELCT PRODID, SUM (QTY) 주문총수량 FROM ORDERS -- SUM이 들어간 덕에 안 깨지는 거.   
+                 ↓ 그룹 제품별로 묶기 / ↑ 그룹바이가 든 컬럼만 올 수 있다!
+          GROUP BY PRODID;
+          -- SELECT 절에 쓸 수 있는 컬럼은 GROUP BY 절에 쓴 컬럼 OR 집계함수를 쓴 경우만 됨
+
     
-    
-    
-Q )  
+
+
+
+그룹별 검색
+
+Q )  제조업체별로 제조 갯수와 가장 비싼 단가를 구하시오.
+          
+          SELECT MAKER, COUNT (PRODID) 제품수, MAX (PRICE) 최고가 
+          FROM PRODUCTS
+          GROUP BY MAKER;
 
 
 
 
 
+조건을 이용한 검색
 
+Q ) 제품테이블에서 제품 3개 이상 제조한 업체별로 제품의 개수와 가장 비싼 단가를 검색하시오.
+
+             SELECT
+                    MAKER, COUNT (PRODID) 제품수, MAX (PRICE) 최고가 
+             FROM PRODUCTS 
+             GROUP BY MAKER
+             HAVING COUT(PRODID) >=3;
+             
+             
+             GROUP BY문에는 WHERE가 들어갈 곳이 없고, HAVING이 온다.
+             
+              별칭쓰기로 간결하게 ↓ ↓ ↓
+              
+             SELECT
+                    MAKER, COUNT (PRODID) 제품수, MAX (PRICE) 최고가 
+             FROM PRODUCTS 
+             GROUP BY MAKER
+             HAVING 제품수 >= 3;
+
+
+
+
+Q ) 적립금이 평균 1000원 이상인 등급
+            SELECT GRADE FROM CUSTOMERS
+            WHEERE AVG(MILEAGE) >= 1000;
+    GROUP BY를 쓰면 ↓ ↓ ↓
+            GRADE 등급, COUNT(CUSTID) 고갹수,
+            AVG(MILEAGE) 적립금 평균 ,
+            FROM CUSTOMERS GROUP BY GRADE;
+            HAVING 적립금평균 >= 1000;  
+
+Q ) 주문 테이블에서 주문 고객들이 주문한 제품의 총 주문 수량을 제품별로 검색하시오.
+
+            
 
 
 
