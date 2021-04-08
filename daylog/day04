@@ -34,6 +34,9 @@ Q ) first sname 길이가 5글자 이상인 사원을 조회하라
 
 
 
+      
+
+
 
 Q ) 골프에 관련된 도서를  조회하라
           selsect bookname . price from books
@@ -75,5 +78,16 @@ Q ) 모든 제품의 평균 단가를 구하시오.
 
 
 Q ) 한빛제과에서 제조한 제품의 재고량 합계를 제품 테이블에서 검색하시오
+          select sum(stock) 총재고량 from products;
 
+          select sum(stock) from products
+          where maker = '한빛제과';
+
+
+
+Q )  등록된 고객의 수를 세시오.
+        
+        SELECT COUNT(*) 회원수 FROM CUSTOMERS;  -- 행 전체를 로드하는 거라 효율이 떨어짐
+                     ↓ BEST!!! 
+        SELECT COUNT(CUSTID) 회원수 FROM CUSTOMERS; --PK 컬럼을 기준으로 카운팅하기
 
