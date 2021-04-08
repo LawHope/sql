@@ -172,15 +172,16 @@ Q ) 적립금이 평균 1000원 이상인 등급
 
 Q ) 주문 테이블에서 고객 별로 주문한 제품의 총 주문 수량을 제품별로 검색하시오. 7-36
 
-            SELECT 
-                  CUSTID, PRODID, SUM(QTY) 주문총수량 FROM ORDERS
-            GROUP BY CUSTID, PRODID;
+                  SELECT 
+                        CUSTID, PRODID, SUM(QTY) 주문총수량 FROM ORDERS
+                  GROUP BY CUSTID, PRODID;
+                  
+                  -- 그룹 바이는 전체 중에 일부만 찾아서 출력하는 방식임
             
             
             
             
-            
-            
+              
             
             
             
