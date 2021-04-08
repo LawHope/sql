@@ -17,7 +17,7 @@ sql에서 데이터 검색하기
 
 기본적인 SQL입력 방법, 문법을 알아야함
 데이터베이스 연결하는 법도 - 이클립스와 연동안됨;
-
+데이터에 자료 업뎃하기
 
 
 
@@ -31,4 +31,26 @@ Q ) first sname 길이가 5글자 이상인 사원을 조회하라
 
           select * from EMPLOYEES
           where length(FIRST_NAME)>= 5;
+
+
+
+
+골프에 관련된 도서를  조회하라
+selsect bookname . price from books
+where bookname like '%골프' and price >= 30000;
+
+
+SELECT문
+SELECT [ALL | DISTINCT] 속성_리스트
+FROM 테이블_리스트
+[WHERE 조건]
+[ ORDER BY 속성_리스트[ ASC | DESC ] ;
+
+
+
+
+
+SELECT NAME, GRADE, AGE, FROM CUSTOMERS;
+ORDER BY AGE; -- 오름차순
+
 
