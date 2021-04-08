@@ -35,9 +35,9 @@ Q ) first sname 길이가 5글자 이상인 사원을 조회하라
 
 
 
-골프에 관련된 도서를  조회하라
-selsect bookname . price from books
-where bookname like '%골프' and price >= 30000;
+Q ) 골프에 관련된 도서를  조회하라
+          selsect bookname . price from books
+          where bookname like '%골프' and price >= 30000;
 
 
 SELECT문
@@ -50,19 +50,30 @@ FROM 테이블_리스트
 
 
 
-SELECT NAME, GRADE, AGE, FROM CUSTOMERS
-ORDER BY AGE; -- 오름차순
+          SELECT NAME, GRADE, AGE, FROM CUSTOMERS
+          ORDER BY AGE; -- 오름차순
 
-SELECT NAME, GRADE, AGE, FROM CUSTOMERS
-ORDER BY AGE DESC; -- 내림차순
+          SELECT NAME, GRADE, AGE, FROM CUSTOMERS
+          ORDER BY AGE DESC; -- 내림차순
 
-
-
-SELECT CUSTID, PRODID, QTY, ORDDATE FROM ORDERS
-ORDER BY PRODID ASC, QTY DESC;
+          -- 디센딩 어센딩이 여기서 등장하다니.. 워쇼스키 당신들은 대체....
 
 
 
+          SELECT CUSTID, PRODID, QTY, ORDDATE FROM ORDERS
+          ORDER BY PRODID ASC, QTY DESC;
 
+
+
+
+
+=집계함수를 이용한 검색
+
+Q ) 모든 제품의 평균 단가를 구하시오.
+
+        select round (avg(price)) 평균단가 from products;
+
+
+Q ) 한빛제과에서 제조한 제품의 재고량 합계를 제품 테이블에서 검색하시오
 
 
