@@ -91,3 +91,25 @@ Q )  등록된 고객의 수를 세시오.
                      ↓ BEST!!! 
         SELECT COUNT(CUSTID) 회원수 FROM CUSTOMERS; --PK 컬럼을 기준으로 카운팅하기
 
+
+
+
+
+
+Q ) 제조업체 수를 세시오.
+
+        SELECT COUT(MAKER) 제조업체수 FROM PRODUCTS; -- 중복 포함 카운트
+        SELECT COUT(DISTINCT MAKER) 제조업체수 FROM PRODUCTS; -- 중복 배제 카운트
+     
+     
+     
+SELECT 문을 썼으면 GROUP BY도 써야지!
+그룹이 나뉘는 기준의 속성을 지정함
+HAVING 키워드를 같이 써서 그룹의 조건을 작성
+그룹 분리 기준의 속성을 SELECT 절에도 써주는게 좋음
+
+Q )  주문테이블에서 주문제품별 수량의 합계를 검색해보자.
+
+        
+
+Q  ) 
