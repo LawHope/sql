@@ -174,7 +174,7 @@ Q ) 주문 테이블에서 고객 별로 주문한 제품의 총 주문 수량�
 
                   SELECT 
                         CUSTID, PRODID, SUM(QTY) 주문총수량 FROM ORDERS
-                  GROUP BY CUSTID, PRODID;
+                  GROUP BY PRODID, CUSTID;
                   
                   -- 그룹 바이는 전체 중에 일부만 찾아서 출력하는 방식임
             
