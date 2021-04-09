@@ -156,6 +156,17 @@ PLAYGROUND DB에 넣을 거임!
             -- WHERE 절은 프롬과 그룹 바이 사이에 간다.
             -- FROM / WHERE / HAVING / GROUP BY 순으로 작성한다
 
+            
+                //이건 그냠 참조
+                SELECT JOB_ID, COUNT(EMPLOYEE_ID) 총사원수
+                 FROM EMPLOYEES
+                 GROUP BY JOB_ID;
+                 
+                 SELECT JOB_ID, COUNT(EMPLOYEE_ID) 총사원수
+                 FROM EMPLOYEES
+                 GROUP BY JOB_ID
+                 HAVING JOB_ID LIKE '%MGR';
+
 -- 28. 회사 전체의 최대 급여, 최소급여, 급여 총합 및 평균 급여를 조회하세요
             
                          
@@ -170,26 +181,33 @@ PLAYGROUND DB에 넣을 거임!
              
 -- 30. 직책별 사원 총 수를 조회하세요
             
+                 SELECT JOB_ID, COUT(EMPLOYEE_ID) 총사원수
+                 FROM EMPLOYEES
+                 GROUP BY JOB_ID;
                          
                          
              
 -- 31. 매니저로 근무하는 사원들의 총 수를 조회하세요
+
+                                     
+            SELECT COUNT (MANAGER_ID) 매니저사원수 FROM EMPLOYEES;
             
             
             
+            SELECT COUNT (DESC MANAGER_ID) 매니저사원수 
+            FROM EMPLOYEES;
+                        -- 매니저 ID 갖고 있는 직원으로 조회
+                        
+                        
                         
              
 -- 32. 사내의 최대 급여 및 최소 급여의 차이를 조회하세요
             
                         
-                         
+              SELECT MAX (SALARY)최대급여 , MIN(SALARY) 최소급여,
+              MAX(SALARY) - MIN (SALARY) 급여차
+              FROM EMPLOYEES;
              
-
-
-
-
-
-
 
 
 
