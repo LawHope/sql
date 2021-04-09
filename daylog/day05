@@ -289,8 +289,53 @@ PLAYGROUND DB에 넣을 거임!
 
 
 
+-- ____________________________________________________//
 
 
+
+ << 조인 검색 >>
+
+조인검색이란  여러 테이블에서 불러오는 검색 = 카테시안 곱
+
+                 [주문테이블]                             [제품테이블]
+주문번호 / 고객/ 수량/ 제품명 /배송지/ 주문일  <->  제품번호 / 제품명 / 재고량
+                                             ↓
+                                    000 고객의 주문서
+
+
+ 조인검색의 조건
+ SELECT * FROM 테이블명 별칭 , 테이블명 1 별칭1 , 테이블명2 별칭2,
+ WHERE 별칭1 . 키 = 별칭2 . 키 ;
+
+
+
+
+ -- 7-37
+
+           SELECT * FROM ORDERS O, PRODUCTS P; -- 카테시안 곱
+
+           ↓
+
+           SELECT * FROM ORDERS O, PRODUCTS P
+           WHERE ORDERS . PRODID = PRODUCTS . PRODID;
+           -- 곱연산 후 필터링 적용
+
+           ↓
+
+           SELECT * FROM ORDERS O, PRODUCTS P 
+           WHERE O . PRODID = P . PRODID;
+           --약어로 만든 별칭을 쓰면 더 간단해짐!
+
+
+ BANANA 고객님의 주문건을 볼까?
+
+           SELECT * FROM ORDERS O, PRODUCTS P 
+           WHERE O . PRODID = P . PRODID;
+           CUSTID = 'BANANA';
+
+
+ 
+ 
 
 
 
