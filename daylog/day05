@@ -347,16 +347,31 @@ PLAYGROUND DB에 넣을 거임!
  
  
  
- 바나나 고객님의 주문건을 이너 조인으로 정리해보자
+ 바나나 고객님의 주문건을 이너 조인 유징으로 정리해보자
  
             SELECT P.NAME 
             FROM ORDERS O INNER JOIN PRODUCTS P
-            USING )PRODID)
+            USING (PRODID)
             WHERE CUSTID = 'BANANA';  
 
 
 
+-- 컬럼명이 다를 경우 
+SELECT * FROM 
+테이블명 1 별칭1 INEER JOIN  테이블명2 별칭2
+ ON 별칭1.컬럼명1 = 별칭2.컬럼명2; 
+          
+
+
+
+
+-- 이너 조인과 온
+              
  
+            SELECT P.NAME 
+            FROM ORDERS O INNER JOIN PRODUCTS P
+            ON O.PRODID = P.PRODID
+            WHERE CUSTID = 'BANANA';  
 
 
 
