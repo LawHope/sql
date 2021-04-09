@@ -40,9 +40,9 @@ PLAYGROUND DB에 넣을 거임!
               SELECT LAST_NAME, SALARY FROM EMPLOYEES
               WHERE SALARY < 5000 OR SALARY > 12000;
              
-              //5보다 작고 12보다는 커야하므로 AMD가 아니라 OR로 연결함!
-              // <- 1 2 3 4  ㅣ_____↔____ ㅣ 13 14 15 16 ->
-              
+                    //5보다 작고 12보다는 커야하므로 AMD가 아니라 OR로 연결함!
+                    // <- 1 2 3 4  ㅣ_____↔____ ㅣ 13 14 15 16 ->
+
               SELECT LAST_NAME, SALARY FROM EMPLOYEES
               WHERE SALARY < 5000 OR SALARY > 12000;
               ORDER BY SALARY;
@@ -112,25 +112,49 @@ PLAYGROUND DB에 넣을 거임!
            GROUP BY JOB_ID
            ORDER BY JOB_ID DESC; -- 내림차순 정렬
              
+             
+             
 -- 24. 상사가 있는 사원들의 모든 정보를 조회하라.
             
-                         
-             
+            SELECT * FROM EMPLOYEES
+            WHERE MANAGER_ID IS NOT NULL;
+            
             
   
 -- 25. 상사가 없는 사원들의 모든 정보를 조회하라.
 
+
+            SELECT * FROM EMPLOYEES
+            WHERE MANAGER_ID IS NULL;
+            
             
 
 -- 26. IT 부서의 급여 총합을 조회하라.
 
+            -- 직책으로 찾기
+            SELECT FROM EMPLOYEES
+            WRERE JOB_ID LIKE 'IT%';             
+            SELECT SUM(SALARY) 급여총합 FROM EMPLOYEES
+            WRERE JOB_ID LIKE 'IT%';
             
+            -- 부서로 찾기
+            SELECT FROM EMPLOYEES
+            WRERE JOB_ID LIKE 'IT%'; 
+            SELECT SUM(SALARY) 급여총합 FROM EMPLOYEES
+            WRERE DEPARTMENT_ID IN (60, 210, 230);
 
 -- 27. 부서와 직무별 최대급여, 최소급여, 사원수를 조회하라.
             
                          
+             SELECT DEPARTMENT_ID, JOB_ID, 
+             MAX(SALARY)  최대급여 , MIN(SALARY) 최소급여,
+             COUNT(EMPLOYEE_ID) 사원수
+             FROM EMPLOYEES
+             WHERE DEPARTMENT_ID IS NOT NULL; -- 부서 미소속 사원 제외하기
+             GROUP BY DEPARTMENT_ID, JOB_ID;
              
-            
+            -- WHERE 절은 프롬과 그룹 바이 사이에 간다.
+            -- FROM / WHERE / HAVING / GROUP BY 순으로 작성한다
 
 -- 28. 회사 전체의 최대 급여, 최소급여, 급여 총합 및 평균 급여를 조회하세요
             
