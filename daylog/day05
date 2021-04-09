@@ -14,9 +14,6 @@
 -- HR
 
 
-이 답지들은
-PLAYGROUND DB에 넣을 거임!
-
 
 -- 15. 급여가 12000 이상되는 직원들의 LAST_NAME 및 급여를 조회한다. 
 
@@ -496,23 +493,58 @@ books
 19. 가격이 20,000원인 도서를 주문한 고객의 이름과 도서의 이름을 구하시오.
 
 
+        
+        SELECT BM.NAME, B.BOOKNAME FROM 
+        BOOKMEMNERS BM INNER JOIN BOOKORDERS BO, BOOKS B
+        USING (CUSTID) = BO.CUSTID
+        USING (BOOKID)
+        WHERE BO. SALEPRICE = 20000;
+        
+        
 
 
+-- HR //--------------------------------------------------------------
 
-HR 
+
 33. 모든 사원들의 LAST_NAME, 부서 이름 및 부서 번호을 조회하세요
+        
+        
+        SELECT LAST_NAME, DEPARTMENT_NAME, DEPARTMENT_ID
+        FROM
+        EMPOLYEES E INNER JOIN DEPARTMENT D
+        USING (DEPARTMENT_ID)
+        ORDER BY DEPARTMENT_ID;
+
+
 
 
 
 34. 부서번호 30의 모든 직업들과 부서명으로 조회하세요. 90 부서 또한 포함한다.
 
-
+            SELECT JOB_ID, DEPARTMENT_NAME
+            FROM EMPLOYEES E INNER JOIN DEPARTMENTS D
+            USING (DEPARTMENT_ID)
+            WHERE DEPARTMENT_ID IN (30,90);
+            
+            
 
 35. 부서번호 30 이하의 모든 직업들과 부서명으로 조회하세요 
 
+            SELECT JOB_ID, DEPARTMENT_NAME
+            FROM EMPLOYEES E INNER JOIN DEPARTMENTS D
+            USING (DEPARTMENT_ID)
+            WHERE DEPARTMENT_ID <= 30;
+            
 
 
 36. 커미션을 버는 모든 사람들의 LAST_NAME, 부서명, 지역 ID 및 도시 명을 조회하세요
+
+            SELECT LAST_NAME, DEPARTMENT_NAME, LOCARION_ID, CITY
+            FROM EMPLOYEES E INNNER JOIN DEPARTMENTS D
+            USING (DEPARTMNET_ID) INNER JOIN LOCATIONS L
+            USING (LOCATION_ID)
+            WHERE COMMSSION_PCT IN NOT NULL;
+
 
 
 
