@@ -20,6 +20,8 @@ PLAYGROUND DB에 넣을 거임!
 
               SELECT LAST_NAME, SALARY FROM EMPLOYEES;
 
+              ↓
+
               SELECT LAST_NAME, SALARY FROM EMPLOYEES
               WHERE SALARY >= 12000
               ODER BY SALARY DESC;
@@ -28,6 +30,8 @@ PLAYGROUND DB에 넣을 거임!
 -- 16. 사원번호가 176 인 사람의 LAST_NAME 과 부서 번호를 조회한다.
 
               SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES;
+              
+              ↓
               
               SELECT LAST_NAME, DEPARTMENT_ID FROM EMPLOYEES;
               WHERE EMPLOYEE_ID = 176;
@@ -54,7 +58,8 @@ PLAYGROUND DB에 넣을 거임!
              SELECT LAST_NAME, SALARY FROM EMPLOYEES
              WHERE DEPARTMENT_ID IN (20,50);
 
-
+              ↓
+              
              SELECT LAST_NAME, DEPARTMNET_ID, SALARY 
              FROM EMPLOYEES
              WHERE DEPARTMENT_ID IN (20,50)
@@ -87,8 +92,12 @@ PLAYGROUND DB에 넣을 거임!
             
             SELECT JOB_ID, SALARY FROM EMPLOYEES;
             
+            ↓
+            
             SELECT JOB_ID, SALARY FROM EMPLOYEES
             WHERE SALARY NOT IN (2500,3500,7000);
+            
+            ↓
             
             SELECT JOB_ID, SALARY FROM EMPLOYEES
             WHERE SALARY NOT IN (2500,3500,7000) AND
@@ -161,7 +170,7 @@ PLAYGROUND DB에 넣을 거임!
                 SELECT JOB_ID, COUNT(EMPLOYEE_ID) 총사원수
                  FROM EMPLOYEES
                  GROUP BY JOB_ID;
-                 
+                 ↓
                  SELECT JOB_ID, COUNT(EMPLOYEE_ID) 총사원수
                  FROM EMPLOYEES
                  GROUP BY JOB_ID
@@ -193,7 +202,7 @@ PLAYGROUND DB에 넣을 거임!
             SELECT COUNT (MANAGER_ID) 매니저사원수 FROM EMPLOYEES;
             
             
-            
+            ↓
             SELECT COUNT (DESC MANAGER_ID) 매니저사원수 
             FROM EMPLOYEES;
                         -- 매니저 ID 갖고 있는 직원으로 조회
@@ -212,4 +221,76 @@ PLAYGROUND DB에 넣을 거임!
 
 
 // ----------------------------------------------------------------------------------
+
+
+
+도서 가격을 내림 차순으로 같은 출판사 이름으로 오름차순
+
+              SELECT PRICR, PUBLISHER FROM BOOKS
+              ODER BY PRICE DESC, PUBLISHER;
+
+
+고객이 주문한 도서 총 평균 최고 판매액 조회하시오
+
+              SELECT SUM(SALEPRISE), AVG(SALEPRICE), MAX(SALEPRICE), MIN (SALEPRICE) 
+              FROM BOOKORDERS;
+
+                    고객 별 아냐?
+              SELECT SUM(SALEPRISE) 총, AVG(SALEPRICE) 평균 , MAX(SALEPRICE) 최대, MIN (SALEPRICE) 최소 
+              FROM BOOKORDERS
+              GROUP BY CUSTID;
+
+
+
+출판사별 도서의 총수량 조회  
+
+              SELECT PUBLISHER, COUNT (BOOKID) 수량 FROM BOOKS
+              GROUP BY PUBLISHER;
+
+
+
+
+출판사별 도서의 총 수량이 2권 이상인 출판사를 조회
+
+
+              SELECT PUBLISHER, COUNT (BOOKID) 수량 FROM BOOKS
+              GROUP BY PUBLISHER;
+                              -- HAVING은 조건절 
+              HAVING 수량 >=2
+              ORDER BY 수량;
+              
+
+
+
+가격이 8000원 이상인 도서를 구매한 고객별 주문 도서의 총수량은?
+
+            8000원 이상 구매한 고객들을 추려서 총 수량을 내자
+            
+            SELECT FROM BOOKORDERS 
+            WHERE SALEPRICE >= 8000;
+           
+           ↓
+            SELECT CUSTID, COUNT(BOOKID) 수량
+            FROM BOOKORDERS
+            WHERE SALEPRICE >= 8000
+            GROUP BY CUSTID;
+
+
+가격이 8000원 이상인 도서를 구매한 고객별 주문 도서의 총수량은?
+고객별 두권 이상 주문한 고객을 조회하시오
+           
+            SELECT CUSTID, COUNT(BOOKID) 수량
+            FROM BOOKORDERS
+            WHERE SALEPRICE >= 8000
+            GROUP BY CUSTID
+            HAVING 수량 >= 2;
+            
+
+
+
+
+
+
+
+
 
