@@ -715,9 +715,9 @@ Q _ 각 사원을 관리하는 상사의 이름을 검색한다.
         
         SELECT E1.EMPLOYEE_ID, E2.MANAGER_ID, E2.LAST_NAME 
         FROM EMPLOYEES E1 INNER JOIN EMPLOYEES E2
-                                                  -- USING은 임플로이아이디와 매니저 아이디, 컬럼이 달라서 못씀 ON 쓴다.
-        ON E1.MANAGER_ID = E2.EMPLOYEE_ID;
-        ORDER BY E1.EMPLOYEE_ID;          -- 정렬하는 코드임 ORDER BY
+            -- ↙ USING은 사원 ID와 매니저 ID, 컬럼이 달라서 못씀 ON 쓴다.
+        ON E1.MANAGER_ID = E2.EMPLOYEE_ID
+        ORDER BY E1.EMPLOYEE_ID; --  <-정렬하는 코드임 ORDER BY
         
         
  
