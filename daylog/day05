@@ -582,10 +582,38 @@ books
               SELECT COUNT(DISTINCT NAME) 실제 주문고객수     ---5 명
               FROM CUSTOMERS C INNER JOIN ORDERS O
               USING (CUSTID);
-
               
+              -- 2명이라는 결론인데, 두명을 어떻게 잡아내느냐
+              -- 아우터조인! 
+              카테시안 고  합집합
+              이너조인 유징 교집합
+              아우터 조인 (교집합만 제외) 여집합 
+              
+
+            SELECT * 
+            FROM CUSTOMERS C LEFT OUTTER JOIN ORERDS O              
+            USING (CUSTID);
+
+
+
+            SELECT CUSTID
+            FROM CUSTOMERS C LEFT OUTTER JOIN ORERDS O              
+            USING (CUSTID)
+            WHERE ORDOD IS NULL;
 
 
 
 -- 한번도 안팔린 상품 조회하기
-            
+
+
+            SELECT COUNT(PRODID) 제품 수
+            SELECT COUNT (DISTINCT PRODID)
+            FROM ODERS O INNER JOIN PRODUCTS P           
+            USING (PRODID);
+           
+
+            SELECT NAME
+            FROM ORDERS O RIGHT OUTER JOIN PRODUCTS P
+            USING (PRODID)
+            WHERE ORDID IS NULL;
+
