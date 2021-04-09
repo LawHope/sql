@@ -375,3 +375,8 @@ SELECT * FROM
 
 
 
+
+-- 7-38
+
+            WHERE 절로 쓴 작성과 
+            INNER JOIN과 USING 문을 쓴 작성 
