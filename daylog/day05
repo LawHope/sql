@@ -304,7 +304,7 @@ PLAYGROUND DB에 넣을 거임!
 
 
  조인검색의 조건
- SELECT * FROM 테이블명 별칭 , 테이블명 1 별칭1 , 테이블명2 별칭2,
+ SELECT * FROM  테이블명 별칭 , 테이블명 1 별칭1 , 테이블명2 별칭2 ,
  WHERE 별칭1 . 키 = 별칭2 . 키 ;
 
 
@@ -329,12 +329,33 @@ PLAYGROUND DB에 넣을 거임!
 
  BANANA 고객님의 주문건을 볼까?
 
-           SELECT * FROM ORDERS O, PRODUCTS P 
-           WHERE O . PRODID = P . PRODID;
-           CUSTID = 'BANANA';
+           SELECT P.NAME FROM ORDERS O, PRODUCTS P 
+           WHERE O.PRODID = P.PRODID;  -- 테이블 결합문 
+           AND CUSTID = 'BANANA';  -- 검색 조건절
 
 
+
+
+
+
+ 검색절과와 결합문 분간이 잘 안되잖음
+ WHERE절을 SQL 문법으로 변경해서 써보자
+       SELECT * FROM 
+              테이블명 1 별칭1 INEER JOIN  테이블명2 별칭2
+               USING (공통컬럼명);
  
+ 
+ 
+ 
+ 바나나 고객님의 주문건을 이너 조인으로 정리해보자
+ 
+            SELECT P.NAME 
+            FROM ORDERS O INNER JOIN PRODUCTS P
+            USING )PRODID)
+            WHERE CUSTID = 'BANANA';  
+
+
+
  
 
 
