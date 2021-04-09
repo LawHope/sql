@@ -11,6 +11,13 @@
 
 
 
+4. dbeaver에서 mysql admin 항목 클릭후 edit connection 
+5. local client 항목 클릭후 열기... 선택 
+6. 홈 추가 후 mysqlclient 찾아 등록 후 확인 
+7. 모든 창 닫은 후 연결 재시도함   
+8. sakila-schema.sql, sakila-data.sql 실행해 봄
+
+
 -- HR---------------------------------//
 
 
@@ -641,20 +648,62 @@ SQL문에서는 원래 전체 - 교집합한 =  차집합이 가능함
             
             
             
-Q _ 도서를 구매하지 않은 고객을 포함하여 고객의 이름과 고객이 주문한 도서의 판매가격을 구하시오.
+Q _ 도서를 구매하지 않은 고객을 포함하여 
+고객의 이름과 고객이 주문한 도서의 판매가격을 구하시오.
 
-            
-            
-            
+
+
 
 
 Q _ 도서를 구매하지 않은 고객의 이름을 구하시오.
 
 
+       SELECT NAME, SALEPRICE
+       FROM BOOKMEMEBETRS BM RIGHT INNER JOIN BOOKORDERS BO
+       USING(CUSTID);     -- 도서 구매 고객
+
+       SELECT NAME, SALEPRICE
+       FROM BOOKMEMEBETRS BM LEFT OUTER JOIN BOOKORDERS BO
+       USING(CUSTID);     -- 도서 구매 고객 + 구매 안한 고객
+            
+            
+            
+       SELECT NAME, ORDERID
+       FROM BOOKMEMEBETRS BM LEFT OUTER JOIN BOOKORDERS BO
+       USING(CUSTID);     -- 오더 아이디로 보면 비주문자는 안나옴
+       WHERE ORDERID IS NULL;
+       
 
 
+
+
+-- HR ------------------------------------------------------//
 
 Q _ 사원이 없는 부서를 조회하세요           
+            
+            SELECT EMPLOYEE_ID, DEPARTMENT_ID 
+            FROM EMPLOYEES E
+            ORDER BY DEPARTMENT_ID;
+            
+            SELECT DEPARTMEN_ID FROM DEPARTMENTS;
+            -- 소속 사원은 다 뽑았으니 반대를 뽑아보자
+            
+            
+            SELECT EMPLOYEE_ID, DEPARTMENT_ID 
+            FROM EMPLOYEE E RIGHT OUTER JOIN DEPARTMENTS D
+            USING (DEPARTMENT_ID);
+            
+            -- 부서에 배치된 사원 + 무소속 사원
+            
+            
+            
+            SELECT DEPARTMENT_ID, DEPARTMENT_NAME
+            FROM EMPLOYEE E RIGHT OUTER JOIN DEPARTMENTS D
+            USING (DEPARTMENT_ID)
+            WHERE E.EMPLOYEE_ID IS  NULL;
+            
+            -- 소속 사원이 비는 부서만 남게 된다!
+            
             
             
             
@@ -662,8 +711,13 @@ Q _ 사원이 없는 부서를 조회하세요
 Q _ 각 사원을 관리하는 상사의 이름을 검색한다.
 
         
+        SELECT EMPLOYEE_ID, MANAGER_ID FROM EMPLOYEES E;
         
-        
+        SELECT E1.EMPLOYEE_ID, E2.MANAGER_ID, E2.LAST_NAME 
+        FROM EMPLOYEES E1 INNER JOIN EMPLOYEES E2
+                                                  -- USING은 임플로이아이디와 매니저 아이디, 컬럼이 달라서 못씀 ON 쓴다.
+        ON E1.MANAGER_ID = E2.EMPLOYEE_ID;
+        ORDER BY E1.EMPLOYEE_ID;          -- 정렬하는 코드임 ORDER BY
         
         
  
