@@ -3,13 +3,11 @@
 
 
 
-나중에 배울 것 sql 함수
+나중에 배울 것 sql 서브쿼리
 
 기본적인 SQL입력 방법, 문법을 알아야함
 데이터베이스 연결하는 법도 - 이클립스와 연동안됨;
 데이터에 자료 업뎃하기
-
-
 
 4. dbeaver에서 mysql admin 항목 클릭후 edit connection 
 5. local client 항목 클릭후 열기... 선택 
@@ -713,11 +711,15 @@ Q _ 각 사원을 관리하는 상사의 이름을 검색한다.
         
         SELECT EMPLOYEE_ID, MANAGER_ID FROM EMPLOYEES E;
         
-        SELECT E1.EMPLOYEE_ID, E2.MANAGER_ID, E2.LAST_NAME 
+        
+        
+        SELECT E1.EMPLOYEE_ID 사원번호, E1.MANAGER_ID 상사번호, 
+        E2.FIRST_NAME 상사이름, E2.LAST_NAME 상사 성,  
         FROM EMPLOYEES E1 INNER JOIN EMPLOYEES E2
             -- ↙ USING은 사원 ID와 매니저 ID, 컬럼이 달라서 못씀 ON 쓴다.
         ON E1.MANAGER_ID = E2.EMPLOYEE_ID
-        ORDER BY E1.EMPLOYEE_ID; --  <-정렬하는 코드임 ORDER BY
+        ORDER BY E1.EMPLOYEE_ID;    --  <-정렬하는 코드임 ORDER BY
+            -- 셀프 조인 : 같은 테이블을 조인해서 2번 쓴다는 의미임.
         
         
  
