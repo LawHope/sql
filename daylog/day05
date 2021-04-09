@@ -755,10 +755,40 @@ AS 키워드와 SELECT 문을 작성함
       SELECT CUSTID , NAME, AGE FROM CUSTOMERS
       WHERE GRADE = 'VIP';
       
+      SELECT * FROM 우수고객;
+      
+      
+      -- 7-56
+      -- 제조업체별 상품 수를 뷰로 만들기
+      
+     SELECT MAKER 제조업체, COUNT(PRODID) 제품수
+     FROM PRODUCTS
+     GROUP BY MAKER;
+     
+     
+           
+          CREATE VIEW 업체별제품수
+          AS
+          SELECT MAKER 제조업체, COUNT(PRODID) 제품수
+          FROM PRODUCTS
+          GROUP BY MAKER;
+          
+          SELECT * FROM 업체별제품수;
            
            
-           
-           
-           
-           
+    -- 7-57    25세 미만의 VIP 고객은?
+    
+            SELECT * FROM 우수고객
+            WHERE AGE >= 25;
+            
+            
+            
+-- 사원테이블에서 이름,성,이메일,전화번호,부서번호,직책을 EMP_LITE 라는 뷰에 만드시오.
+   
+   
+   
+   
+   
+-- EMP_LITE 뷰에서 부서가 10 70 90인 사원들의 이름, 전번, 직책을 조회하시오.
+    
            
