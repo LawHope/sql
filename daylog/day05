@@ -308,6 +308,14 @@ PLAYGROUND DB에 넣을 거임!
  WHERE 별칭1 . 키 = 별칭2 . 키 ;
 
 
+내부조인인 이너조인 (테이블들 간의 교집합)
+SELECT * FROM 테이블명 1 별칭1 INEER JOIN  테이블명2 별칭2
+USING (공통컬럼명);
+
+
+조인의 외부 요소들을 조회할땐 아우터조인 (테이블들 간의 차집합)
+
+
 
 
  -- 7-37
@@ -339,10 +347,13 @@ PLAYGROUND DB에 넣을 거임!
 
 
  검색절과와 결합문 분간이 잘 안되잖음
- WHERE절을 SQL 문법으로 변경해서 써보자
-       SELECT * FROM 
-              테이블명 1 별칭1 INEER JOIN  테이블명2 별칭2
-               USING (공통컬럼명);
+ WHERE절을 SQL 문법인 INNER JOIN ( 내부 결합)으로 변경해서 써보자
+ 
+ INNER JOIN은 내부에서 합친다는 의미라서 교집합을 의미함.
+
+ 
+ SELECT * FROM 테이블명 1 별칭1 INEER JOIN  테이블명2 별칭2
+USING (공통컬럼명);
  
  
  
@@ -364,7 +375,6 @@ SELECT * FROM
 
 
 
-
 -- 이너 조인과 온
               
  
@@ -380,3 +390,48 @@ SELECT * FROM
 
             WHERE 절로 쓴 작성과 
             INNER JOIN과 USING 문을 쓴 작성 
+
+
+            SELECT * FROM ORDERS O INNER JOIN CUSTOMERS C
+            ON O.CUSTID = C.CUSTID;
+            
+            SELECT D.PRODID, 0.ORDDATE FROM
+            OERDERS O INNER JOI CUSTOMERS C
+            ON O.CUSTID = C.CUSTID;
+            USING (CUSTID(
+            WHERE C.AGE >= 30; 
+            
+            
+- 7-39 
+
+            SELECT *  FROM CUSTOMERS C INNER JOIN ORDERS O
+            USING (CUSTID);
+
+
+            SELECT *  FROM CUSTOMERS C INNER JOIN ORDERS O
+            USING (CUSTID) 
+            INNER JOIN PRODUCTS P USING (PRODID);
+            
+            
+            
+            
+고명석 고객이 주문한 상품명은?
+            SELECT P.NAME  FROM CUSTOMERS C INNER JOIN ORDERS O
+            USING (CUSTID) 
+            INNER JOIN PRODUCTS P USING (PRODID);
+            WHERE C.CUSTID = '고명석';
+            
+            
+            
+            
+            
+            
+            
+            
+
+-- OUTTER JOIN 
+
+-- 한번도 주문하지 않은 고객을 조회하기
+
+-- 한번도 안팔린 상품 조회하기
+            
