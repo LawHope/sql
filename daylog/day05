@@ -1,4 +1,7 @@
 
+조인검색
+
+
 
 나중에 배울 것 sql 함수
 
@@ -428,6 +431,97 @@ SELECT * FROM
             
             
             
+
+
+
+
+
+-- ---------------------------------------- //
+
+
+books
+
+
+
+15. 고객과 고객의 주문에 관한 데이터를 고객번호 순으로 정렬하여 보이시오
+
+      SELECT * FROM 
+      BOOKMEMBERS BM INNER JOIN BOOKORDERS BO
+      USING (CUSTID)
+      ORDER BY CUSTID;
+
+
+16. 고객의 이름과 고객이 주문한 도서의 판매가격을 검색하시오
+
+    SELECT BM.NAME, BO.SALEPRICE
+    FROM BOOKMEMBERS BM INNER JOIN BOOKORDERS BO
+    USING (CUSTID)
+
+
+17. 고객별로 주문한 모든 도서의 총 판매액을 구하고, 고객별로 정렬하시오.
+
+        조인 후에 그룹바이를 하자
+        
+        
+        SET SQL_MODE = 'ONLY_FULL_GROUP_BY';
+        SELECT  BM.NAME, SUM(SALEPRICE) 총판액
+        FROM BOOKMEMEBERS BM INNER JOIN BOOKORDERS BO
+        USING (CUSTID)
+        GROUP BY BM.NAME; -- 동명이인이 없다는 전제하에..
+                              CUSTID로는 숫자만 떠서 누가 누군지 몰라.
+                              
+                              
+18. 고객의 이름과 고객이 주문한 도서의 이름을 구하시오.
+
+        -카테시안 곱 쓸 때
+        SELECT BM.NAME, B.BOOKNAME FROM 
+        BOOKMEMNERS BM, BOOKORDERS BO, BOOKS B
+        WHERE BM.CUSTID = BO.CUSTID AND BO.BOOKID = B.BOOKID; 
+        -- 이너조인 USING을 안쓰면 복잡해져...
+        
+        
+        이너조인 유징쓸 때
+        SELECT BM.NAME, B.BOOKNAME FROM 
+        BOOKMEMNERS BM INNER JOIN BOOKORDERS BO, BOOKS B
+        USING (CUSTID) = BO.CUSTID
+        USING (BOOKID);
+        
+        SELECT BM.NAME, B.BOOKNAME FROM 
+        BOOKMEMNERS BM INNER JOIN BOOKORDERS BO
+        ON BO.CUSTID = BO.CUSTID INNER JOIN BOOKS B
+        ON BO.BOOKID = B.BOOKID;
+
+
+
+19. 가격이 20,000원인 도서를 주문한 고객의 이름과 도서의 이름을 구하시오.
+
+
+
+
+
+HR 
+33. 모든 사원들의 LAST_NAME, 부서 이름 및 부서 번호을 조회하세요
+
+
+
+34. 부서번호 30의 모든 직업들과 부서명으로 조회하세요. 90 부서 또한 포함한다.
+
+
+
+35. 부서번호 30 이하의 모든 직업들과 부서명으로 조회하세요 
+
+
+
+36. 커미션을 버는 모든 사람들의 LAST_NAME, 부서명, 지역 ID 및 도시 명을 조회하세요
+
+
+
+37. 시애틀에 사는 사람 중 커미션을 버는 모든 사람들의 LAST_NAME, 부서명, 지역 ID 및 도시 명을 조회하세요
+
+
+
+
+
 
 -- OUTTER JOIN 
 
