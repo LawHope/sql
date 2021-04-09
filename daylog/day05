@@ -550,6 +550,22 @@ books
 
 37. 시애틀에 사는 사람 중 커미션을 버는 모든 사람들의 LAST_NAME, 부서명, 지역 ID 및 도시 명을 조회하세요
 
+            SELECT *
+            FROM EMPLOYEES E INNNER JOIN DEPARTMENTS D
+            USING (DEPARTMNET_ID) INNER JOIN LOCATIONS L
+            USING (LOCATION_ID)
+            WHERE CITY = 'SEATTLE';
+            -- 시애틀에 사는 사람들을 조회해봐// 쌤의 의식의 흐름을 따른 작성임
+            
+            ↓
+            
+            SELECT LAST_NAME, DEPARTMENT_NAME, LOCARION_ID, CITY
+            FROM EMPLOYEES E INNNER JOIN DEPARTMENTS D
+            USING (DEPARTMNET_ID) INNER JOIN LOCATIONS L
+            USING (LOCATION_ID)
+            WHERE CITY = 'SEATTLE' AND COMMISSION_PCT IS NOT NULL;
+            
+            
 
 
 
@@ -558,6 +574,10 @@ books
 -- OUTTER JOIN 
 
 -- 한번도 주문하지 않은 고객을 조회하기
+      HINT => 최소한번은 구매한 고객은?이 이 문제의 여집합일 것!
+
+                 
+
 
 -- 한번도 안팔린 상품 조회하기
             
