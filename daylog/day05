@@ -591,13 +591,13 @@ books
               
 
             SELECT * 
-            FROM CUSTOMERS C LEFT OUTTER JOIN ORERDS O              
+            FROM CUSTOMERS C LEFT OUTER JOIN ORERDS O              
             USING (CUSTID);
 
 
 
             SELECT CUSTID
-            FROM CUSTOMERS C LEFT OUTTER JOIN ORERDS O              
+            FROM CUSTOMERS C LEFT OUTER JOIN ORERDS O              
             USING (CUSTID)
             WHERE ORDOD IS NULL;
 
@@ -617,3 +617,23 @@ books
             USING (PRODID)
             WHERE ORDID IS NULL;
 
+// 마리아는 벤다이어그램의 좌우 중 여집합을 따로 따로는 표시는 되지만
+A B 의 교집합을 뺀 여집합 전체는 출력 못함  (다운그레이드돼서)
+합집합인 UNION 집합으로 우회해서 여집합을 나타내보자
+SQL문에서는 원래 가능함
+
+
+            SELECT *
+            FROM CUSTOMERS C RIGHT OUTER JOIN ODERS O
+            USING (PRODID)
+            UNION
+            SELECT *
+            FROM CUSTOMERS C LEFT OUTER JOIN ODERS O
+            USING (PRODID);
+            
+            
+            
+            
+            
+            
+           
