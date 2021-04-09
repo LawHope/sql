@@ -575,8 +575,16 @@ books
 
 -- 한번도 주문하지 않은 고객을 조회하기
       HINT => 최소한번은 구매한 고객은?이 이 문제의 여집합일 것!
+                        =아마 구매 상품이 NOT  NULL인 고객을 잡으면 될 듯?
+              
+              SELECT COUNT (CUSTID) 고객수 FROM CUSTOMERS; -- 7 명
+                        
+              SELECT COUNT(DISTINCT NAME) 실제 주문고객수     ---5 명
+              FROM CUSTOMERS C INNER JOIN ORDERS O
+              USING (CUSTID);
 
-                 
+              
+
 
 
 -- 한번도 안팔린 상품 조회하기
