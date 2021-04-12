@@ -1,0 +1,159 @@
+DROP table books;
+DROP table  bookMembers;
+DROP table bookOrders;
+
+
+CREATE TABLE books (
+  bookid      varchar(30) PRIMARY KEY,
+  bookname    VARCHAR(40),
+  publisher   VARCHAR(40),
+  price       int 
+);
+
+CREATE TABLE  bookMembers (
+  custid      int PRIMARY KEY,  
+  name        VARCHAR(40),
+  address     VARCHAR(50),
+  phone       VARCHAR(20)
+);
+
+
+CREATE TABLE bookOrders (
+  orderid varchar(30) PRIMARY KEY,
+  custid  int REFERENCES bookMembers (custid),
+  bookid  varchar(30) REFERENCES books (bookid),
+  saleprice varchar(30),
+  orderdate date
+);
+
+INSERT INTO books VALUES(1, '축구의 역사', '굿스포츠', 7000);
+INSERT INTO books VALUES(2, '축구아는 여자', '나무수', 13000);
+INSERT INTO books VALUES(3, '축구의 이해', '대한미디어', 22000);
+INSERT INTO books VALUES(4, '골프 바이블', '대한미디어', 35000);
+INSERT INTO books VALUES(5, '피겨 교본', '굿스포츠', 8000);
+INSERT INTO books VALUES(6, '역도 단계별기술', '굿스포츠', 6000);
+INSERT INTO books VALUES(7, '야구의 추억', '이상미디어', 20000);
+INSERT INTO books VALUES(8, '야구를 부탁해', '이상미디어', 13000);
+INSERT INTO books VALUES(9, '올림픽 이야기', '삼성당', 7500);
+INSERT INTO books VALUES(10, 'Olympic Champions', 'Pearson', 13000);
+
+
+INSERT INTO bookMembers VALUES (1, '박지성', '영국 맨체스타', '000-5000-0001');
+INSERT INTO bookMembes VALUES (2, '김연아', '대한민국 서울', '000-6000-0001');  
+INSERT INTO bookMembes VALUES (3, '장미란', '대한민국 강원도', '000-7000-0001');
+INSERT INTO bookMembers VALUES (4, '추신수', '미국 클리블랜드', '000-8000-0001');
+INSERT INTO bookMembers VALUES (5, '박세리', '대한민국 대전',  NULL);
+
+
+INSERT INTO bookOrders VALUES (1, 1, 1, 6000, date('2014-07-01','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (2, 1, 3, 21000, date('2014-07-03','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (3, 2, 5, 8000, date('2014-07-03','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (4, 3, 6, 6000, date('2014-07-04','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (5, 4, 7, 20000, date('2014-07-05','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (6, 1, 2, 12000, date('2014-07-07','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (7, 4, 8, 13000, date( '2014-07-07','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (8, 3, 10, 12000, date('2014-07-08','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (9, 2, 10, 7000, date('2014-07-09','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (10, 3, 8, 13000, date('2014-07-10','yyyy-mm-dd'));
+
+
+
+
+
+
+-- 22. 평균 주문금액 이하의 주문에 대해서 주문번호와 금액을 보이시오.
+​
+		-- 평균주문금액부터
+		SELECT  avg(saleprice)  avgprice from bookOrders;
+		
+		-- 11800원 미만 주문건 
+		SELECT  avg orderid, saleprice  from bookOrders
+		where saleprice < 11800
+		order by saleprice;
+	
+
+
+-- 23. 각 고객의 평균 주문금액보다 큰 금액의 주문 내역에 대해서 주문번호, 고객번호, 금액을 보이시오.
+​			SELECT  avg(saleprice) = avgprice from bookOrders;
+		
+		-- 11800원 초과 주준건 
+		SELECT  avg orderid, saleprice  from bookOrders
+		where saleprice > 11800
+		order by saleprice;
+
+-- 24. 대한민국에 거주하는 고객에게 판매한 도서의 총판매액을 구하시오.
+​
+		-- 한국 거주 고객부터
+		SELECT from bookMembers
+		where address like = '대한민국%';
+
+		-- 한국의 도서 총판매액
+	
+		SELECT sum(saleprice) 총판매액  from bookOrders
+		where custid in (2,3,5);
+
+		-- 두개를 합쳐
+		SELECT sum(saleprice) 총판매액  from bookOrders
+		where custid in (SELECT  custid from bookMembers
+		where address like = '대한민국%');
+		
+	
+	
+-- 25. 3번 고객이 주문한 도서의 최고 금액보다 
+		-- 더 비싼 도서를 구입한 주문의 주문번호와 금액을 보이시오.
+​
+		-- 3 번 고객이 구매한 도서 최고금을 보자
+		SELECT saleprice  from bookOrders
+		where custid = 3;
+
+		-- 고객 주문건을 보니 6000 12000 13000 보다 비싼거면 됨
+		select orderid, saleprice  from bookOrders
+		where saleprice > 6000 and saleprice > 12000
+		and saleprice > 13000;
+	
+		-- 합쳐
+		 select orderid, saleprice  from bookOrders
+		where saleprice > all (SELECT saleprice  from bookOrders
+		where custid = 3);
+		
+		
+-- 26. EXISTS 연산자로 대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
+​
+		
+			-- exists , not exists 는 in  /  not in 연산자로 처리 할 수 있고
+			-- inner join 로 처리도 가능함
+			-- in vs exist : 데이터가 많은 경우는 exists 가 유리함 
+			-- join vs exists : exists 보다는 join이 나을 수도 있음
+			--                  ↖두테이블 간의 데이터가 1:1 일치하는 경우에만
+			-- 부속질의의 결과가 하나라도 있으면 참! 이라는 뜻
+		
+			-- exists : 상위 쿼리부터 계산 후 조건 비교한 다음 출력
+			--   (main -> exists ) 순으로 실행됨
+
+			-- in : 하위쿼리 먼저 계산 후 결과값을 상위커리에 대입하여 연산
+			-- (in -> main query) 순으로 실행됨
+
+		SELECT from bookMembers
+		where address like = '대한민국%';
+	
+		SELECT  * from booOrders
+		where EXISTS (	SELECT custid from bookMembers
+		where address like = '대한민국%' and bo.custid = bm.custid;);
+​
+		-- 합쳐
+
+SELECT sum (saleprice) 총판매액 from bookOrders bo
+where exist(select custid from bookMembers bm
+where address like = '대한민국%' and bo.custid = bm.custid;);
+
+
+
+ -- 주문 안한 고객은?
+
+
+ select name from customers c
+ where not exists (SELECT custid from  orders o
+ where orddate = '2019-03-15');
+ 
+
+
