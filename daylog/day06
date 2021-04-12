@@ -1,56 +1,7 @@
 
 
 
--- 뷰
-
-
-
-	
-create table customers(
-custid	varchar(40) primary key,
-custname	varchar(30),
-age 	int,
-grade	varchar(30),
-job	varchar(30),
-mileage	int
-);
-
--- 테이블들은 생서잉 되어 있었다....
--- 컬럼들을 채워넣어보자. 
-
-INSERT INTO customers VALUES ('apple', '정소화', 20, 'gold', '학생', 1000); 
-INSERT INTO customers VALUES ('banana', '김선우', 25, 'vip', '간호사', 2500); 
-INSERT INTO customers VALUES ('carrot', '고명석', 28, 'gold', '교사', 4500); 
-INSERT INTO customers VALUES ('orange', '김용욱', 22, 'silver', '학생', 0); 
-INSERT INTO customers VALUES ('melon', '성원용', 35, 'gold', '회사원', 5000); 
-INSERT INTO customers VALUES ('peach', '오형준', NULL, 'silver', '의사', 300); 
-INSERT INTO customers VALUES ('pear', '채광주', 31, 'silver', '회사원', 500);
-
-
-INSERT INTO products VALUES ('p01', '그냥만두', 5000, 4500, '대한식품'); 
-INSERT INTO products VALUES ('p02', '매운쫄면', 2500, 5500, '민국푸드'); 
-INSERT INTO products VALUES ('p03', '쿵떡파이', 3600, 2600, '한빛제과'); 
-INSERT INTO products VALUES ('p04', '맛난초콜릿', 1250, 2500, '한빛제과'); 
-INSERT INTO products VALUES ('p05', '얼큰라면', 2200, 1200, '대한식품');
-INSERT INTO products VALUES ('p06', '통통우동', 1000, 1550, '민국푸드'); 
-INSERT INTO products VALUES ('p07', '달콤비스킷', 1650, 1500, '한빛제과'); 
-
-
-
-INSERT INTO orders VALUES ('o01', 'apple', 'p03', 10, '서울시 마포구', '19/01/01'); 
-INSERT INTO orders VALUES ('o02', 'melon', 'p01', 5, '인천시 계양구', '19/01/10'); 
-INSERT INTO orders VALUES ('o03', 'banana', 'p06', 45, '경기도 부천시', '19/01/11');
-INSERT INTO orders VALUES ('o04', 'carrot', 'p02', 8, '부산시 금정구', '19/02/01'); 
-INSERT INTO orders VALUES ('o05', 'melon', 'p06', 36, '경기도 용인시', '19/02/20'); 
-INSERT INTO orders VALUES ('o06', 'banana', 'p01', 19, '충청북도 보은군', '19/03/02'); 
-INSERT INTO orders VALUES ('o07', 'apple', 'p03', 22, '서울시 영등포구', '19/03/15'); 
-INSERT INTO orders VALUES ('o08', 'pear', 'p02', 50, '강원도 춘천시', '19/04/10');
-INSERT INTO orders VALUES ('o09', 'banana', 'p04', 15, '전라남도 목포시', '19/04/11'); 
-INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '19/05/22'); 
-
-
--- 지난 날의 똥치우기 얼추 완료
-
+-- 뷰 실습 
 
          
 -- 사원테이블에서 이름,성,이메일,전화번호,부서번호,직책을 EMP_LITE 라는 뷰에 만드시오.
@@ -119,42 +70,88 @@ INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '1
 		
 		
 
-	
+-- bigdata에 누락된 테이블 생성과 컬럽 삽입 뒷수습하기
 
 
 
 
-         
-   
-                
-                
-                
--- 하위 쿼리
+		create table customers(
+		custid	varchar(40) primary key,
+		custname	varchar(30),
+		age 	int,
+		grade	varchar(30),
+		job	varchar(30),
+		mileage	int
+		);
 
-		    셀렉트 문 안에 셀렉트문을 포함하는 질의
+		create table orders(
+		orderid char(3) primary key,
+		custid varchar(10),
+		prodid char(3),
+		qty int(11),
+		addr varchar(20),
+		orddate date
+		);
 
-		    상위와 부속을 연결하여 상위셀렉문에 결과를 수행함.
+-- 테이블들은 생서잉 되어 있었다....
+-- 컬럼들을 채워넣어보자. 
 
-		    서브 쿼리 = 하위쿼리
+		INSERT INTO customers VALUES ('apple', '정소화', 20, 'gold', '학생', 1000); 
+		INSERT INTO customers VALUES ('banana', '김선우', 25, 'vip', '간호사', 2500); 
+		INSERT INTO customers VALUES ('carrot', '고명석', 28, 'gold', '교사', 4500); 
+		INSERT INTO customers VALUES ('orange', '김용욱', 22, 'silver', '학생', 0); 
+		INSERT INTO customers VALUES ('melon', '성원용', 35, 'gold', '회사원', 5000); 
+		INSERT INTO customers VALUES ('peach', '오형준', NULL, 'silver', '의사', 300); 
+		INSERT INTO customers VALUES ('pear', '채광주', 31, 'silver', '회사원', 500);
+
+
+
+		INSERT INTO products VALUES ('p01', '그냥만두', 5000, 4500, '대한식품'); 
+		INSERT INTO products VALUES ('p02', '매운쫄면', 2500, 5500, '민국푸드'); 
+		INSERT INTO products VALUES ('p03', '쿵떡파이', 3600, 2600, '한빛제과'); 
+		INSERT INTO products VALUES ('p04', '맛난초콜릿', 1250, 2500, '한빛제과'); 
+		INSERT INTO products VALUES ('p05', '얼큰라면', 2200, 1200, '대한식품');
+		INSERT INTO products VALUES ('p06', '통통우동', 1000, 1550, '민국푸드'); 
+		INSERT INTO products VALUES ('p07', '달콤비스킷', 1650, 1500, '한빛제과'); 
+
+
+
+
+		INSERT INTO orders VALUES ('o01', 'apple', 'p03', 10, '서울시 마포구', '19/01/01'); 
+		INSERT INTO orders VALUES ('o02', 'melon', 'p01', 5, '인천시 계양구', '19/01/10'); 
+		INSERT INTO orders VALUES ('o03', 'banana', 'p06', 45, '경기도 부천시', '19/01/11');
+		INSERT INTO orders VALUES ('o04', 'carrot', 'p02', 8, '부산시 금정구', '19/02/01'); 
+		INSERT INTO orders VALUES ('o05', 'melon', 'p06', 36, '경기도 용인시', '19/02/20'); 
+		INSERT INTO orders VALUES ('o06', 'banana', 'p01', 19, '충청북도 보은군', '19/03/02'); 
+		INSERT INTO orders VALUES ('o07', 'apple', 'p03', 22, '서울시 영등포구', '19/03/15'); 
+		INSERT INTO orders VALUES ('o08', 'pear', 'p02', 50, '강원도 춘천시', '19/04/10');
+		INSERT INTO orders VALUES ('o09', 'banana', 'p04', 15, '전라남도 목포시', '19/04/11'); 
+		INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '19/05/22'); 
+
+		-- 지난 날의 똥치우기 얼추 완료
+
+
+
+
+-- 서브 쿼리 = 하위쿼리
 
 -- 7-40  달콤비스킷을 만든 제조업체는 어디?
 		
 			SELECT * from products 
 			where name = '달콤비스킷';
 			--한빛 제과래, 한빛 제과에서 만든 제품들 단가와 이름은?
-
+			
 			 SELECT name, price from products
 			 where maker = '한빛제과';
 			 -- 콩떡파이 맛난초콜릭 달콤비스킷을 만들었대.
-
+			
 			-- 두개의질의문을 합쳐보사
-
-			SELECT * from products  -- 아우터쿼리
+			
+			SELECT * from products 
 			where maker = (select maker form products
 			where name = '달콤비스킷');
 			-- () 안이 이너 쿼리인것이다!
-
-                  
+	
 	
 -- 7- 41	
 			-- 적립급 최고액 고객님의 이름과 금액을 알아보자
@@ -195,9 +192,7 @@ INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '1
 			SELECT name, price FROM products p 
 			where price >= any (SELECT price from products
 			where maker = '대한식품');
-			
-		-- ↕ 비교해보기!
-			
+				-- 	↕ 
 			SELECT name, price FROM products p 
 			where price >= all (SELECT price from products
 			where maker = '대한식품');
@@ -205,6 +200,39 @@ INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '1
 			
 
 
-                  
-            
+
+ -- 7- 45
+		-- 2019년 3월 15일 주문 고객은?
+		SELECT custid from orders
+		where orddate = '2019-03-15';
+	
+		
+		-- 이고객 이름은?
+		SELECT name from customers
+		where custid = 'apple';
+	
+		-- 두가지 문합쳐 
+		SELECT name from customers
+		where custid ( SELECT custid from  orders
+		where orddate = '2019-03-15');
+	
+	
+	-- 7 - 46
+		-- 19년도 3월 15일에 주문안한 고객은?
+
+		-- 주문 고객 먼저 찾기
+		SELECT custid from orders
+		where orddate = '2019-03-15';
+	
+ 		-- 주문하지 않은 고객은
+		SELECT name from orders
+		where custid ! = 'apple';
+
+    	SELECT  name FROM  customers c 
+    	where custid != (select custid from orders
+    	where custid ! = 'apple');
+    	
+    	
+    	
+    	
     
