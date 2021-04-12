@@ -228,9 +228,17 @@
 		SELECT name from orders
 		where custid ! = 'apple';
 
-    	SELECT  name FROM  customers c 
-    	where custid != (select custid from orders
-    	where custid ! = 'apple');
+		-- 합치면
+		SELECT  name FROM  customers c 
+		where custid != (select custid from orders
+		where orddate = '2019-03-15');
+
+    
+    
+    
+    
+    
+    
     	
     	
     	
