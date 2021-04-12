@@ -78,7 +78,26 @@
             
             상위와 부속을 연결하여 상위셀렉문에 결과를 수행함.
             
+            서브 쿼리 = 하위쿼리
 
+-- 7-40  달콤비스킷을 만든 제조업체는 어디?
+		
+		SELECT * from products 
+		where name = '달콤비스킷';
+		--한빛 제과래, 한빛 제과에서 만든 제품들 단가와 이름은?
+		
+		 SELECT name, price from products
+		 where maker = '한빛제과';
+		 -- 콩떡파이 맛난초콜릭 달콤비스킷을 만들었대.
+		
+		-- 두개의질의문을 합쳐보사
+		
+		SELECT * from products  -- 아우터쿼리
+		where maker = (select maker form products
+		where name = '달콤비스킷');
+		-- () 안이 이너 쿼리인것이다!
+                  
+                  
                   
             
     
