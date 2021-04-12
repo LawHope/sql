@@ -4,6 +4,9 @@
 -- 뷰 실습 
 
          
+	 
+-- HR -----------------------------------------------------------------------------------------//
+
 -- 사원테이블에서 이름,성,이메일,전화번호,부서번호,직책을 EMP_LITE 라는 뷰에 만드시오.
 
 
@@ -93,42 +96,52 @@
 		orddate date
 		);
 
+
+
+
+
+
+-- playGound -------------------------------------------------------------------------------------------//
+
+
+
+
 -- 테이블들은 생서잉 되어 있었다....
 -- 컬럼들을 채워넣어보자. 
 
-		INSERT INTO customers VALUES ('apple', '정소화', 20, 'gold', '학생', 1000); 
-		INSERT INTO customers VALUES ('banana', '김선우', 25, 'vip', '간호사', 2500); 
-		INSERT INTO customers VALUES ('carrot', '고명석', 28, 'gold', '교사', 4500); 
-		INSERT INTO customers VALUES ('orange', '김용욱', 22, 'silver', '학생', 0); 
-		INSERT INTO customers VALUES ('melon', '성원용', 35, 'gold', '회사원', 5000); 
-		INSERT INTO customers VALUES ('peach', '오형준', NULL, 'silver', '의사', 300); 
-		INSERT INTO customers VALUES ('pear', '채광주', 31, 'silver', '회사원', 500);
+INSERT INTO customers VALUES ('apple', '정소화', 20, 'gold', '학생', 1000); 
+INSERT INTO customers VALUES ('banana', '김선우', 25, 'vip', '간호사', 2500); 
+INSERT INTO customers VALUES ('carrot', '고명석', 28, 'gold', '교사', 4500); 
+INSERT INTO customers VALUES ('orange', '김용욱', 22, 'silver', '학생', 0); 
+INSERT INTO customers VALUES ('melon', '성원용', 35, 'gold', '회사원', 5000); 
+INSERT INTO customers VALUES ('peach', '오형준', NULL, 'silver', '의사', 300); 
+INSERT INTO customers VALUES ('pear', '채광주', 31, 'silver', '회사원', 500);
 
 
 
-		INSERT INTO products VALUES ('p01', '그냥만두', 5000, 4500, '대한식품'); 
-		INSERT INTO products VALUES ('p02', '매운쫄면', 2500, 5500, '민국푸드'); 
-		INSERT INTO products VALUES ('p03', '쿵떡파이', 3600, 2600, '한빛제과'); 
-		INSERT INTO products VALUES ('p04', '맛난초콜릿', 1250, 2500, '한빛제과'); 
-		INSERT INTO products VALUES ('p05', '얼큰라면', 2200, 1200, '대한식품');
-		INSERT INTO products VALUES ('p06', '통통우동', 1000, 1550, '민국푸드'); 
-		INSERT INTO products VALUES ('p07', '달콤비스킷', 1650, 1500, '한빛제과'); 
+INSERT INTO products VALUES ('p01', '그냥만두', 5000, 4500, '대한식품'); 
+INSERT INTO products VALUES ('p02', '매운쫄면', 2500, 5500, '민국푸드'); 
+INSERT INTO products VALUES ('p03', '쿵떡파이', 3600, 2600, '한빛제과'); 
+INSERT INTO products VALUES ('p04', '맛난초콜릿', 1250, 2500, '한빛제과'); 
+INSERT INTO products VALUES ('p05', '얼큰라면', 2200, 1200, '대한식품');
+INSERT INTO products VALUES ('p06', '통통우동', 1000, 1550, '민국푸드'); 
+INSERT INTO products VALUES ('p07', '달콤비스킷', 1650, 1500, '한빛제과'); 
 
 
 
 
-		INSERT INTO orders VALUES ('o01', 'apple', 'p03', 10, '서울시 마포구', '19/01/01'); 
-		INSERT INTO orders VALUES ('o02', 'melon', 'p01', 5, '인천시 계양구', '19/01/10'); 
-		INSERT INTO orders VALUES ('o03', 'banana', 'p06', 45, '경기도 부천시', '19/01/11');
-		INSERT INTO orders VALUES ('o04', 'carrot', 'p02', 8, '부산시 금정구', '19/02/01'); 
-		INSERT INTO orders VALUES ('o05', 'melon', 'p06', 36, '경기도 용인시', '19/02/20'); 
-		INSERT INTO orders VALUES ('o06', 'banana', 'p01', 19, '충청북도 보은군', '19/03/02'); 
-		INSERT INTO orders VALUES ('o07', 'apple', 'p03', 22, '서울시 영등포구', '19/03/15'); 
-		INSERT INTO orders VALUES ('o08', 'pear', 'p02', 50, '강원도 춘천시', '19/04/10');
-		INSERT INTO orders VALUES ('o09', 'banana', 'p04', 15, '전라남도 목포시', '19/04/11'); 
-		INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '19/05/22'); 
+INSERT INTO orders VALUES ('o01', 'apple', 'p03', 10, '서울시 마포구', '19/01/01'); 
+INSERT INTO orders VALUES ('o02', 'melon', 'p01', 5, '인천시 계양구', '19/01/10'); 
+INSERT INTO orders VALUES ('o03', 'banana', 'p06', 45, '경기도 부천시', '19/01/11');
+INSERT INTO orders VALUES ('o04', 'carrot', 'p02', 8, '부산시 금정구', '19/02/01'); 
+INSERT INTO orders VALUES ('o05', 'melon', 'p06', 36, '경기도 용인시', '19/02/20'); 
+INSERT INTO orders VALUES ('o06', 'banana', 'p01', 19, '충청북도 보은군', '19/03/02'); 
+INSERT INTO orders VALUES ('o07', 'apple', 'p03', 22, '서울시 영등포구', '19/03/15'); 
+INSERT INTO orders VALUES ('o08', 'pear', 'p02', 50, '강원도 춘천시', '19/04/10');
+INSERT INTO orders VALUES ('o09', 'banana', 'p04', 15, '전라남도 목포시', '19/04/11'); 
+INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '19/05/22'); 
 
-		-- 지난 날의 똥치우기 얼추 완료
+-- 지난 날의 똥치우기 얼추 완료
 
 
 
@@ -227,20 +240,172 @@
  		-- 주문하지 않은 고객은
 		SELECT name from orders
 		where custid ! = 'apple';
-
+		
 		-- 합치면
-		SELECT  name FROM  customers c 
-		where custid != (select custid from orders
-		where orddate = '2019-03-15');
+    	SELECT  name FROM  customers c 
+    	where custid != (select custid from orders
+    	where orddate = '2019-03-15');
+    
+    
+    
+    
+    
+    	
+    	
+    	
+    	
+	
+	
+	
+    
+    
+    
+    
+    
+    	
+--    	BOOK----------------------------------------------------------------------
+  
+  
+  CREATE TABLE books (
+  bookid      int PRIMARY KEY,
+  bookname    VARCHAR(40),
+  publisher   VARCHAR(40),
+  price       int 
+);
 
-    
-    
-    
-    
-    
-    
-    	
-    	
-    	
+CREATE TABLE  bookMembers (
+  custid      int PRIMARY KEY,  
+  name        VARCHAR(40),
+  address     VARCHAR(50),
+  phone       VARCHAR(20)
+);
+
+
+CREATE TABLE bookOrders (
+  orderid varchar(30) PRIMARY KEY,
+  custid  varchar(30) REFERENCES customer(custid),
+  bookid  varchar(30) REFERENCES book(bookid),
+  saleprice varchar(30),
+  orderdate date
+);
+
+INSERT INTO books VALUES(1, '축구의 역사', '굿스포츠', 7000);
+INSERT INTO books VALUES(2, '축구아는 여자', '나무수', 13000);
+INSERT INTO books VALUES(3, '축구의 이해', '대한미디어', 22000);
+INSERT INTO books VALUES(4, '골프 바이블', '대한미디어', 35000);
+INSERT INTO books VALUES(5, '피겨 교본', '굿스포츠', 8000);
+INSERT INTO books VALUES(6, '역도 단계별기술', '굿스포츠', 6000);
+INSERT INTO books VALUES(7, '야구의 추억', '이상미디어', 20000);
+INSERT INTO books VALUES(8, '야구를 부탁해', '이상미디어', 13000);
+INSERT INTO books VALUES(9, '올림픽 이야기', '삼성당', 7500);
+INSERT INTO books VALUES(10, 'Olympic Champions', 'Pearson', 13000);
+
+
+INSERT INTO bookMember VALUES (1, '박지성', '영국 맨체스타', '000-5000-0001');
+INSERT INTO bookMember VALUES (2, '김연아', '대한민국 서울', '000-6000-0001');  
+INSERT INTO bookMember VALUES (3, '장미란', '대한민국 강원도', '000-7000-0001');
+INSERT INTO bookMember VALUES (4, '추신수', '미국 클리블랜드', '000-8000-0001');
+INSERT INTO bookMember VALUES (5, '박세리', '대한민국 대전',  NULL);
+
+
+INSERT INTO bookOrders VALUES (1, 1, 1, 6000, date('2014-07-01','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (2, 1, 3, 21000, date('2014-07-03','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (3, 2, 5, 8000, date('2014-07-03','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (4, 3, 6, 6000, date('2014-07-04','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (5, 4, 7, 20000, date('2014-07-05','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (6, 1, 2, 12000, date('2014-07-07','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (7, 4, 8, 13000, date( '2014-07-07','yyyy-mm-dd'));
+INSERT INTO bookOrders VALUES (8, 3, 10, 12000, date('2014-07-08','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (9, 2, 10, 7000, date('2014-07-09','yyyy-mm-dd')); 
+INSERT INTO bookOrders VALUES (10, 3, 8, 13000, date('2014-07-10','yyyy-mm-dd'));
+
+
+
+
+
+
+-- 22. 평균 주문금액 이하의 주문에 대해서 주문번호와 금액을 보이시오.
+
+		-- 평균주문금액부터
+		SELECT  avg(saleprice) avrprice from bookOrders;
+		
+		-- 11800원 미만 주준건 
+		SELECT  avg orderid, saleprice  from bookOrders
+		where saleprice < 11800
+		order by saleprice;
+
+
+-- 23. 각 고객의 평균 주문금액보다 큰 금액의 주문 내역에 대해서 주문번호, 고객번호, 금액을 보이시오.
+		SELECT  avg(saleprice) avrprice from bookOrders;
+		
+		-- 11800원 초과 주문건 
+		SELECT  avg orderid, saleprice  from bookOrders
+		where saleprice > 11800
+		order by saleprice;
+
+-- 24. 대한민국에 거주하는 고객에게 판매한 도서의 총판매액을 구하시오.
+
+		-- 한국 거주 고객부터
+		SELECT from bookMembers
+		where address like = '대한민국%';
+
+		-- 한국의 도서 총판매액
+	
+		SELECT sum(saleprice) 총판매액  from bookOrders
+		where custid in (2,3,5);
+
+		-- 두개를 합쳐
+		SELECT sum(saleprice) 총판매액  from bookOrders
+		where custid in (SELECT  custid from bookMembers
+		where address like = '대한민국%');
+		
+	
+	
+-- 25. 3번 고객이 주문한 도서의 최고 금액보다 
+		-- 더 비싼 도서를 구입한 주문의 주문번호와 금액을 보이시오.
+
+		-- 3 번 고객이 구매한 도서 최고금을 보자
+		SELECT saleprice  from bookOrders
+		where custid = 3;
+
+		-- 고객 주문건을 보니 6000 12000 13000 보다 비싼거면 됨
+		select orderid, saleprice  from bookOrders
+		where saleprice > 6000 and saleprice > 12000
+		and saleprice > 13000;
+	
+		-- 합쳐
+		 select orderid, saleprice  from bookOrders
+		where saleprice > all (SELECT saleprice  from bookOrders
+		where custid = 3);
+		
+		
+-- 26. EXISTS 연산자로 대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
+
+		
+			-- exists , not exists 는 in  /  not in 연산자로 처리 할 수 있고
+			-- inner join 로 처리도 가능함
+			-- in vs exist : 데이터가 많은 경우는 exists 가 유리함 
+			-- join vs exists : exists 보다는 join이 나을 수도 있음
+			--                  ↖두테이블 간의 데이터가 1:1 일치하는 경우에만
+			-- 부속질의의 결과가 하나라도 있으면 참! 이라는 뜻
+		
+		SELECT from bookMembers
+		where address like = '대한민국%';
+	
+		SELECT  * from booOrders
+		where EXISTS (	SELECT custid from bookMembers
+		where address like = '대한민국%' and bo.custid = bm.custid;);
+
+		-- 합쳐
+
+SELECT sum (saleprice) 총판매액 from bookOrders bo
+where exist(select custid from bookMembers bm
+where address like = '대한민국%' and bo.custid = bm.custid;);
+
+
+
+ -- 주문 안한 고객은?
+
+
     	
     
