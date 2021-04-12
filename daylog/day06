@@ -1,1 +1,70 @@
 
+
+-- 뷰
+
+
+         
+            
+-- 사원테이블에서 이름,성,이메일,전화번호,부서번호,직책을 EMP_LITE 라는 뷰에 만드시오.
+
+
+                 select FIRST_NAME, LAST_NAME, EMAIL, PHONEMNUMBER,JOB_ID,DEAPRTMENT_ID,
+                 form EMPLYEES;
+
+                 ↓
+                 create view emp_lite
+                 as 
+                 select 
+                 FIRST_NAME, LAST_NAME, EMAIL, PHONEMNUMBER, JOB_ID, DEAPRTMENT_ID,
+                 form EMPLYEES;
+                 select * from emp_lite; 
+
+                 -- 별칭 만들떄는 원이름을 유지하는 게 좋음. 한글 쓰면 대략 헬이될 것이다..
+
+
+   
+-- EMP_LITE 뷰에서 부서가 10 70 90인 사원들의 이름, 전번, 직책을 조회하시오.
+
+
+                select FIRST_NAME, LAST_NAME,  PHONE,JOBID
+                from emp_lite2
+                where deptno in(10,70,90)
+                order by depni;
+                
+                
+                
+                
+                
+                
+                select from EMPLOYEES e inner join JOBS j
+                using(job_id);
+                
+                
+                select  FIRST_NAME, LAST_NAME, DEPARTMENT_ID, job_id, job_title, 
+                max_salary, min_salary 
+                from EMPLOYEES e inner join JOBS j
+                using(job_id);
+                
+                ↓
+                
+                select  FIRST_NAME, LAST_NAME, DEPARTMENT_ID, job_id, job_title, 
+                max_salary, min_salary,DEPARTMENT_NAME
+                from EMPLOYEES e inner join JOBS j
+                using(job_id) innerjoin DEAPRTMENTs d
+                using (DEPARTMENT_ID);
+                
+                ↓
+                create view empjondept as
+                select  FIRST_NAME, LAST_NAME, DEPARTMENT_ID, job_id, job_title, 
+                max_salary, min_salary maxsal,DEPARTMENT_NAME dname
+                from EMPLOYEES e inner join JOBS j
+                using(job_id) innerjoin DEAPRTMENTS d
+                using (DEPARTMENT_ID)
+                select * form empjobdept;
+                
+                
+                
+                
+                
+                
+    
