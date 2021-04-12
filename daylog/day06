@@ -52,60 +52,7 @@ INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '1
 -- 지난 날의 똥치우기 얼추 완료
 
 
-
-
-
--- 서브 쿼리 = 하위쿼리
-
--- 7-40  달콤비스킷을 만든 제조업체는 어디?
-		
-		SELECT * from products 
-		where name = '달콤비스킷';
-		--한빛 제과래, 한빛 제과에서 만든 제품들 단가와 이름은?
-		
-		 SELECT name, price from products
-		 where maker = '한빛제과';
-		 -- 콩떡파이 맛난초콜릭 달콤비스킷을 만들었대.
-		
-		-- 두개의질의문을 합쳐보사
-		
-		SELECT * from products 
-		where maker = (select maker form products
-		where name = '달콤비스킷');
-		-- () 안이 이너 쿼리인것이다!
-	
-	
--- 7- 41	
-		-- 적립급 최고액 고객님의 이름과 금액을 알아보자
-		
-		SELECT  max(mileage) maxOne from customers;
-		
-		SELECT name, mileage from customers
-		where mileage = 5000;
-		
-		-- 합차기
-		SELECT name, mileage from customers
-		where mileage  = (SELECT  max(mileage) maxOne 
-		from customers);
-
--- 7 -42
-	
-	-- banana 고객이 주문한 제품은?
-	
-	-- banana 고객이 주문한 제품 이름, 제조업체는?
-	
-	
-	
-
-
-
-	
-
-
-
-
          
-            
 -- 사원테이블에서 이름,성,이메일,전화번호,부서번호,직책을 EMP_LITE 라는 뷰에 만드시오.
 
 
@@ -169,36 +116,95 @@ INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '1
                 
                 
                 
-                
+		
+		
+
+	
+
+
+
+
+         
+   
                 
                 
                 
 -- 하위 쿼리
 
-            셀렉트 문 안에 셀렉트문을 포함하는 질의
-            
-            상위와 부속을 연결하여 상위셀렉문에 결과를 수행함.
-            
-            서브 쿼리 = 하위쿼리
+		    셀렉트 문 안에 셀렉트문을 포함하는 질의
+
+		    상위와 부속을 연결하여 상위셀렉문에 결과를 수행함.
+
+		    서브 쿼리 = 하위쿼리
 
 -- 7-40  달콤비스킷을 만든 제조업체는 어디?
 		
-		SELECT * from products 
-		where name = '달콤비스킷';
-		--한빛 제과래, 한빛 제과에서 만든 제품들 단가와 이름은?
-		
-		 SELECT name, price from products
-		 where maker = '한빛제과';
-		 -- 콩떡파이 맛난초콜릭 달콤비스킷을 만들었대.
-		
-		-- 두개의질의문을 합쳐보사
-		
-		SELECT * from products  -- 아우터쿼리
-		where maker = (select maker form products
-		where name = '달콤비스킷');
-		-- () 안이 이너 쿼리인것이다!
+			SELECT * from products 
+			where name = '달콤비스킷';
+			--한빛 제과래, 한빛 제과에서 만든 제품들 단가와 이름은?
+
+			 SELECT name, price from products
+			 where maker = '한빛제과';
+			 -- 콩떡파이 맛난초콜릭 달콤비스킷을 만들었대.
+
+			-- 두개의질의문을 합쳐보사
+
+			SELECT * from products  -- 아우터쿼리
+			where maker = (select maker form products
+			where name = '달콤비스킷');
+			-- () 안이 이너 쿼리인것이다!
+
                   
-                  
+	
+-- 7- 41	
+			-- 적립급 최고액 고객님의 이름과 금액을 알아보자
+			
+			SELECT  max(mileage) maxOne from customers;
+			
+			SELECT name, mileage from customers
+			where mileage = 5000;
+			
+			-- 합차기
+			SELECT name, mileage from customers
+			where mileage  = (SELECT  max(mileage) maxOne 
+			from customers);
+
+-- 7 -42
+	
+			-- banana 고객이 주문한 제품은?
+			SELECT  name, maker from products p
+			where prodid  in ('p06','p01', 'p04l');
+		
+			
+			-- banana이 주문안한 제품은?
+			SELECT  name, maker from products p
+			where prodid   not in ('p06','p01', 'p04l');
+
+-- 7- 43	
+			
+			-- 대한식품이 제조한 제품은?
+			SELECT price from products
+			where maker = '대한식품';
+			
+			
+			-- 대한식품 제품보다 비싼 제품명, 단가는?
+			SELECT name, price FROM products p 
+			where price > 4500 and price > 1200;
+			
+			-- 질문 합치기 대한 식품'들'의 단가, 
+			SELECT name, price FROM products p 
+			where price >= any (SELECT price from products
+			where maker = '대한식품');
+			
+		-- ↕ 비교해보기!
+			
+			SELECT name, price FROM products p 
+			where price >= all (SELECT price from products
+			where maker = '대한식품');
+				-- 대상이 복수이므로 any(각각이 참인가) 나 all (전체가 참인가) 을 붙인다.
+			
+
+
                   
             
     
