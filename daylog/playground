@@ -65,7 +65,7 @@ values('p01','그냥만두', 5000, 4500, '대한식품');
 
 
 
--- ----------------------------------------------------------------------------------------------//
+-- 4/12  ----------------------------------------------------------------------------------------------//
 
 
 
@@ -268,6 +268,83 @@ values('p01','그냥만두', 5000, 4500, '대한식품');
 
 
 
+-- job_title이 'Stock Manager'인 직원의 급여(salary) 20% 인상하세요 
+	
+		SELECT  sal from EMPLOYEES
+		where JOB_ID = 'ST_MAN';
+
+		update EMPLOYEES
+		set slasry = salary * 1.2
+		where job_id = (SELECT job_id from JOBS
+		where JOB_TITLE = 'Stock Manager');
+
+	
+-- job_title이 'Sales Manager'인 직원들의 salary를 
+-- 해당 직무의 최고 급여(max_salary)로 수정합니다 
+-- 단, 입사일이 2005년 이전 입사자에 한해서 적용하세요 
+
+		select JOB_ID from JOBS
+		where JOB_TITLE = 'Sales Manager';  -- SA_MAN
+	
+		select JOB_ID from JOBS
+		select MAX_SALARY = 'Sales Manager';
+	
+		SELECT  salary, HIRE_DATE from EMPLOYEES e
+		where job_id = 'SA_MAN';
+	
+		update EMPLOYEES
+		set SALARY = (SELECT MAX_SALARY from JOBS
+		where JOB_TITLE = 'Sales Manager');
+		where JOB_ID = (SELECT JOB_ID  from JOBS
+		where JOB_TITLE = 'Sales Manager');
+		and hire-date < '2005-01-01';
+	
+	rollback;
+
+
+-- 직책에 'CLERK'가 포함된 직원을 삭제하세요 210번 부서 직원을 삭제하세요 
+	
+	select JOB_ID from EMPLOYEES
+	WHERE JOB_ID LIKE '%CLERK%';
+
+	delete from EMPLOYEES
+	where JOB_ID LIKE '%CLERK%';
+
+	rollback;
+
+-- 210번 부서 직원을 삭제하세요 
+
+		delete from EMPLOYEES
+		WHERE DEPARTMENT_ID = 10;
+	
+-- 30번  부서를 삭세하세요.
+	
+	DELETE  from DEPARTMENTS  -- 사원 데이터에 부서 소속자가 있어서 삭제 불가함
+	WHERE DEPARTMENT_ID = 30;
+
+	DELETE  from EMPLOYEES  -- 사원 데이터지우고나서 부서를 지워야 가능함<- 
+	WHERE DEPARTMENT_ID = 30;
+
+
+	rollback;
+
+
+-- 210번 부서 삭제
+	 
+		DELETE  from DEPARTMENTS -- 외래키가 없어서 삭제가능
+	WHERE DEPARTMENT_ID = 210;
+		
+		
+-- ob_title이 'Stock Clerk'인 직원 정보를 삭제하세요
+	
+		delete from EMPLOYEES
+		where JOB_ID = (SELECT JOB_ID FROM JOBS
+		where JOB_TITLE = 'Stock Clerk');
+	
+		rollback;
+	
+	
+	
 
 	
 	
