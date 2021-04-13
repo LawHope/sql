@@ -1,0 +1,7 @@
+# dbbase
+
+PlayGround - HR, EMPLOEE SAMPLE
+
+BIGDATA - SHOP SAMPLE
+
+BOOK - BOOK STORE SAMPLE
