@@ -82,8 +82,8 @@ SELECT char(97), char(65), char(48);
 		SELECT SUBSTRING('quadratically', -5, 3); -- cal
 		SELECT SUBSTRING('quadratically' from -5 for 3); -- cal
 		
-		SELECT SUBSTRING('quadratically', -5, 3);SELECT SUBSTRING('quadratically', -5, 3);SELECT SUBSTRING('quadratically', -5, 3);SELECT SUBSTRING('quadratically', -5, 3);
 
-	
+		
+
 	
 	
