@@ -118,20 +118,24 @@ SELECT floor(1+rand() *45)
 
 -- 고급문자열 추출 : substring(문자열,시작,길이)
 
+
+
 -- 길이 빼고도 가능	 : substring(문자열,시작)
 
 			SELECT SUBSTRING('quadratically', 5); -- ratically
-			SELECT SUBSTRING('quadratically' from 5); -- ratically		
+			
+			SELECT SUBSTRING('quadratically' from 5); -- ratically	
+			
 			SELECT SUBSTRING('quadratically', 5, 5); -- ratic
+			
 			SELECT SUBSTRING('quadratically' from 5 for 5); -- ratic 앞에서부터 5, 뒤에서부터 5자리
 
 			SELECT SUBSTRING('quadratically', -5); -- cally 끝에서부터 5번째자리부터
+			
 			SELECT SUBSTRING('quadratically', -5, 3); -- cal
+			
 			SELECT SUBSTRING('quadratically' from -5 for 3); -- cal
 		
-
-		
-
 	
 	
 		
@@ -139,9 +143,13 @@ SELECT floor(1+rand() *45)
 -- 대소문자 변환
 	
 			SELECT upper('abc'), lower ('ABC');
+			
 			SELECT UCASE ('abc'), LCASE ('ABC');
 
+
 -- 공백처리 : trim, ltrim, rtrim
+
+
 
 			SELECT trim('   123      ol'), rtrim('abc     '), ltrim(      'xyz');
 			-- 결과 123      ol,abc,xyz
@@ -149,20 +157,26 @@ SELECT floor(1+rand() *45)
 	
 -- 특정 문자 제거 : trim(대상, 문자)앞뒤로 제거, ltrim(대상, 문자)좌측 놈 제거, rtrim(대상, 문자)우측놈 제거
 
+
 			SELECT trim('^' from '^^^^ 123 ^^'); -- 결과 123
+			
 			SELECT trim(BOTH '^' from '^^^^ 123 ^^' ); -- 결과   123 
+			
 			SELECT trim(LEADING '^' from '^^^^ 123 ^^'); -- 결과   123 ^^
+			
 			SELECT trim(TRAILING'^' from '^^^^ 123 ^^'); -- 결과  ^^^^ 123 
 	
-			-- $123.456 문자열에서 $제거하시오.
-			SELECT trim(LEADING '$' from '$1234.4567'); -- 결과  1234.4567
-			SELECT trim(TRAILING '\r\n' from '1234.123\r\n'); -- 결과  1234.123		
+	
+				-- $123.456 문자열에서 $제거하시오.
+				SELECT trim(LEADING '$' from '$1234.4567'); -- 결과  1234.4567
+				SELECT trim(TRAILING '\r\n' from '1234.123\r\n'); -- 결과  1234.123		
 
 
 
 -- 문자 바꾸기 : replace (문자열, 찾을문자, 바꿀문자)
 
 		SELECT replace('hello, World','World', 'Maria	DB'); 	-- 결과 hello, MariaDB
+		
 		SELECT replace('hello, World','World', '');		 -- 결과 hello,
 
 
@@ -174,11 +188,45 @@ SELECT floor(1+rand() *45)
 		SELECT  lpad('1234', 10, 'A'); -- 결과 AAAAAA1234 앞자리에 A로, 총 10자가 채워짐
 		
 		
-		
-		
-		
--- replace로 문자열 교체하기 		'010-123-1234' 에서 - 제거하기
 
-	SELECT REPLACE ('010-123-1234', '-', ''); -- 결과 0101231234
+
+	
+-- 문자열 추출 : substr(대상, 시작, 갯수)
+
+	SELECT substr('asdfghjhjk',2, 2); -- 결과 sd
+	
+	SELECT substr('안녕클레오파트라',5, 3); -- 오파트
+
+		-- 이런 것도 있다! 
+		   substrb (대상, 시작, 갯수) 함수는 바이트 단위로 문자열 자르기에 씀 -- 오라클 전용!
+	
+	
+	
+
+-- 문자열 뒤집기 : reverse
+
+	SELECT REVERSE('12345'); -- 결과 54321
+	
+	
+	
+	
+-- 문자 위치찾기 : instr(문자열, 찾을문자열) / 실패 시 0
+
+		SELECT instr('안녕 클레오파트라 세상에서 제일가는 포테이토칩', '일');
+						-- 결과 17
+						
+		SELECT instr('안녕 클레오파트라 세상에서 제일가는 포테이토칩', '훗');
+						-- 결과 0
+
+
+
+		
+		
+-- replace로 문자열 교체하기 		
+			   '010-123-1234' 에서 - 제거하기
+
+			SELECT REPLACE ('010-123-1234', '-', ''); -- 결과 0101231234
+			
+			
 		
 		
