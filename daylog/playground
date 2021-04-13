@@ -389,8 +389,12 @@ values('p01','그냥만두', 5000, 4500, '대한식품');
 			lpad (mid(FIRST_NAME, -1,1), length(FIRST_NAME),'*') 
 			FROM EMPLOYEES;
 
-		
-		
-		
-		
+	
+-- 사원의 이름과 성 직책 조회 / 이름은 첫자만 제외하고 *로 처리하기
+
+			SELECT FIRST_NAME 
+				rpad (mid(FIRST_NAME, 1,1), length(FIRST_NAME),'*') 
+			FROM EMPLOYEES;
+
+
 		
