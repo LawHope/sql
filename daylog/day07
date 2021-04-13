@@ -4,18 +4,37 @@ join / exists 의 차이
 사고치기 딱 좋은 명령어임 where절을 반드시 써야한다.
 where절을 써야 지정된 투플의 내용만을 수정하고, 빠트리면 전체를 다 뒤집어 써버린다. 망한다고;;
 
+
+          
+          
+-- 저장된 정보에 UPDATE (덮어씌워 저장하기) 해서 수정하기
+
           UPDATE 테이블_이름
           SET 속성_이름1 = 값1, 속성_이름2 = 값2, 
           [WHERE 조건];
-          
-          
-          
-          
 
-	
+-- 디비버 auto Commit 해제 방법 - 오토업뎃 상태로 업데이트 코멘드 쓰면 헬게이트가 열림.
+
+-- 덮어씌우는 update 와 저장 부분을 정해주는  where 문
+
+-- 서버 내용을 복구하는 문 : rollback; 
+
+-- 일부 문자 * 처리하기
+
+-- 불필요한 문자, 공백 제거하기 : trim  
+          
+-- 자릿수 채우기 :  lpad / rpad / midpad  -> 사원번호 000채우기 등에 활용
+
+-- 정수 랜덤 생성 : floor / round random / ceil
+
+-- 아스키 코드 / 문자 
+
+
+
+
 		
 -- 0~ 0 임의의 정수 생성
-	select round(radom()*10);
+	select round(random()*10);
 
 select ceil (rand() * 10);
 
@@ -25,65 +44,132 @@ SELECT floor ( 1 + rand() * ( 2 -1 + 1)) '1~2 사이 난수';
 
 -- 1~45 tkdl wjdtn
 
-	SELECT floor ( 1 + rand() * ( 45 - 1 + 1)) '1~45 사이 난수';
-	SELECT floor(1 + rand() * 45) '1~45 사이 난수';
-	
-	
+		SELECT floor ( 1 + rand() * ( 45 - 1 + 1)) '1~45 사이 난수';
+		SELECT floor(1 + rand() * 45) '1~45 사이 난수';
+
+
 	
 SELECT floor(1+rand() *45) 
 
 ​​ -- ASCII 코드 값 출력 
-SELECT ASCII('a'), ASCII('A'), ASCII('0');
+			SELECT ASCII('a'), ASCII('A'), ASCII('0');  -- 난 이거 오류뜨던데;
 
 -- ASCII 문자 출력 
-SELECT char(97), char(65), char(48);
+			SELECT char(97), char(65), char(48);
+
 
 -- 문자열 길이 : length 
+
 -- 영문자 1 byte  
+
 -- 윈도우문자(완성형,조합형, euc-kr, win949): 2byte
+
 -- 유니코드 : 3byte    	
-    	SELECT  LENGTH ('hello, World!'); -- 결과 13바이트
-    	SELECT LENGTH ('가나다라마'); -- 결과 15바이트
+				SELECT  LENGTH ('hello, World!'); -- 결과 13바이트
+				SELECT LENGTH ('가나다라마'); -- 결과 15바이트
+
+
 -- 글자 수를 알고 싶다 char_length
-    	SELECT char_length ('가나다라마'); -- 5자
-    	SELECT  char_LENGTH ('hello, World!'); -- 13자
+
+				SELECT char_length ('가나다라마'); -- 5자
+				SELECT  char_LENGTH ('hello, World!'); -- 13자
+			
+			
+			
 -- 문자열 연결 : concat(문자열1, 문자열2) //오라클에선 한번에 문자열1,2 두개까지만 됨
-		SELECT CONCAT('hello',' ','world','!!');
+
+				SELECT CONCAT('hello',' ','world','!!');
+
+
 
 	-- bookMembers 테이블의 이름과 주소, 전화번호등을
-	-- concat을 써서 -'홍길동' 고객님의 주소는 '%%%', 전화번호는 '!!!!'입니다 -를 출력하라
-		SELECT CONCAT('홍길동','고객님의',' ','주소는',' ','%%%',', ','전화번호는',' ', '!!!!','입니다.') 
-	    
-		SELECT name, address, phone from bookMembers;
-	
-		SELECT concat(name, address, phone) from bookMembers;
-	
-		SELECT concat(name, '님의 주소는 ', address,'이며', ' 전화번호는 ', phone, ' 입니다.') from bookMembers;
+		 concat을 써서 -'홍길동' 고객님의 주소는 '%%%', 전화번호는 '!!!!'입니다 -를 출력하라
+		 
+
+			SELECT CONCAT('홍길동','고객님의',' ','주소는',' ','%%%',', ','전화번호는',' ', '!!!!','입니다.') 
+
+			SELECT name, address, phone from bookMembers;
+
+			SELECT concat(name, address, phone) from bookMembers;
+
+			SELECT concat(name, '님의 주소는 ', address,'이며', ' 전화번호는 ', phone, ' 입니다.') from bookMembers;
+
+
 
 
 -- 문자열 추출 : left(문자열, 문자길이), right(문자열, 문자길이), mid(문자열,시작위치,문자길이)
 
-		SELECT left ('Hell, World', 5); -- Hello
-		SELECT right ('Hell, World', 5); -- 결과 World
-		SELECT mid('123456-12345678', 8, 1) 성별코드; -- 자바랑은 달리 시작이 1부터임, 결과 : 1
-		SELECT left('가나다라마바사',3); -- 가나다
-		SELECT right ('가나다라마바사', 3); -- 마바사
-		SELECT mid('가나다라마바사', 3, 1); -- 다
-		
+
+			SELECT left ('Hell, World', 5); -- Hello
+			
+			SELECT right ('Hell, World', 5); -- 결과 World
+			
+			SELECT mid('123456-12345678', 8, 1) 성별코드; -- 자바랑은 달리 시작이 1부터임, 결과 : 1
+			
+			SELECT left('가나다라마바사',3); -- 가나다
+			
+			SELECT right ('가나다라마바사', 3); -- 마바사
+			
+			SELECT mid('가나다라마바사', 3, 1); -- 다
+
+
+
 -- 고급문자열 추출 : substring(문자열,시작,길이)
+
 -- 길이 빼고도 가능	 : substring(문자열,시작)
 
-		SELECT SUBSTRING('quadratically', 5); -- ratically
-		SELECT SUBSTRING('quadratically' from 5); -- ratically		
-		SELECT SUBSTRING('quadratically', 5, 5); -- ratic
-		SELECT SUBSTRING('quadratically' from 5 for 5); -- ratic 앞에서부터 5, 뒤에서부터 5자리
-		
-		SELECT SUBSTRING('quadratically', -5); -- cally 끝에서부터 5번째자리부터
-		SELECT SUBSTRING('quadratically', -5, 3); -- cal
-		SELECT SUBSTRING('quadratically' from -5 for 3); -- cal
+			SELECT SUBSTRING('quadratically', 5); -- ratically
+			SELECT SUBSTRING('quadratically' from 5); -- ratically		
+			SELECT SUBSTRING('quadratically', 5, 5); -- ratic
+			SELECT SUBSTRING('quadratically' from 5 for 5); -- ratic 앞에서부터 5, 뒤에서부터 5자리
+
+			SELECT SUBSTRING('quadratically', -5); -- cally 끝에서부터 5번째자리부터
+			SELECT SUBSTRING('quadratically', -5, 3); -- cal
+			SELECT SUBSTRING('quadratically' from -5 for 3); -- cal
 		
 
 		
 
 	
 	
+		
+	
+-- 대소문자 변환
+	
+			SELECT upper('abc'), lower ('ABC');
+			SELECT UCASE ('abc'), LCASE ('ABC');
+
+-- 공백처리 : trim, ltrim, rtrim
+
+			SELECT trim('   123      ol'), rtrim('abc     '), ltrim(      'xyz');
+			-- 결과 123      ol,abc,xyz
+
+	
+-- 특정 문자 제거 : trim(대상, 문자)앞뒤로 제거, ltrim(대상, 문자)좌측 놈 제거, rtrim(대상, 문자)우측놈 제거
+
+			SELECT trim('^' from '^^^^ 123 ^^'); -- 결과 123
+			SELECT trim(BOTH '^' from '^^^^ 123 ^^' ); -- 결과   123 
+			SELECT trim(LEADING '^' from '^^^^ 123 ^^'); -- 결과   123 ^^
+			SELECT trim(TRAILING'^' from '^^^^ 123 ^^'); -- 결과  ^^^^ 123 
+	
+			-- $123.456 문자열에서 $제거하시오.
+			SELECT trim(LEADING '$' from '$1234.4567'); -- 결과  1234.4567
+			SELECT trim(TRAILING '\r\n' from '1234.123\r\n'); -- 결과  1234.123		
+
+
+
+-- 문자 바꾸기 : replace (문자열, 찾을문자, 바꿀문자)
+
+		SELECT replace('hello, World','World', 'Maria	DB'); 	-- 결과 hello, MariaDB
+		SELECT replace('hello, World','World', '');		 -- 결과 hello,
+
+
+
+			
+	
+-- 문자열 채우기 : pad(문자열,총길이,채울문자) / 숫자는 lpad 함수, 문자는 rpad 함수를 사용한다.
+ 
+		SELECT  lpad('1234', 10, 'A'); -- 결과 AAAAAA1234 앞자리에 A로, 총 10자가 채워짐
+		
+		
+		
