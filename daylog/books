@@ -196,3 +196,60 @@ where address like = '대한민국%' and bo.custid = bm.custid;);
 
 
 
+
+
+
+
+-- ----------------	-- book이 빅데이터였다!!!!!!!!!!!
+
+
+--  도서 제목에 야구가 포함된 도서를 농구로 변경한 뒤  변경결과를 확인하세요
+
+		SELECT bookname, replace(bookname, '야구', '농구')
+		from books;
+		
+		-- 이미 등록된걸 수정할 때는.
+		update books 
+		set bookname = replace(bookname, '야구', '농구')
+		-- 10건 다 점검 후에 2건을 고쳐줌
+
+		update books 
+		set bookname = replace(bookname, '야구', '농구')
+		where bookname like '%야규%';
+		-- 2건을 고쳐줌	
+		
+		-- 결과를 확인해보자
+		SELECT  * from books;
+	
+		rollback;
+	
+	
+--  굿스포츠에서 출판한 도서의 제목과 제목의 글자수를 조회하세요
+
+		-- 어느놈이 굿스포츠거인가..
+		SELECT bookname from books
+		WHERE publisher = '굿스포츠';
+
+		-- 이제 글자수를 보자
+		SELECT bookname, 
+		LENGTH(bookname), CHAR_LENGTH(bookName)
+		CHAR_LENGTH(replace(bookName, ' ','')) -- 책제목 공백도 제거하자
+		from books
+		WHERE publisher = '굿스포츠';
+	
+-- 고객 중 같은 성을 가진 고객의 수를 조회하세요
+	
+		SELECT name, left (name,1)
+	-- or >> SELECT name, substr(name,1,1)
+		from bookMembers;
+
+		SELECT name, left (name,1)성, count(custid) 고객수
+		from bookMembers
+		group by 성 
+		-- count & group by는엑셀에서 문자 포함 셀 선택 같은 놈임
+		order by 고객수 desc;
+		-- 오더 바이는 정렬 명령임
+	
+
+
+
