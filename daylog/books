@@ -157,3 +157,40 @@ where address like = '대한민국%' and bo.custid = bm.custid;);
  
 
 
+
+
+--  4/13 ----------------------------------------------------------------------------------------//
+
+
+-- update --------------------------------------------//
+
+-- Book 테이블에 새로운 도서 ‘스포츠 의학’을 삽입하시오. 	
+-- 스포츠 의학은 한솔의학서적에서 출간했으며 가격은 미정이다. 
+		desc books;
+		insent into books (bookid, bookname, publisher)
+		values (11,'스포츠의학','한솔의학서적')
+		select * from books;
+	
+		-- 가격을 35400원으로 수정하면??
+		update books
+		set price = 35400
+		where bookname = '스포츠 의학';
+	
+
+-- Book 테이블에서 도서번호가 11인 도서를 삭제하시오.
+	
+	delete from books
+	where bookid = 11;
+
+	rallback;
+
+	-- bookMembers 테이블의 이름과 주소, 전화번호등을
+	-- concat을 써서 -'홍길동' 고객님의 주소는 '%%%', 전화번호는 '!!!!'입니다 -를 출력하라
+	SELECT CONCAT('홍길동','고객님의',' ','주소는',' ','%%%',', ','전화번호는',' ', '!!!!','입니다.') 
+    
+	SELECT name, address, phone from bookMembers;
+
+	SELECT concat(name, '님의 주소는 ', address,'이며', ' 전화번호는 ', phone, ' 입니다.') from bookMembers;
+
+
+
