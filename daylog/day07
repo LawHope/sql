@@ -11,3 +11,79 @@ where절을 써야 지정된 투플의 내용만을 수정하고, 빠트리면 �
           
           
           
+
+	
+		
+-- 0~ 0 임의의 정수 생성
+	select round(radom()*10);
+
+select ceil (rand() * 10);
+
+
+SELECT floor ( 1 + rand() * ( 2 -1 + 1)) '1~2 사이 난수';
+  
+
+-- 1~45 tkdl wjdtn
+
+	SELECT floor ( 1 + rand() * ( 45 - 1 + 1)) '1~45 사이 난수';
+	SELECT floor(1 + rand() * 45) '1~45 사이 난수';
+	
+	
+	
+SELECT floor(1+rand() *45) 
+
+​​ -- ASCII 코드 값 출력 
+SELECT ASCII('a'), ASCII('A'), ASCII('0');
+
+-- ASCII 문자 출력 
+SELECT char(97), char(65), char(48);
+
+-- 문자열 길이 : length 
+-- 영문자 1 byte  
+-- 윈도우문자(완성형,조합형, euc-kr, win949): 2byte
+-- 유니코드 : 3byte    	
+    	SELECT  LENGTH ('hello, World!'); -- 결과 13바이트
+    	SELECT LENGTH ('가나다라마'); -- 결과 15바이트
+-- 글자 수를 알고 싶다 char_length
+    	SELECT char_length ('가나다라마'); -- 5자
+    	SELECT  char_LENGTH ('hello, World!'); -- 13자
+-- 문자열 연결 : concat(문자열1, 문자열2) //오라클에선 한번에 문자열1,2 두개까지만 됨
+		SELECT CONCAT('hello',' ','world','!!');
+
+	-- bookMembers 테이블의 이름과 주소, 전화번호등을
+	-- concat을 써서 -'홍길동' 고객님의 주소는 '%%%', 전화번호는 '!!!!'입니다 -를 출력하라
+		SELECT CONCAT('홍길동','고객님의',' ','주소는',' ','%%%',', ','전화번호는',' ', '!!!!','입니다.') 
+	    
+		SELECT name, address, phone from bookMembers;
+	
+		SELECT concat(name, address, phone) from bookMembers;
+	
+		SELECT concat(name, '님의 주소는 ', address,'이며', ' 전화번호는 ', phone, ' 입니다.') from bookMembers;
+
+
+-- 문자열 추출 : left(문자열, 문자길이), right(문자열, 문자길이), mid(문자열,시작위치,문자길이)
+
+		SELECT left ('Hell, World', 5); -- Hello
+		SELECT right ('Hell, World', 5); -- 결과 World
+		SELECT mid('123456-12345678', 8, 1) 성별코드; -- 자바랑은 달리 시작이 1부터임, 결과 : 1
+		SELECT left('가나다라마바사',3); -- 가나다
+		SELECT right ('가나다라마바사', 3); -- 마바사
+		SELECT mid('가나다라마바사', 3, 1); -- 다
+		
+-- 고급문자열 추출 : substring(문자열,시작,길이)
+-- 길이 빼고도 가능	 : substring(문자열,시작)
+
+		SELECT SUBSTRING('quadratically', 5); -- ratically
+		SELECT SUBSTRING('quadratically' from 5); -- ratically		
+		SELECT SUBSTRING('quadratically', 5, 5); -- ratic
+		SELECT SUBSTRING('quadratically' from 5 for 5); -- ratic 앞에서부터 5, 뒤에서부터 5자리
+		
+		SELECT SUBSTRING('quadratically', -5); -- cally 끝에서부터 5번째자리부터
+		SELECT SUBSTRING('quadratically', -5, 3); -- cal
+		SELECT SUBSTRING('quadratically' from -5 for 3); -- cal
+		
+		SELECT SUBSTRING('quadratically', -5, 3);SELECT SUBSTRING('quadratically', -5, 3);SELECT SUBSTRING('quadratically', -5, 3);SELECT SUBSTRING('quadratically', -5, 3);
+
+	
+	
+	
