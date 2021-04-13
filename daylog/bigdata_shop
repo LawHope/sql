@@ -1,0 +1,366 @@
+
+-- 지역
+CREATE table regions (
+region_id int  primary key, -- 컬럼단위제약조건
+region_name varchar  (25),
+);
+
+
+-- 국가
+CREATE table countries (
+country_id int,
+country_name varchar(40),
+region_id int,
+
+primary key(country_id) -- 행단위제약조건
+constraint cntrgn_fk
+foreign key regions (region_id)
+references (region_id)
+
+);
+
+CREATE table locations (
+location_id int,
+street_adress varchar(40),
+postal_code varchar(12),
+city varchar(30),
+country_id int
+/*primary key(location_id) --행단위제약조건
+constraint loccnt_fk
+foreign key (country_id)
+references countries    (country_id) */
+);
+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+					 
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+테이블 만들기
+
+			create table customers(
+			custid varchar(10) primary key,
+			name     varchar(10),
+			age     int,
+			grade   varchar(10),
+			job     varchar,
+			mileage int
+			);
+
+
+주문테이블
+prodid, name, stock, price, maker
+제품테이블
+ordid, custid, prodid, qty, addr, orddate
+
+
+
+
+
+			  create table orders (
+
+			  orderid   char(3) primary key,
+			  custid    varchar(10),
+			  prodid   char(3),
+			  qty       int,
+			  addr  varchar(20),
+			  orddate date
+			  );
+
+
+
+ 테이블 날리는 법 :  drop table 삭제할테이블이름;
+
+
+
+
+
+
+
+				CREATE TABLE products(
+				   prodid char(3) primary key,
+				   name varchar(20),
+				   price int,
+				   qty	int,
+				   maker varchar(50)
+				);
+
+
+
+
+				create table customers(
+				custid		varchar(10) primary key,
+				custname	varchar(30),
+				age 		int,
+				grade		varchar(30),
+				job			varchar(30),
+				mileage		int
+				);
+
+
+
+				create table orders(
+				orderid char(3) PRIMARY KEY,
+				custid	varchar(10) REFERENCES products (prodid),
+				prodid char(3) REFERENCES products (prodid),
+				qty int(11) REFERENCES products (qty),
+				addr varchar(20),
+				orddate date
+				);
+
+
+
+
+INSERT INTO customers VALUES ('apple', '정소화', 20, 'gold', '학생', 1000); 
+INSERT INTO customers VALUES ('banana', '김선우', 25, 'vip', '간호사', 2500); 
+INSERT INTO customers VALUES ('carrot', '고명석', 28, 'gold', '교사', 4500); 
+INSERT INTO customers VALUES ('orange', '김용욱', 22, 'silver', '학생', 0); 
+INSERT INTO customers VALUES ('melon', '성원용', 35, 'gold', '회사원', 5000); 
+INSERT INTO customers VALUES ('peach', '오형준', NULL, 'silver', '의사', 300); 
+INSERT INTO customers VALUES ('pear', '채광주', 31, 'silver', '회사원', 500);
+
+-- 데이터 삽입 연습
+			insert into customers
+			values ('apple','정소화',20,'gold', '학생', 1000);
+
+			insert into products
+			values('p01','그냥만두', 5000, 4500, '대한식품');
+
+
+
+
+
+INSERT INTO products VALUES ('p01', '그냥만두', 5000, 4500, '대한식품'); 
+INSERT INTO products VALUES ('p02', '매운쫄면', 2500, 5500, '민국푸드'); 
+INSERT INTO products VALUES ('p03', '쿵떡파이', 3600, 2600, '한빛제과'); 
+INSERT INTO products VALUES ('p04', '맛난초콜릿', 1250, 2500, '한빛제과'); 
+INSERT INTO products VALUES ('p05', '얼큰라면', 2200, 1200, '대한식품');
+INSERT INTO products VALUES ('p06', '통통우동', 1000, 1550, '민국푸드'); 
+INSERT INTO products VALUES ('p07', '달콤비스킷', 1650, 1500, '한빛제과'); 
+
+
+
+
+INSERT INTO orders VALUES ('o01', 'apple', 'p03', 10, '서울시 마포구', '19/01/01'); 
+INSERT INTO orders VALUES ('o02', 'melon', 'p01', 5, '인천시 계양구', '19/01/10'); 
+INSERT INTO orders VALUES ('o03', 'banana', 'p06', 45, '경기도 부천시', '19/01/11');
+INSERT INTO orders VALUES ('o04', 'carrot', 'p02', 8, '부산시 금정구', '19/02/01'); 
+INSERT INTO orders VALUES ('o05', 'melon', 'p06', 36, '경기도 용인시', '19/02/20'); 
+INSERT INTO orders VALUES ('o06', 'banana', 'p01', 19, '충청북도 보은군', '19/03/02'); 
+INSERT INTO orders VALUES ('o07', 'apple', 'p03', 22, '서울시 영등포구', '19/03/15'); 
+INSERT INTO orders VALUES ('o08', 'pear', 'p02', 50, '강원도 춘천시', '19/04/10');
+INSERT INTO orders VALUES ('o09', 'banana', 'p04', 15, '전라남도 목포시', '19/04/11'); 
+INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '19/05/22'); 
+
+
+
+
+
+
+
+		
+		-- 7 - 49
+		
+		update products
+		set name = '통큰파이';
+		-- where 절을 안넣으면 데이터 전체를 덮어쓰기 하는 사태가 벌어짐..
+		
+		select * from products 
+		where prodid = 'p03';
+	
+		update products
+		set name = '통큰파이';
+		where prodid= 'p03';
+
+	
+	
+-- 통큰파이 p03을 재고량 2000, 제품명은 '콩떡파이'로 변경하기
+			-- 수정사항이 이룸/재고량 2가지를 수정해야함
+		UPDATE products 
+		set stock = 2000, name = '콩떡파이'
+		where prodid = 'p03';
+
+ rollback;
+
+-- 7 - 50
+
+			select name, price, price * 1.1 인상된단가
+			from products;
+			
+			update products 
+			set price = price * 1.1;
+			
+			SELECT name, price from products;
+			                 
+			
+
+-- 7 - 51
+
+-- 판매데이터 베이스에서 정소화 고객의 주문 상품 수량을 5개로, 주문 내용 수정 확인하기
+		
+		
+		-- 업데이트 + 서브쿼리
+		update orders 
+		set qty = 5
+		where custid = (SELECT custid from cutomers
+		where name = '정소화');
+
+	
+-- 7- 52
+	
+	SELECT * from orders
+	where orddate = '2019-05-22';
+	delete from orders 
+	where orddate = '2019-05-22';
+	
+	rollback; -- AUTO COMMIT이 꺼져 있을 경우 다시 복구하는 명령어
+	
+	
+	
+-- 7 - 53
+	-- 정소화 고객의 주문내역을 삭제해보자
+	select * form orders 
+	where custid = 'apple';
+
+	delete from orders
+	SELECT custid  = (select custid from customers 
+	where name = '정소화');
+
+
+	rollback;
+	
+-- 7- 54
+		SELECT * from orders;
+		delete from orders;
+		rollback;
+	
+	
+	
+	
+	
+-- 서브 쿼리 = 하위쿼리
+
+-- 7-40  달콤비스킷을 만든 제조업체는 어디?
+		
+			SELECT * from products 
+			where name = '달콤비스킷';
+			--한빛 제과래, 한빛 제과에서 만든 제품들 단가와 이름은?
+			
+			 SELECT name, price from products
+			 where maker = '한빛제과';
+			 -- 콩떡파이 맛난초콜릭 달콤비스킷을 만들었대.
+			
+			-- 두개의질의문을 합쳐보사
+			
+			SELECT * from products 
+			where maker = (select maker from products
+			where name = '달콤비스킷');
+			-- () 안이 이너 쿼리인것이다!
+	
+	
+-- 7- 41	
+			-- 적립급 최고액 고객님의 이름과 금액을 알아보자
+			
+			SELECT  max(mileage) maxOne from customers;
+			
+			SELECT name, mileage from customers
+			where mileage = 5000;
+			
+			-- 합차기
+			SELECT name, mileage from customers
+			where mileage  = (SELECT  max(mileage) maxOne 
+			from customers);
+
+-- 7 -42
+	
+			-- banana 고객이 주문한 제품은?
+			SELECT  name, maker from products p
+			where prodid  in ('p06','p01', 'p04l');
+		
+			
+			-- banana이 주문안한 제품은?
+			SELECT  name, maker from products p
+			where prodid   not in ('p06','p01', 'p04l');
+
+-- 7- 43	
+			
+			-- 대한식품이 제조한 제품은?
+			SELECT price from products
+			where maker = '대한식품';
+			
+			
+			-- 대한식품 제품보다 비싼 제품명, 단가는?
+			SELECT name, price FROM products p 
+			where price > 4500 and price > 1200;
+			
+			-- 질문 합치기 대한 식품'들'의 단가, 
+			SELECT name, price FROM products p 
+			where price >= any (SELECT price from products
+			where maker = '대한식품');
+				-- 	↕ 
+			SELECT name, price FROM products p 
+			where price >= all (SELECT price from products
+			where maker = '대한식품');
+				-- 대상이 복수이므로 any(각각이 참인가) 나 all (전체가 참인가) 을 붙인다.
+			
+
+
+
+ -- 7- 45
+		-- 2019년 3월 15일 주문 고객은?
+		SELECT custid from orders
+		where orddate = '2019-03-15';
+	
+		
+		-- 이고객 이름은?
+		SELECT name from customers
+		where custid = 'apple';
+	
+		-- 두가지 문합쳐 
+		SELECT name from customers
+		where custid ( SELECT custid from  orders
+		where orddate = '2019-03-15');
+	
+	
+	-- 7 - 46
+		-- 19년도 3월 15일에 주문안한 고객은?
+
+		-- 주문 고객 먼저 찾기
+		SELECT custid from orders
+		where orddate = '2019-03-15';
+	
+ 		-- 주문하지 않은 고객은
+		SELECT name from orders
+		where custid ! = 'apple';
+		
+		-- 합치면
+    	SELECT  name FROM  customers c 
+    	where custid != (select custid from orders
+    	where orddate = '2019-03-15');
+    
+    
+     -- 주문 안한 고객은?
+
+		 select name from customers
+		 where not exists (SELECT custid from  orders o
+		    -- not exists는 != 와 동일
+		 where orddate = '2019-03-15'
+		 and o.custid = c.custid);
+		
+		
+
+
+
+
