@@ -109,7 +109,7 @@
 -- dayofweek 와 case로 일출력하기
 
                 SELECT 
-                case when DAYOFWEEK(CURDATE()) = 1 then '일요일'			
+              case when DAYOFWEEK(CURDATE()) = 1 then '일요일'			
                    when DAYOFWEEK(CURDATE()) = 2 then '월요일'
                    when DAYOFWEEK(CURDATE()) = 3 then '화요일'
                    when DAYOFWEEK(CURDATE()) = 4 then '수요일'
@@ -120,8 +120,14 @@
                             --결과 :  수요일
 
 
+
+
+
+
 	
 -- 분석함수 / 윈도우 함수 	●	●	●	●	●	●	●	●	●	●	●	●	●	●	●	●	●	●
+
+
 		-- 행과 행사이의 관계를 정의하는 함수임
 		-- over 절을 포함해서 분석결과를 봄
 								
@@ -172,6 +178,9 @@
 			
 -- 내가 혼자 해보고, 답지를 참조!!
 
+
+
+
 			
 			
 			
@@ -201,6 +210,7 @@
 -- 4. 고객 테이블에서 null이 아닌 주와 도시를 조회하세요. 단, 중복 제외
 
 -- 5. 고객 테이블에서 USA의 주가 몇 개인지 조회하세요
+
 -- 6. 고객 중 현금한도가 높은 순으로 5명을 조회하세요
 -- 7. 직책이 Sales Rep이고 오피스코드가 1인 직원을 조회하세요
 -- 8. 직책이 Sales Rep이 아니고, 오피스코드가 5이상인 직원을 조회하세요
