@@ -269,37 +269,42 @@ where address like = '대한민국%' and bo.custid = bm.custid;);
 -- 마당서점은 주문일로부터 10일 후 매출을 확정한다. -- 각 주문의 확정일자를 구하시오.
 
 
-		SELECT custid 주문자, orderdate 주문일, 
-		orderdate + INTERVAL 10 day 주문확정일
-		FROM bookOrders;
+					SELECT custid 주문자, orderdate 주문일, 
+					orderdate + INTERVAL 10 day 주문확정일
+					FROM bookOrders;
 
 
-	SELECT orderdate  
-	(SELECT ADDDATE(orderdate(), INTERVAL 10 day))
-	FROM bookOrders;
-	
-	
+				SELECT orderdate  
+				(SELECT ADDDATE(orderdate(), INTERVAL 10 day))
+				FROM bookOrders;
 
--- 마당서점이 2014년 7월 7일에 주문받은 도서의 주문번호, -- 주문일, 고객번호, 도서번호를 모두 보이시오. -- 단, 주문일은 '%Y년 %m월 %d일' 형태로 표시한다.
 
-	 		SELECT orderid, 
-	 		DATE_FORMAT((orderdate, '%Y년 %m월 %d일') orderdate,
-	 		custid, bookid
-	 		FROM bookOrders;
+
+-- 마당서점이 2014년 7월 7일에 주문받은 도서의 주문번호,  주문일, 고객번호, 도서번호를 모두 보이시오. 
+						    -- 단, 주문일은 '%Y년 %m월 %d일' 형태로 표시한다.
+
+
+					SELECT orderid, 
+					DATE_FORMAT((orderdate, '%Y년 %m월 %d일') orderdate,
+					custid, bookid
+					FROM bookOrders;
+
+
 
 -- DBMS 서버에 설정된 현재 날짜와 시간, 요일을 확인하시오.
+
 ​​
-		SELECT now();
-		SELECT DATE_FORMAT(now()
-		'%Y년 %m월 %d일 %h시 %I분 %s초 %a') '현재날짜/시간';
-	
-		SELECT substr('월화수목금토', dayofweek(now()), 1);
-		-- 결과 : 목	
-	 	SELECT concat (SUBSTR 
-		('월화수목금토', dayofweek(curdate()), 1), 
-		 '요일') DAYOFWEEK;
-	 	-- 결과 : 목요일
-		
+					SELECT now();
+					SELECT DATE_FORMAT(now()
+					'%Y년 %m월 %d일 %h시 %I분 %s초 %a') '현재날짜/시간';
+
+					SELECT substr('월화수목금토', dayofweek(now()), 1);
+					-- 결과 : 목	
+					SELECT concat (SUBSTR 
+					('월화수목금토', dayofweek(curdate()), 1), 
+					 '요일') DAYOFWEEK;
+					-- 결과 : 목요일
+
 
 	
 -- 기재 사항 중  미입력한 고객 조회 / 미기재로 써주기
