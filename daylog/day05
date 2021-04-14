@@ -21,7 +21,7 @@
 
 -- 공백 제외 조회하기
             SELECT * FROM EMPLOYEES
-            WHERE MANAGER_ID IS NULL;
+            WHERE MANAGER_ID IS NOT NULL;
 
 -- HR---------------------------------//
 
