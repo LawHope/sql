@@ -364,3 +364,28 @@ INSERT INTO orders VALUES ('o10', 'carrot', 'p03', 20, '경기도 안양시', '1
 
 
 
+
+
+	
+-- 4/14 -------------------------------------------------//
+		
+		
+-- 다른 행의 값 참조하기 : lead(컬럼명, 간격) ,  lag(컬럼명, 간격)
+		
+		-- 주문 번호 o05를 기준 이전/ 이후 주문번호를 조회하시오
+			
+		SELECT ordid,
+		lead (ordid, 1) over (order by ordid desc) '뒤',
+		lag (ordid, 1) over(order by ordid desc) '앞'
+		FROM orders;
+						-- 이게 안뜬다; 뷰를 만들거나 () 별칭 where 로 처리해보자	
+	
+	  SELECT * from (SELECT ordid,
+		lead (ordid, 1) over (order by ordid desc) '뒤',
+		lag (ordid, 1) over (order by ordid desc) '앞'
+		FROM orders) o  -- alias  경고는 별칭 붙이라는 뜻이다.
+	  where ordid = 'o05';
+	 
+	 
+	 
+
