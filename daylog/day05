@@ -19,6 +19,10 @@
 8. sakila-schema.sql, sakila-data.sql 실행해 봄
 
 
+-- 공백 제외 조회하기
+            SELECT * FROM EMPLOYEES
+            WHERE MANAGER_ID IS NULL;
+
 -- HR---------------------------------//
 
 
