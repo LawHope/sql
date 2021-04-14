@@ -98,8 +98,8 @@ Q )  등록된 고객의 수를 세시오.
 
 Q ) 제조업체 수를 세시오.
 
-        SELECT COUT(MAKER) 제조업체수 FROM PRODUCTS; -- 중복 포함 카운트
-        SELECT COUT(DISTINCT MAKER) 제조업체수 FROM PRODUCTS; -- 중복 배제 카운트
+        SELECT COUNT(MAKER) 제조업체수 FROM PRODUCTS; -- 중복 포함 카운트
+        SELECT COUNT(DISTINCT MAKER) 제조업체수 FROM PRODUCTS; -- 중복 배제 카운트
      
      
      
