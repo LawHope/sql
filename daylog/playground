@@ -426,4 +426,143 @@ with GRANT OPTION;
 
 
 
+
+
+-- 4 / 14 ------------------------------------------------------------------------//
+
+-- 내장 함수 중에
+--  날짜 / 시간 관련 함수
+
+
+-- 사원테이블서 이름, 직책, 부서번호, 수당을 조회 /  수당 미입력시 0으로 출력하기
+
+			SELECT FIRST_NAME, JOB_ID, DEPARTMENT_ID
+			IFNULL (COMMISSION_PCT, 0.0) COMMISSION_PCT		
+			FROM EMPLOYEES; 
+
+-- 사원테이블 이름, 급여, 급여평가 조회 
+-- 급여평가는 평균급여보다 높으면 'GOOD', 낮으면 'CHEERUP' 으로 출력
+				SELECT  AVG(SALARY) FROM EMPLOYEES;
+				SELECT FIRST_NAME, SALARY,
+					IF(AVG(SALARY) > SALARY, '','') SALARYeval
+			  	FROM EMPLOYEES;
+			  	-- 급여 높은 녀석 조회한 다음에 그 녀석을 기준으로 ↓
+			  
+			  	SELECT  AVG(SALARY) FROM EMPLOYEES;
+				SELECT FIRST_NAME, SALARY,
+				IF(SALARY > 6481,  'GOOD','CHEERUP') SALARYeval
+			  	FROM EMPLOYEES;
+			  	
+			  
+				-- 행과 행사이의 관계를 정의하는 함수임
+		-- over 절을 포함해서 분석결과를 봄
+								
+		-- 집계함수 : AVG, COUNT, SUM, MAX, MIN, 
+		-- STDDEV(표준편차), VAROANCE (분산)
+								
+		-- 비집계 함수 : rank, lead, lag, row_number,
+		-- dense_rank, cume_dist, first_value, last_value
+	
+	
+-- ROW_NUMBER : 순위를 번호로 출력
+			SELECT saleprice from bookOrders
+			order by saleprice  desc; -- 정렬은 했지만 순위는 없음
+			
+			SELECT ROW_NUMBER() OVER (ORDER BY saleprice desc)
+			no, saleprice
+			from bookOrders;
+		
+		
+			
+-- 사원들의 급여가 높은 순으로 순위를 매겨 출력하기
+-- 				ROW_NUMBER() OVER(ORDER BY 컬럼명) 별칭
+-- 				ROW_NUMBER() OVER		
+-- 					(partition
+					
+		SELECT ROW_NUMBER() OVER(ORDER BY SALARY desc) no,
+		SALARY
+		from EMPLOYEES;
+			
+			
+-- 사원들 급여를 부서별로 높은 순으로 출력
+
+		SELECT 
+		ROW_NUMBER () OVER (PARTITION by DEPARTMENT_ID 
+							ORDER BY SALARY DESC) NO,
+		DEPARTMENT_ID, SALARY FROM EMPLOYEES;
+	
+-- 사원들 급여를 직책별로 높은 순으로 출력
+			  				SELECT ROW_NUMBER () 
+							OVER (PARTITION by JOB_ID 
+					 		ORDER BY SALARY DESC) NO,
+							JOB_ID, SALARY FROM EMPLOYEES;
+						
+						
+-- 다른 순위 매기기 함수를 써보자!
+						
+		-- 사원들을 부서별로 번호매기기
+						
+		SELECT 
+		ROW_NUMBER () OVER (PARTITION by DEPARTMENT_ID) NO,
+		DEPARTMENT_ID, FIRST_NAME 
+		FROM EMPLOYEES;		
+	
+		-- rank : 순위 매겨서 출력
+		-- 동료는 같은 순위
+	
+	-- 높은 순으로 순위를 매겨 출력하기
+				ROW_NUMBER() OVER(ORDER BY 컬럼명) 별칭;
+				
+			SELECT ROW_NUMBER () 
+				OVER (PARTITION by DEPARTMENT_ID 
+					 ORDER BY SALARY DESC) NO,
+					DEPARTMENT_ID, SALARY FROM EMPLOYEES;
+
+		-- 급여가 많은 순으로 순위 주기
+		
+				SELECT rank () over (PARTITION BY JOB_ID
+				ORDER BY SALARY desc) no,
+				SALARY, JOB_ID, FIRST_NAME
+				FROM EMPLOYEES;
+				
+-- DENSE_RANK 순위를 매겨 추력
+
+			
+-- 급여 많은 순으로 정렬해서 차액을 출력해보자.
+			
+			SELECT FIRST_NAME, SALARY from EMPLOYEES
+			order by SALARY desc;
+		
+		
+		
+			SELECT FIRST_NAME, SALARY from EMPLOYEES
+			order by SALARY desc;
+		
+			SELECT FIRST_NAME, SALARY,
+			lead(SALARY, 1) over (ORDER BY SALARY DESC) 이전급여,
+			SALARY - lead(SALARY, 1) 
+			 over (ORDER BY SALARY DESC) 급여차액
+			FROM EMPLOYEES  order by SALARY desc;
+		
+		
+				SELECT rank () over (PARTITION BY JOB_ID
+				ORDER BY SALARY desc) no,
+				SALARY, JOB_ID, FIRST_NAME
+				FROM EMPLOYEES;	
+					-- 결과    Valli      |  4800| 4400| 400|
+					--        Jennifer	 |  4400| 4400|   0|
+			
+	-- 모든 행에서 첫번째 값 가져오기 : FIRST_VALUE (컬럼명)	
+	-- 모든 행에서 마지막 값 가져오기 : LAST_VALUE	( 컬럼명)	
+	
+
+			-- 가장 많은 주문금액 대비 차액 출려하기
+			
+			
+			
+			
+			
+			
+			
+			
 		
