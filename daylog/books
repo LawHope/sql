@@ -3,11 +3,12 @@ DROP table  bookMembers;
 DROP table bookOrders;
 
 
+
 CREATE TABLE books (
   bookid      varchar(30) PRIMARY KEY,
   bookname    VARCHAR(40),
   publisher   VARCHAR(40),
-  price       int 
+  saleprice   int 
 );
 
 CREATE TABLE  bookMembers (
@@ -22,7 +23,7 @@ CREATE TABLE bookOrders (
   orderid varchar(30) PRIMARY KEY,
   custid  int REFERENCES bookMembers (custid),
   bookid  varchar(30) REFERENCES books (bookid),
-  saleprice varchar(30),
+  saleprice   int REFERENCES books (saleprice),
   orderdate date
 );
 
