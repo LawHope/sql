@@ -10,3 +10,6 @@ PlayGround - HR, EMPLOEE SAMPLE
 BIGDATA - Online SHOP SAMPLE
 <br><br>
 BOOK - BOOK STORE SAMPLE
+<br><br>
+통으로 들어간 데이터들을 java 합작인 JDBC문으로 정렬시키고<br>
+SQL = MYSQL = MariaDB 언어로 뽑아서 출력하게 명령하는 법임
