@@ -1,4 +1,5 @@
-# dbbase
+# sql
+MySQL / MaridDB 언어쓰기
 
 SQL(서버언어) 로 연산프로그램 짜기 <br>
                                       DBMaria은 오라클의 MYSQL에 대항한 서버용 문법<br>
